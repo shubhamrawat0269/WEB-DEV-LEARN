@@ -1,0 +1,62 @@
+############################ CURRENCY ROUTE  #################################
+
+######
+GET http://localhost:8001/
+
+######
+GET http://localhost:8001/currencies
+Authorization: myNameisKhanAndIamaTerrorist
+
+######
+GET http://localhost:8001/currencies
+Authorization: myNameisRawatAndIamPahadi
+
+######
+GET http://localhost:8001/currencies/inr
+Authorization: myNameisKhanAndIamaTerrorist
+######
+
+GET http://localhost:8001/currencies?min_value=1
+Authorization: myNameisKhanAndIamaTerrorist
+######
+
+############################ USERS ROUTE  #################################
+GET http://localhost:8001/users
+Authorization: myNameisKhanAndIamaTerrorist
+######
+
+GET http://localhost:8001/users/0465ee2d-1897-42ad-bd8b-9406b675067a
+Authorization: myNameisKhanAndIamaTerrorist
+######
+
+GET http://localhost:8001/users/search?gender=male
+Authorization: myNameisKhanAndIamaTerrorist
+######
+
+GET http://localhost:8001/users/search?gender=male&age=52
+Authorization: myNameisKhanAndIamaTerrorist
+######
+
+GET http://localhost:8001/users/search?gender=dragon
+Authorization: myNameisKhanAndIamaTerrorist
+######
+
+GET http://localhost:8001/users/search?age=52
+Authorization: myNameisKhanAndIamaTerrorist
+######
+
+GET http://localhost:8001/users/search?age=101
+Authorization: myNameisKhanAndIamaTerrorist
+######
+
+GET http://localhost:8001/users/search?age=goku
+Authorization: myNameisKhanAndIamaTerrorist
+######
+
+GET http://localhost:8001/users/search?gender=male&age=52
+Authorization: myNameisKhanAndIamaTerrorist
+######
+
+GET http://localhost:8001/users/search?gender=goku&age=2
+Authorization: myNameisKhanAndIamaTerrorist
+######

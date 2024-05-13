@@ -1,0 +1,101 @@
+[
+  {
+    "Question": "What is the chemical of Water?",
+    "AnswerOptions": [
+      { "text": "CO2", "isCorrect": false },
+      { "text": "H2O", "isCorrect": true },
+      { "text": "NaCl", "isCorrect": false },
+      { "text": "NH3", "isCorrect": false }
+    ]
+  },
+  {
+    "Question": "Who is the Prime Minister of India?",
+    "AnswerOptions": [
+      { "text": "Emanual Macron", "isCorrect": false },
+      { "text": "Angelina", "isCorrect": false },
+      { "text": "Osama Bin Laden", "isCorrect": false },
+      { "text": "Narender Singh Modi", "isCorrect": true }
+    ]
+  },
+  {
+    "Question": "Who is the President of India?",
+    "AnswerOptions": [
+      { "text": "Kabuto", "isCorrect": false },
+      { "text": "Nirmala Sitharaman", "isCorrect": false },
+      { "text": "Droupadi Murmu", "isCorrect": true },
+      { "text": "NH3", "isCorrect": false }
+    ]
+  },
+  {
+    "Question": "Who won IPL(Indian Premier League) 2019?",
+    "AnswerOptions": [
+      { "text": "Royal Challengers Bangalore", "isCorrect": false },
+      { "text": "Gujrat Titans", "isCorrect": false },
+      { "text": "Mumbai Indians", "isCorrect": true },
+      { "text": "Chennai Super kings", "isCorrect": false }
+    ]
+  },
+  {
+    "Question": "What is the full form of CSS?",
+    "AnswerOptions": [
+      { "text": "Context Style Sheet", "isCorrect": false },
+      { "text": "Cascading Style Page", "isCorrect": false },
+      { "text": "Cascading Style Sheet", "isCorrect": true },
+      { "text": "Container Style Section", "isCorrect": false }
+    ]
+  },
+  {
+    "Question": "Who is the inventor of NodeJS?",
+    "AnswerOptions": [
+      { "text": "Ryan Dahl", "isCorrect": true },
+      { "text": "Narender Singh Modi", "isCorrect": false },
+      { "text": "Valentina", "isCorrect": false },
+      { "text": "Angelina Jolie", "isCorrect": false }
+    ]
+  },
+  {
+    "Question": "Which Statement is true about NodeJS?",
+    "AnswerOptions": [
+      {
+        "text": "It is JS runtime environment which is invented by Steve Jobs",
+        "isCorrect": false
+      },
+      { "text": "It is a Framework help to write Backend", "isCorrect": false },
+      {
+        "text": "It is JS runtime environment which is invented by Ryan Dahl",
+        "isCorrect": true
+      },
+      {
+        "text": "It is a Library of Javascript helps to write script outside JS engine",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "Question": "What is the full form of HTML?",
+    "AnswerOptions": [
+      { "text": "Hyper Text MarkDown Language", "isCorrect": false },
+      { "text": "Hyper Text Markup Language", "isCorrect": true },
+      { "text": "Hyper Text MarkLeft Language", "isCorrect": false },
+      { "text": "Hyper TextContent Language", "isCorrect": false }
+    ]
+  },
+  {
+    "Question": "Which among the following is the brightest planet?",
+    "AnswerOptions": [
+      { "text": "Venus", "isCorrect": true },
+      { "text": "Mars", "isCorrect": false },
+      { "text": "Neptune", "isCorrect": false },
+      { "text": "Mercury", "isCorrect": false }
+    ]
+  },
+  {
+    "Question": "The First Modern Olympics were played in....",
+    "AnswerOptions": [
+      { "text": "1866", "isCorrect": false },
+      { "text": "1826", "isCorrect": false },
+      { "text": "1896", "isCorrect": true },
+      { "text": "1920", "isCorrect": false }
+    ]
+  }
+]
