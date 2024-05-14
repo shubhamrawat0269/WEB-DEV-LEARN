@@ -18,6 +18,7 @@ import {
   CustomCarousel,
   // UserForm,
   FormWithoutYup,
+  NavbarTailwind,
 } from "./components/index";
 import { GlobalContext } from "./contexts/GlobalContext";
 const Routes = () => {
@@ -35,6 +36,8 @@ const Routes = () => {
   return (
     <div id="primary__section" className="h-screen">
       {/* <Navbar /> */}
+
+      <NavbarTailwind />
       {/* <CustomCarousel /> */}
       {/* <InfiniteScroll /> */}
       {/* <MultiInputSearch /> */}
@@ -50,7 +53,7 @@ const Routes = () => {
       {/* <DraggableNodes /> */}
       {/* <TodoList /> */}
       {/* <ProgressBar /> */}
-      <FormWithoutYup />
+      {/* <FormWithoutYup /> */}
     </div>
   );
 };

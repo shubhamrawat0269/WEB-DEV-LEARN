@@ -16,6 +16,7 @@ import OtpLogin from "./OtpLogin/OtpLogin";
 import MultiInputSearch from "./MultiInputSearch/MultiInputSearch";
 import InfiniteScroll from "./InfiniteScroll/InfiniteScroll";
 import CustomCarousel from "./CustomCarousel/CustomCarousel";
+import NavbarTailwind from "./Navbar/navbar-tailwind";
 
 export {
   Quiz,
@@ -36,4 +37,5 @@ export {
   CustomCarousel,
   // UserForm,
   FormWithoutYup,
+  NavbarTailwind,
 };
