@@ -67,7 +67,8 @@ const MultiInputSearch = () => {
   }, [inputText]);
 
   return (
-    <div className="bg-yellow-500 h-[93.5vh] grid place-content-center">
+    <div className="bg-red-700 h-[100vh] grid place-content-center">
+      {/* input box with piles  */}
       <div className="flex w-[35rem] h-[2.5rem] border-2 text-1xl">
         <div className="flex items-center gap-3 bg-white">
           {selectedData.map((cur) => {
@@ -85,6 +86,7 @@ const MultiInputSearch = () => {
           autoComplete="off"
         />
       </div>
+      {/* dropdown menu  */}
       <div className="bg-orange-900 max-h-[25rem] overflow-auto">
         {inputTextList.map((cur) => {
           return (

@@ -16,6 +16,7 @@ import OtpLogin from "./OtpLogin/OtpLogin";
 import MultiInputSearch from "./MultiInputSearch/MultiInputSearch";
 import InfiniteScroll from "./InfiniteScroll/InfiniteScroll";
 import CustomCarousel from "./CustomCarousel/CustomCarousel";
+import Slider from "./CustomCarousel/Slider";
 import NavbarTailwind from "./Navbar/navbar-tailwind";
 
 export {
@@ -36,6 +37,7 @@ export {
   MultiInputSearch,
   CustomCarousel,
   // UserForm,
+  Slider,
   FormWithoutYup,
   NavbarTailwind,
 };

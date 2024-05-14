@@ -16,9 +16,9 @@ import {
   OtpLogin,
   MultiInputSearch,
   CustomCarousel,
-  // UserForm,
   FormWithoutYup,
   NavbarTailwind,
+  Slider,
 } from "./components/index";
 import { GlobalContext } from "./contexts/GlobalContext";
 const Routes = () => {
@@ -37,8 +37,9 @@ const Routes = () => {
     <div id="primary__section" className="h-screen">
       {/* <Navbar /> */}
 
-      <NavbarTailwind />
+      {/* <NavbarTailwind /> */}
       {/* <CustomCarousel /> */}
+      {/* <Slider /> */}
       {/* <InfiniteScroll /> */}
       {/* <MultiInputSearch /> */}
       {/* <OtpLogin /> */}
