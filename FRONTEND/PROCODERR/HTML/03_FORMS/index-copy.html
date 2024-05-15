@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body style="background-color: orangered;">
+    <main>
+        <!--  -------------------------------------------------------------------------------------------- 
+            NOTE: => By Default Form behave differently, it create a url with endpoint mentioned on action attribute 
+            along with name value as key and user input value as key. If we don't specify action it takes existing url and maniplate it 
+            and then redirect to it. 
+            Below Forms Demonstrate the above statement clearly. Go through each example
+            -------------------------------------------------------------------------------------------- 
+        -->
+        <form action="/FRONTEND/PROCODERR/HTML/03_FORMS">
+            <h2>HTML FORM </h2>
+            <div>
+                <label for="name">Name: </label>
+                <input type="text" name="fullname" />
+            </div>
+        </form>
+        <form action="https://www.youtube.com/results">
+            <h2>CSS FORM </h2>
+            <div>
+                <label for="age">Text: </label>
+                <input type="text" name="search_query" />
+            </div>
+        </form>
+        <form>
+            <h2>JS FORM </h2>
+            <div>
+                <label for="age">Text: </label>
+                <input type="text" name="search_query" />
+            </div>
+        </form>
+        <form action="/FRONTEND/PROCODERR/HTML/03_FORMS/index.html">
+            <h2>USER FORM </h2>
+            <div>
+                <label for="user">User Name: </label>
+                <input type="text" name="search_query" />
+            </div>
+            <button>Submit</button>
+        </form>
+    </main>
+</body>
+
+</html>
