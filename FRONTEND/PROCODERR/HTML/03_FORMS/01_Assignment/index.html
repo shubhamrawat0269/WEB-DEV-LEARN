@@ -1,0 +1,61 @@
+<!-- ASSIGNMENT NO. 1 ===> You need to create a form which redirect to current url query search using FORM html  -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML FORM PROJECT</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        main {
+            height: 100vh;
+        }
+    </style>
+</head>
+
+<body style="font-family: sans-serif;">
+    <main style="background-color: #d7410f; display: grid;place-content: center;">
+        <div
+            style="background-color: #FFF;display: flex;padding: 1.5rem;justify-content: center;align-items: center;width: 80%; max-width: 60rem;margin: 0 auto;">
+            <div style="display: flex;align-items: center;justify-content: center;flex-direction: column;">
+                <h1 style="font-size: 2.5rem;color:gray;">Login</h1>
+                <div style="margin: 1rem 0;display: flex;align-items: center;gap: 1rem;">
+                    <img src="../images/fb.png" style="width: 1.15rem;" alt="fbIcon">
+                    <img src="../images/twitter.png" style="width: 1.15rem;" alt="twitterIcon">
+                </div>
+                <p style="margin: 0.3rem 0;font-size: 0.85rem;color: gray;">or use your account</p>
+
+                <form action="/FRONTEND/PROCODERR/HTML/03_FORMS/01_Assignment/index.html">
+                    <div>
+                        <input type="email"
+                            style="outline: none;border: 1px solid silver; padding: 0.5rem;width: 15rem;font-size: 0.85rem;border-radius: 0.5rem;margin-bottom: 0.5rem;"
+                            name="email" id="email" placeholder="enter email">
+                    </div>
+                    <div>
+                        <input type="password"
+                            style="outline: none;border: 1px solid silver; padding: 0.5rem;width: 15rem;font-size: 0.85rem;border-radius: 0.5rem;margin-bottom: 0.5rem;"
+                            name="password" id="password" placeholder="enter password">
+                    </div>
+                    <p style="text-align: center;">
+                        <a href="#" style="color: rgb(37, 26, 26);font-size: 0.85rem;text-decoration: none;">Forgot your
+                            password?</a>
+                    </p>
+                    <div style="display: flex;justify-content: center;align-items: center;margin: 1rem 0;">
+                        <button
+                            style="border: none; padding: 0.5rem 1.5rem;background-color: #d7410f;color: white;cursor: pointer;">Login</button>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </main>
+</body>
+
+</html>
