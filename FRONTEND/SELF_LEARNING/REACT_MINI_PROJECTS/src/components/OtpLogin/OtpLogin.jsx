@@ -37,7 +37,7 @@ const OtpLogin = () => {
   }, []);
 
   return (
-    <div className="bg-yellow-500 h-[93.5vh] grid place-content-center">
+    <div className="bg-red-500 h-[100vh] grid place-content-center">
       <div className="bg-white w-[40rem] p-5">
         <h1 className="text-center my-3">Two-factor code input</h1>
 

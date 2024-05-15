@@ -13,6 +13,7 @@ import FAQ from "./FAQ/FAQ";
 import MortgageCalculator from "./MortgageCalculator/MortgageCalculator";
 import CountDownTimer from "./CountDownTimer/CountDownTimer";
 import OtpLogin from "./OtpLogin/OtpLogin";
+import TwoFactorCode from "./OtpLogin/TwoFactorCode";
 import MultiInputSearch from "./MultiInputSearch/MultiInputSearch";
 import InfiniteScroll from "./InfiniteScroll/InfiniteScroll";
 import CustomCarousel from "./CustomCarousel/CustomCarousel";
@@ -34,6 +35,7 @@ export {
   MortgageCalculator,
   InfiniteScroll,
   OtpLogin,
+  TwoFactorCode,
   MultiInputSearch,
   CustomCarousel,
   // UserForm,

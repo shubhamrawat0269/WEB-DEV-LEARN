@@ -29,6 +29,12 @@ const InfiniteScroll = () => {
     // logic of scroll infinite here
     // we need scrollHeight/innnerHeight/scrollTop
 
+    // console.log("WINDOW INNERHEIGHT " + window.innerHeight);
+    // console.log("SCROLL TOP " + document.documentElement.scrollTop);
+    // console.log(
+    //   "WINDOW SCROLL HEIGHT " + document.documentElement.scrollHeight
+    // );
+
     try {
       if (
         window.innerHeight + document.documentElement.scrollTop + 1 >=

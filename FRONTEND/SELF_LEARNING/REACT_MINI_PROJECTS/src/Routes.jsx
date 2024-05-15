@@ -19,6 +19,7 @@ import {
   FormWithoutYup,
   NavbarTailwind,
   Slider,
+  TwoFactorCode,
 } from "./components/index";
 import { GlobalContext } from "./contexts/GlobalContext";
 const Routes = () => {
@@ -36,13 +37,17 @@ const Routes = () => {
   return (
     <div id="primary__section" className="h-screen">
       {/* <Navbar /> */}
-
       {/* <NavbarTailwind /> */}
+
       {/* <CustomCarousel /> */}
       {/* <Slider /> */}
+
       {/* <InfiniteScroll /> */}
+
       {/* <MultiInputSearch /> */}
+
       {/* <OtpLogin /> */}
+      <TwoFactorCode />
       {/* <CountDownTimer /> */}
       {/* <MortgageCalculator /> */}
       {/* <FAQ /> */}
