@@ -13,4 +13,29 @@ const createNewBlog = async (req, res) => {
   }
 };
 
-module.exports = { createNewBlog };
+const deleteBlogWithId = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const result = await Blogs.findOneAndDelete({ _id: id });
+
+    return res.json(result);
+  } catch (error) {
+    console.log(error);
+    return res
+      .status(500)
+      .json({ message: "Couldn't delte blog post. Plz try again" });
+  }
+};
+
+const getAllBlogs = async (req, res) => {
+  try {
+    const blogs = await Blogs.find({});
+    // console.log(blogs);
+    return res.json(blogs);
+  } catch (error) {
+    console.log(error);
+    return res.status(400).json({ message: "Failed to get Blog Data" });
+  }
+};
+
+module.exports = { createNewBlog, getAllBlogs, deleteBlogWithId };
