@@ -9,7 +9,10 @@ dotenv.config();
 
 const currencyRoutes = require("./routes/currencies.routes.js");
 const usersRoutes = require("./routes/users.routes.js");
+const blogsRoutes = require("./routes/blogs.routes.js");
 const verifyAuth = require("./middlewares/verifyAuth.js");
+
+app.use(express.json());
 
 mongoose
   .connect(`${DB_URI}`)
@@ -25,5 +28,7 @@ app.use(verifyAuth);
 app.use("/currencies", currencyRoutes);
 
 app.use("/users", usersRoutes);
+
+app.use("/blogs", blogsRoutes);
 
 app.listen(PORT, () => console.log(`Server Started at Port Number ${PORT}`));
