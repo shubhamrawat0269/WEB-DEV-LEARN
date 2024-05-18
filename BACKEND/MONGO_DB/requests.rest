@@ -80,3 +80,12 @@ Content-Type: application/json
 DELETE http://localhost:8001/blogs/66471f0d818e28a1fe599220
 Authorization: myNameisKhanAndIamaTerrorist
 #####
+
+PATCH  http://localhost:8001/blogs/66471fe9551d321dd2ffc2ba
+Authorization: myNameisKhanAndIamaTerrorist
+Content-Type: application/json
+
+{
+    "title": "Some Content inside blog needs to be updated"
+}
+#####
