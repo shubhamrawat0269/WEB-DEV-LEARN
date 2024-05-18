@@ -1,0 +1,26 @@
+#list-section {
+    border-radius: 15px;
+    padding: 1rem;
+    margin-bottom: 0.5rem;
+    background-color: green;
+    color: white;
+}
+
+li {
+    border: 2.5px solid silver;
+    border-radius: 10px;
+    padding: 0.35rem;
+    margin-bottom: 0.25rem;
+}
+
+.list-style {
+    border: 2.5px solid violet;
+    border-radius: 0;
+    padding: 0.5rem;
+}
+
+li {
+    border: 2.5px solid orange;
+    padding: 0.5rem;
+    margin-bottom: 0.15rem;
+}
