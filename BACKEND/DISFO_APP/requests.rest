@@ -1,0 +1,14 @@
+POST  http://localhost:8082/user/register
+Content-Type: application/json
+
+{
+    "fullname": "ROhan Rawat",
+    "username": "rohan.rawat@123",
+    "email": "rohan.rawat@gmail.com"
+}
+#####
+GET  http://localhost:8082/user/all
+Authorization: Abracadabra
+#####
+GET  http://localhost:8082/user/robin.rawat@123
+
