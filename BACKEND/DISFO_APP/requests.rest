@@ -12,3 +12,13 @@ Authorization: Abracadabra
 #####
 GET  http://localhost:8082/user/robin.rawat@123
 
+###############################           Discussion Routes           #################################
+POST  http://localhost:8082/discussion/new
+Content-Type: application/json
+
+{
+    "title": "Death note Blogs",
+    "author": ["Kira"],
+    "content": "It's rank 1 anime in the world"
+}
+##### 

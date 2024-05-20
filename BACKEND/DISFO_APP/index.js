@@ -9,6 +9,7 @@ dotenv.config();
 
 // imported routes & verifyAuth
 const userRoutes = require("./routes/users.routes");
+const discussionRoutes = require("./routes/discussion.routes");
 
 app.use(express.json());
 
@@ -19,6 +20,7 @@ mongoose
 
 // chanelling routes
 app.use("/user", userRoutes);
+app.use("/discussion", discussionRoutes);
 
 app.listen(PORT, () => {
   console.log(`Server start at PORT:${PORT}`);
