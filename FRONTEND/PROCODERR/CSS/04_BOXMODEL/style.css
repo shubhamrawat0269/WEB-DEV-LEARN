@@ -1,0 +1,58 @@
+/* box sizing has default value of content box which can reflect actual width & height if padding & border included  */
+
+* {
+    font-family: sans-serif;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+}
+
+.one {
+    background-color: plum;
+    /* giving width with absolute value  */
+    max-width: 600px;
+    color: purple;
+    width: 100%;
+    padding: 10px;
+    border: 10px solid;
+    margin: 10px 0;
+    border-radius: 12px;
+}
+
+.two {
+    background-color: rgb(38, 203, 203);
+    /* giving width with absolute value  */
+    max-width: 600px;
+    color: blue;
+    width: 100%;
+    padding: 10px;
+    border: 10px solid;
+    margin: 10px 0;
+    /* outline: 20px solid; */
+    border-radius: 15px;
+}
+
+.three {
+    background-color: rgb(88, 230, 230);
+    /* giving width with absolute value  */
+    max-width: 250px;
+    height: 250px;
+
+    width: 100%;
+    padding: 10px;
+    border: 10px solid blue;
+    outline: 5px solid red;
+    margin: 20px;
+    /* outline: 20px solid; */
+    border-radius: 50%;
+
+    overflow: hidden;
+
+}
+
+.three img {
+    margin-top: -10px;
+    width: 100%;
+}
