@@ -1,0 +1,26 @@
+body {
+    margin: 0;
+}
+
+p {
+    background-color: greenyellow;
+    width: 300px;
+    height: 150px;
+    padding: 10px;
+    margin: 5px 10px;
+    border: 5px solid green;
+}
+
+.html {
+    background-color: hotpink;
+    width: 100px;
+    /* it will not work */
+    height: 150px;
+    /* it will not work */
+
+    padding: 15px 50px;
+    margin: 15px;
+
+    display: inline-block;
+    border: 10px solid greenyellow;
+}
