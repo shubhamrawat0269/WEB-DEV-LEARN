@@ -73,11 +73,19 @@ Authorization: myNameisKhanAndIamaTerrorist
 Content-Type: application/json
 
 {
-    "title": "Politics Blog"
+    "title": "Crio Blog",
+    "author": {
+        "fullName": "Vivke oboroi",
+        "email": "vivek@resuminator.in",
+        "twitterHandle": "@_viveknigam_",
+        "image": "https://pbs.twimg.com/profile_images/1438358493799452672/vNWqLAHP_400x400.jpg"
+    },
+    "content": "",
+    "publishedAt": null,
 }
 #####
 
-DELETE http://localhost:8001/blogs/66471f0d818e28a1fe599220
+DELETE http://localhost:8001/blogs/664721b64662803c25bdcdb6
 Authorization: myNameisKhanAndIamaTerrorist
 #####
 
@@ -86,6 +94,6 @@ Authorization: myNameisKhanAndIamaTerrorist
 Content-Type: application/json
 
 {
-    "title": "Some Content inside blog needs to be updated"
+ "title": "Some Content inside blog needs to be updated"
 }
 #####
