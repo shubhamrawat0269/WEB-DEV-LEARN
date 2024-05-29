@@ -1,0 +1,17 @@
+* {
+    margin: 0;
+    font-family: sans-serif;
+    box-sizing: border-box;
+}
+
+.parent {
+    font-size: 100px;
+}
+
+.box {
+    background-color: plum;
+    width: 400px;
+    padding: 10%;
+    margin: 5%;
+    font-size: 20%;
+}
