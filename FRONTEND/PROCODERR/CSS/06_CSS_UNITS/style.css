@@ -15,3 +15,16 @@
     margin: 5%;
     font-size: 20%;
 }
+
+.para {
+    /* 1em = 16px; 5em = 80px; 2em = 32px  */
+    background-color: orangered;
+    font-size: 2em;
+    /* below case : --> 1em  = 32px; 0.5em = 40px */
+    /* Other than font size , margin , padding & width follow above logic  */
+    padding: 0.5em;
+}
+
+h2 {
+    font-size: 2rem;
+}
