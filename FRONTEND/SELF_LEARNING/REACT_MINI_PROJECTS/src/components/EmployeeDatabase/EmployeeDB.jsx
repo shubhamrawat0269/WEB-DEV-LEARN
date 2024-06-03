@@ -1,16 +1,16 @@
 import { EmployeeProvider } from "../../contexts/EmployeeContexts";
-import EmployeeData from "./components/EmployeeData";
 import EmployeeForm from "./components/EmployeeForm";
 import EmployeeHeader from "./components/EmployeeHeader";
+import EmployeeInfo from "./components/EmployeeInfo";
 
 const EmployeeDB = () => {
+
   return (
     <EmployeeProvider>
-      <div className="m-3 p-3">
-        {/* EmployeeHeader  */}
+      <div className="w-full h-full relative">
         <EmployeeHeader />
-        {/* EmployeeData  */}
-        <EmployeeData />
+        <EmployeeInfo />
+
         <EmployeeForm />
       </div>
     </EmployeeProvider>

@@ -1,20 +1,16 @@
-import { useContext } from "react";
-import EmployeeDetails from "./EmployeeDetails";
-import EmployeeNameList from "./EmployeeNameList";
-import { EmployeeContext } from "../../../contexts/EmployeeContexts";
+import React from "react";
 
 const EmployeeData = () => {
-  const { employeeData, currentEmployee, handleCurrentEmployee } =
-    useContext(EmployeeContext);
   return (
-    <div className="flex gap-5 w-full mt-3 employee__data">
-      {/* EmployeeNameList  */}
-      <EmployeeNameList
-        data={employeeData}
-        dispathCurrentEmployee={handleCurrentEmployee}
-      />
-      {/* EmployeeDetails  */}
-      <EmployeeDetails currentEmployee={currentEmployee} />
+    <div className="w-full h-[80vh] grid place-content-center gap-3 text-center">
+      <figure>
+        <img src="images/profile.png" width={250} alt="Profile" />
+      </figure>
+      <div>name</div>
+      <div>address</div>
+      <div>mail</div>
+      <div>mobile</div>
+      <div>DOB</div>
     </div>
   );
 };
