@@ -31,13 +31,14 @@ html {
     background-color: var(--white);
     padding: 1rem;
     border-radius: 1rem;
-    width: 18.5rem;
+    width: 100%;
+    max-width: 18.5rem;
 
-    box-shadow: 0 0 2rem 0rem var(--grey-light);
+    box-shadow: 0 0 2rem 2rem var(--grey-light);
 }
 
 img {
-    max-width: 16.5rem;
+    width: 100%;
     border-radius: 1rem;
 }
 
@@ -46,7 +47,7 @@ h4 {
     font-weight: 800;
     text-align: center;
     width: 85%;
-    margin: 1.5rem auto;
+    margin: 1.25rem auto;
 }
 
 p {
