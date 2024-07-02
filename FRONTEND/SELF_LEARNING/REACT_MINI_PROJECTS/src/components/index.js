@@ -18,6 +18,7 @@ import MultiInputSearch from "./MultiInputSearch/MultiInputSearch";
 import InfiniteScroll from "./InfiniteScroll/InfiniteScroll";
 import CustomCarousel from "./CustomCarousel/CustomCarousel";
 import Slider from "./CustomCarousel/Slider";
+import TinderSwiper from "./TinderSwiper/TinderSwiper";
 import NavbarTailwind from "./Navbar/navbar-tailwind";
 
 export {
@@ -39,6 +40,7 @@ export {
   MultiInputSearch,
   CustomCarousel,
   // UserForm,
+  TinderSwiper,
   Slider,
   FormWithoutYup,
   NavbarTailwind,

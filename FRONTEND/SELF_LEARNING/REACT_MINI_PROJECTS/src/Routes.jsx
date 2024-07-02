@@ -20,6 +20,7 @@ import {
   NavbarTailwind,
   Slider,
   TwoFactorCode,
+  TinderSwiper,
 } from "./components/index";
 // import { GlobalContext } from "./contexts/GlobalContext";
 const Routes = () => {
@@ -36,7 +37,7 @@ const Routes = () => {
 
   return (
     <div id="primary__section" className="h-screen">
-      <EmployeeDB />
+      {/* <EmployeeDB /> */}
       {/* <Navbar /> */}
       {/* <NavbarTailwind /> */}
 
@@ -60,6 +61,7 @@ const Routes = () => {
       {/* <TodoList /> */}
       {/* <ProgressBar /> */}
       {/* <FormWithoutYup /> */}
+      <TinderSwiper />
     </div>
   );
 };
