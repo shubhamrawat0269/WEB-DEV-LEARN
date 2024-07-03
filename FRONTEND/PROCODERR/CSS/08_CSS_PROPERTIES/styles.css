@@ -1,0 +1,28 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    /* background-color: black; */
+    position: relative;
+}
+
+.box {
+    width: 15rem;
+    aspect-ratio: 1/1;
+    background-color: rgb(44, 205, 205, 0.7);
+    /* opacity: 0.5; */
+    transition: all 0.3s linear;
+    /* transform-origin: 0% 0%; */
+    /* transform: scale(4); */
+
+
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
