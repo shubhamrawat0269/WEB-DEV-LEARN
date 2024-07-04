@@ -7,22 +7,27 @@
 body {
     width: 100vw;
     height: 100vh;
-    /* background-color: black; */
+    background-color: black;
     position: relative;
 }
 
 .box {
     width: 15rem;
     aspect-ratio: 1/1;
-    background-color: rgb(44, 205, 205, 0.7);
+    /* diff. b/w opacity & alpha channel */
+    background-color: rgb(44, 205, 205, 0.5);
     /* opacity: 0.5; */
     transition: all 0.3s linear;
-    /* transform-origin: 0% 0%; */
-    /* transform: scale(4); */
+    /* transform-origin: 100% 100%; */
 
-
+    /* Center a Div */
     position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    cursor: pointer;
+}
+
+.box:hover {
+    transform: scale(1.4);
 }
