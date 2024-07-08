@@ -31,11 +31,11 @@ const promiseAllPolyfill = (tasks) => {
   });
 };
 
-promiseAllPolyfill(tasks)
-  .then((data) => {
-    console.log(data);
-  })
-  .catch((er) => console.log(er));
+// promiseAllPolyfill(tasks)
+//   .then((data) => {
+//     console.log(data);
+//   })
+//   .catch((er) => console.log(er));
 
 // -----------------------------------------------------------------------
 
@@ -61,3 +61,19 @@ const newArr = arr.myMap((curr, index, a) => curr * 2);
 // console.log(newArr);
 
 // -----------------------------------------------------------------------
+
+/*
+ * Write the polyfill of flat()
+ */
+
+function flattenArray(arr) {
+  return arr.reduce((acc, cur) => {
+    if (Array.isArray(cur)) {
+      acc = acc.concat(flattenArray(cur));
+    } else acc.push(cur);
+
+    return acc;
+  }, []);
+}
+
+// console.log(flattenArray([[[2, 3, [1, 4]]], 5, 6, [7, [8, 9]]]));
