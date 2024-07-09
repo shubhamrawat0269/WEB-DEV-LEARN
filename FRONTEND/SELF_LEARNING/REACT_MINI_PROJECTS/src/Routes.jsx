@@ -1,7 +1,11 @@
-import React, { useContext, useEffect } from "react";
+import { Form } from "./components";
 
 const Routes = () => {
-  return <div id="primary__section" className="h-screen"></div>;
+  return (
+    <section id="primary__section" className="h-screen w-screen">
+      <Form />
+    </section>
+  );
 };
 
 export default Routes;
