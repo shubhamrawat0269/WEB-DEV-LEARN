@@ -1,9 +1,10 @@
-import { Form } from "./components";
+import { Form, InfiniteScroll } from "./components";
 
 const Routes = () => {
   return (
     <section id="primary__section" className="h-screen w-screen">
-      <Form />
+      {/* <Form /> */}
+      <InfiniteScroll />
     </section>
   );
 };
