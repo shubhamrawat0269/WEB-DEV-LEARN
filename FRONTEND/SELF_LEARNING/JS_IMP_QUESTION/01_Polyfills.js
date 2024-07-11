@@ -66,14 +66,16 @@ const newArr = arr.myMap((curr, index, a) => curr * 2);
  * Write the polyfill of flat()
  */
 
-function flattenArray(arr) {
-  return arr.reduce((acc, cur) => {
-    if (Array.isArray(cur)) {
-      acc = acc.concat(flattenArray(cur));
-    } else acc.push(cur);
+const flattenArray = (arr) => {
+  return arr.reduce((acc, curr) => {
+    if (Array.isArray(curr)) {
+      acc = acc.concat(flattenArray(curr));
+    } else {
+      acc.push(curr);
+    }
 
     return acc;
   }, []);
-}
+};
 
-// console.log(flattenArray([[[2, 3, [1, 4]]], 5, 6, [7, [8, 9]]]));
+console.log(flattenArray([[[2, 3, [1, 4]]], 5, 6, [7, [8, 9]]]));
