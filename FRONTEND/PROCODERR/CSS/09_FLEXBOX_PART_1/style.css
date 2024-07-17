@@ -6,18 +6,23 @@
 
 .parent {
     padding: 10px;
-    border: 4px solid greenyellow;
+    background-color: greenyellow;
+
+    display: flex;
 }
 
-.parent span {
-    border: 4px solid cadetblue;
+.parent>span {
+    background-color: cadetblue;
+    /* width: 1200px; */
 }
 
 .parent p {
-    border: 4px solid darkkhaki;
+    background-color: darkkhaki;
+    flex-shrink: 0;
+    /* width: min-content; */
 }
 
 .parent a {
-    border: 4px solid yellow;
+    background-color: yellow;
 
 }

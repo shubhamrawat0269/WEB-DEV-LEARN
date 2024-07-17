@@ -32,7 +32,7 @@ const CustomModal = () => {
 
       {show && (
         <div
-          className="absolute bg-blue-gray-100 grid place-content-center w-[100vw] h-[100vh]"
+          className="fixed top-0 bottom-0 left-0 right-0 bg-gray-700 bg-opacity-40 flex justify-center items-center z-20"
           onClick={handleClick}
         >
           <Modal dispatchModal={setShow} dispatchOffer={handleAcceptOffer} />
