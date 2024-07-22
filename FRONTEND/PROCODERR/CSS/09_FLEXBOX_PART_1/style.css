@@ -18,7 +18,8 @@
 
 .parent p {
     background-color: darkkhaki;
-    flex-shrink: 0;
+
+    /* width: max-content; */
     /* width: min-content; */
 }
 
