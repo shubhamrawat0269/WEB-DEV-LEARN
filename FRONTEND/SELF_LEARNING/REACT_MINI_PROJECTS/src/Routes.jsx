@@ -1,12 +1,22 @@
-import { Form, InfiniteScroll, JobPortal, CustomModal } from "./components";
+import {
+  Form,
+  InfiniteScroll,
+  JobPortal,
+  CustomModal,
+  ProgressBar,
+} from "./components";
 
 const Routes = () => {
   return (
-    <section id="primary__section" className="min-h-screen w-screen bg-red-100">
+    <section
+      id="primary__section"
+      className="min-h-screen w-screen bg-teal-500"
+    >
       {/* <Form /> */}
       {/* <InfiniteScroll /> */}
       {/* <JobPortal /> */}
-      <CustomModal />
+      {/* <CustomModal /> */}
+      <ProgressBar />
     </section>
   );
 };
