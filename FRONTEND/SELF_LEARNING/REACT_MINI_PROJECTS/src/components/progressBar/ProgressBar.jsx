@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import useLocalStorage from "../../hooks/useLocalStorage";
 
 const Cell = ({ width, pileColor }) => {
   return (
@@ -21,7 +22,9 @@ const Cell = ({ width, pileColor }) => {
 
 const ProgressBar = () => {
   const [width, setWidth] = useState(0);
+  const [count, setCount] = useLocalStorage("counter", 1);
 
+  console.log(count);
   useEffect(() => {
     let timerId = setTimeout(() => {
       if (width >= 100) clearTimeout(timerId);
