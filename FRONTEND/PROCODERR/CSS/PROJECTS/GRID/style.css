@@ -1,0 +1,90 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+    font-family: sans-serif;
+}
+
+h1 {
+    font-size: 4rem;
+    text-align: center;
+    text-shadow: 7px 4px 7px rgba(0, 0, 0, 0.25);
+    margin: 1rem 0;
+    font-weight: 500;
+}
+
+.parent-container {
+    padding: 3rem 0;
+    margin-inline: 2rem;
+
+    display: grid;
+    gap: 2.4rem;
+}
+
+.card {
+    min-height: 20rem;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0.8rem;
+
+    font-size: 3.5rem;
+}
+
+.card-1 {
+    background-color: green;
+}
+
+.card-2 {
+    background-color: greenyellow;
+}
+
+.card-3 {
+    background-color: pink;
+}
+
+.card-4 {
+    background-color: red;
+}
+
+.card-5 {
+    background-color: burlywood;
+}
+
+
+@media (min-width: 600px) {
+
+    .parent-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .card-1 {
+        grid-column-start: span 2;
+    }
+
+    .card-3 {
+        grid-row-start: span 2;
+    }
+
+    .card-5 {
+        grid-column-start: span 2;
+    }
+
+    .card {
+        min-height: 25rem;
+    }
+
+}
+
+
+@media (min-width: 1200px) {
+    .parent-container {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+}
