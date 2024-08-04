@@ -1,0 +1,130 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+    font-family: sans-serif;
+}
+
+.parent-container {
+    min-height: 93vh;
+
+
+    display: grid;
+    gap: 2rem;
+    padding: 1rem 0;
+}
+
+.card {
+    padding: 0.75rem;
+    font-size: 2rem;
+    color: #FFFFFF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.header {
+    padding: 1.35rem;
+    font-size: 1.75rem;
+    background-color: yellowgreen;
+    color: #FFFFFF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile {
+    background-color: peru;
+    height: 16.8rem;
+}
+
+.media {
+    background-color: darkcyan;
+    height: 11.5rem;
+}
+
+.post {
+    background-color: palegreen;
+    height: 70rem;
+}
+
+.recent {
+    display: none;
+    background-color: slateblue;
+}
+
+.news {
+    background-color: greenyellow;
+    height: 54.4rem;
+}
+
+.advertisement {
+    background-color: tomato;
+    height: 25rem;
+}
+
+/* media queries here  */
+
+@media (min-width: 745px) {
+    .parent-container {
+        padding: 2rem;
+        grid-template-columns: 0.35fr 0.65fr;
+        grid-template-rows: 15vh 30vh 55vh 50vh 35vh;
+    }
+
+    .profile {
+        height: auto;
+        grid-row-start: 1;
+        grid-row-end: 3;
+    }
+
+    .recent {
+        display: flex;
+    }
+
+    .post {
+        height: auto;
+        grid-column-start: 2;
+        grid-row-start: 2;
+        grid-row-end: 4;
+    }
+
+    .news {
+        height: auto;
+        grid-column-start: 2;
+    }
+
+    .advertisement {
+        height: auto;
+        grid-column-start: 2;
+    }
+}
+
+@media (min-width: 1100px) {
+    .parent-container {
+        padding: 2rem;
+        max-width: 118rem;
+        margin: 0 auto;
+        grid-template-columns: 15vw auto 20vw;
+        grid-template-rows: 16vh 38vh 55vh;
+    }
+
+    .recent {
+        grid-row-start: 3;
+    }
+
+    .news {
+        grid-column-start: 3;
+        grid-row-start: 1;
+        grid-row-end: 3;
+
+    }
+
+    .advertisement {
+        grid-column: 3;
+    }
+}
