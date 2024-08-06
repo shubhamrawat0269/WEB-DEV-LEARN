@@ -9,17 +9,27 @@
 </head>
 
 <body>
-    <div id="app">{{message}}</div>
+    <div id="app">
+        <span>{{message}}</span>
+        <button @click="clickMe">Click Me</button>
+    </div>
 
     <script>
-        const { ref, createApp } = Vue;
-
-        createApp({
-            setup() {
-                const message = ref('Hello Shubham')
-                return { message }
+        const app = Vue.createApp({
+            data() {
+                return {
+                    message: "Hii Shubham"
+                }
+            },
+            methods: {
+                clickMe() {
+                    console.log("btn Clicked")
+                    this.message = "Bye Shubham"
+                }
             }
-        }).mount('#app')
+        })
+
+        app.mount("#app");
     </script>
 </body>
 
