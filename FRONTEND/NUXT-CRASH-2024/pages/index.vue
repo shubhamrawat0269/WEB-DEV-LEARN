@@ -1,6 +1,7 @@
 <script setup>
 import { ref } from "vue";
 const { handleOnHomeClick } = useUtils();
+
 handleOnHomeClick()
 
 const hover = ref(false);
