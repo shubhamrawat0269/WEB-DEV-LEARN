@@ -1,10 +1,14 @@
 <script setup>
 import { ref } from "vue";
+import { useCounterStore } from "~/store/counter";
 const { handleOnHomeClick } = useUtils();
-
 handleOnHomeClick()
 
 const hover = ref(false);
+
+const store = useCounterStore();
+// console.log(store);
+console.log(store.name);
 
 </script>
 
