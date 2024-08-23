@@ -1,14 +1,14 @@
 <script setup>
 import { ref } from "vue";
-import { useCounterStore } from "~/store/counter";
+// import { useCounterStore } from "~/store/counter";
 const { handleOnHomeClick } = useUtils();
 handleOnHomeClick()
 
 const hover = ref(false);
 
-const store = useCounterStore();
+// const store = useCounterStore();
 // console.log(store);
-console.log(store.name);
+// console.log(store.name);
 
 </script>
 
@@ -27,5 +27,7 @@ console.log(store.name);
             aspernatur esse. Labore magni libero neque reprehenderit quae impedit iste mollitia eius dolor? </div>
     </div> -->
 
-    <TsDrawerMegaMenu />
+    <TsImageWithFallBack src="images/logo-1.png" fallbackText="Chess" />
+    <TsImageWithFallBack fallbackText="Chess" />
+    <!-- <TsDrawerMegaMenu /> -->
 </template>
