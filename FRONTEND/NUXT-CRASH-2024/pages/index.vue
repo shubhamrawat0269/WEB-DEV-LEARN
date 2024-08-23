@@ -30,4 +30,6 @@ const hover = ref(false);
     <TsImageWithFallBack src="images/logo-1.png" fallbackText="Chess" />
     <TsImageWithFallBack fallbackText="Chess" />
     <!-- <TsDrawerMegaMenu /> -->
+
+    <TsBannerImageWithLables imageUrl="images/logo-1.png" title="Lorem ipsum" text="Lorem" buttonText="Submit"/>
 </template>
