@@ -27,9 +27,19 @@ const hover = ref(false);
             aspernatur esse. Labore magni libero neque reprehenderit quae impedit iste mollitia eius dolor? </div>
     </div> -->
 
-    <TsImageWithFallBack src="images/logo-1.png" fallbackText="Chess" />
-    <TsImageWithFallBack fallbackText="Chess" />
+    <!-- <TsImageWithFallBack src="images/logo-1.png" fallbackText="Chess" /> -->
+    <!-- <TsImageWithFallBack fallbackText="Chess" /> -->
     <!-- <TsDrawerMegaMenu /> -->
 
-    <TsBannerImageWithLables imageUrl="images/logo-1.png" title="Lorem ipsum" text="Lorem" buttonText="Submit"/>
+    <div class="flex gap-2">
+        <TsImageWithlabel imageSrc="images/1.png" imageAlt="MyLogo" cardWidth="105px" cardHeight="123px"
+            text="Accessories" />
+        <TsImageWithlabel imageSrc="images/onepiece.jpg" imageAlt="MyLogo" cardWidth="105px" cardHeight="123px"
+            text="Accessories" />
+        <TsImageWithlabel imageSrc="images/1.png" imageAlt="MyLogo" cardWidth="105px" cardHeight="123px"
+            text="Accessories" />
+        <TsImageWithlabel imageSrc="images/1.png" imageAlt="MyLogo" cardWidth="105px" cardHeight="123px"
+            text="Accessories" />
+    </div>
+
 </template>
