@@ -33,16 +33,14 @@ const toolImages = ["images/tool-4.png"];
     <!-- <TsImageWithFallBack fallbackText="Chess" /> -->
     <!-- <TsDrawerMegaMenu /> -->
 
-    <!-- <div class="flex gap-2">
+    <div class="flex gap-2">
         <TsImageWithlabel imageSrc="images/tool-1.jpg" imageWidth="95px" imageHeight="100px" imageAlt="MyLogo"
             cardWidth="115px" cardHeight="108px" text="Accessories" />
 
         <TsImageWithlabel imageSrc="images/tool-2.jpg" imageWidth="95px" imageHeight="100px" imageAlt="MyLogo"
             cardWidth="115px" cardHeight="108px" text="Accessories" />
 
-        <TsImageWithlabel imageSrc="images/tool-3.jpg" imageWidth="95px" imageHeight="100px" imageAlt="MyLogo"
-            cardWidth="115px" cardHeight="108px" text="Accessories" />
-    </div> -->
+    </div>
 
     <div class="my-8 max-w-screen-xl mx-auto">
         <TsBannerWithCta backgroundColor="#F9E400" brandLogo="images/logo-1.png" heading="Lorem" text="ipsum"
