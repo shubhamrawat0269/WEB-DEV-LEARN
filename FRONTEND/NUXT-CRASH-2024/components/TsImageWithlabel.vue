@@ -19,6 +19,12 @@ const props = defineProps({
         type: String,
         default: ''
     },
+    imageWidth: {
+        type: String,
+    },
+    imageHeight: {
+        type: String,
+    },
     cardWidth: {
         type: String,
         default: "120px"
@@ -54,7 +60,7 @@ const props = defineProps({
     }
 });
 
-const { imageSrc, imageAlt, text, cardWidth, cardHeight, cardPadding, bgGradient, cardBorderRadius, borderColor, borderWidth } = toRefs(props);
+const { imageSrc, imageAlt, text, imageWidth, imageHeight, cardWidth, cardHeight, cardPadding, bgGradient, cardBorderRadius, borderColor, borderWidth } = toRefs(props);
 
 const cardStyle = computed(() => ({
     width: cardWidth.value,
@@ -67,8 +73,9 @@ const cardStyle = computed(() => ({
 }));
 
 const imageStyle = computed(() => ({
-    width: "100%",
-    height: "100%",
+    width: imageWidth.value || "100%",
+    height: imageHeight.value || "100%",
+    margin: "0 auto"
 }))
 </script>
 

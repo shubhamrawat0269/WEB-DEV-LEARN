@@ -32,14 +32,16 @@ const hover = ref(false);
     <!-- <TsDrawerMegaMenu /> -->
 
     <div class="flex gap-2">
-        <TsImageWithlabel imageSrc="images/1.png" imageAlt="MyLogo" cardWidth="105px" cardHeight="123px"
-            text="Accessories" />
-        <TsImageWithlabel imageSrc="images/onepiece.jpg" imageAlt="MyLogo" cardWidth="105px" cardHeight="123px"
-            text="Accessories" />
-        <TsImageWithlabel imageSrc="images/1.png" imageAlt="MyLogo" cardWidth="105px" cardHeight="123px"
-            text="Accessories" />
-        <TsImageWithlabel imageSrc="images/1.png" imageAlt="MyLogo" cardWidth="105px" cardHeight="123px"
-            text="Accessories" />
+        <TsImageWithlabel imageSrc="images/tool-1.jpg" imageWidth="95px" imageHeight="100px" imageAlt="MyLogo"
+            cardWidth="115px" cardHeight="108px" text="Accessories" />
+        
+        <TsImageWithlabel imageSrc="images/tool-1.jpg" imageWidth="95px" imageHeight="100px" imageAlt="MyLogo"
+            cardWidth="115px" cardHeight="108px" text="Accessories" />
+        
+        <TsImageWithlabel imageSrc="images/tool-1.jpg" imageWidth="95px" imageHeight="100px" imageAlt="MyLogo"
+            cardWidth="115px" cardHeight="108px" text="Accessories" />
     </div>
+
+    
 
 </template>
