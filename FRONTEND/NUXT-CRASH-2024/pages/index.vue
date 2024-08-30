@@ -47,5 +47,7 @@ const toolImages = ["images/tool-4.png"];
             discountTag="images/discount.png" :images="toolImages" />
     </div> -->
 
-    <TsToggleComponent />
+    <!-- <TsToggleComponent /> -->
+
+    <TsTransitionGroup />
 </template>
