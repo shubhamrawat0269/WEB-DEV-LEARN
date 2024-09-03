@@ -49,5 +49,16 @@ const toolImages = ["images/tool-4.png"];
 
     <!-- <TsToggleComponent /> -->
 
-    <TsTransitionGroup />
+    <!-- <TsTransitionGroup /> -->
+
+    <TsAccordion :items="accordionItems" :allowMultipleOpen="true" />
 </template>
+
+<script>
+const accordionItems = [
+    { title: 'Title 1', content: 'Content for Title 1' },
+    { title: 'Title 2', content: 'Content for Title 2' },
+    { title: 'Title 3', content: 'Content for Title 3' },
+];
+
+</script>
