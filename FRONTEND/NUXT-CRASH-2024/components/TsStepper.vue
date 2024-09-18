@@ -1,53 +1,3 @@
-<script setup lang="ts">
-import { useStepper } from '@vueuse/core'
-import { reactive, ref } from 'vue'
-
-const isEditContent = ref(false);
-
-const form = reactive({
-    firstName: 'Jon',
-    lastName: '',
-    billingAddress: '',
-    contractAccepted: false,
-    carbonOffsetting: false,
-    payment: 'credit-card' as 'paypal' | 'credit-card',
-})
-
-const stepper = useStepper({
-    'user-information': {
-        title: 'User information',
-        isValid: () => form.firstName && form.lastName,
-    },
-    'billing-address': {
-        title: 'Billing address',
-        isValid: () => form.billingAddress?.trim() !== '',
-    },
-    'terms': {
-        title: 'Terms',
-        isValid: () => form.contractAccepted === true,
-    },
-    'payment': {
-        title: 'Payment',
-        isValid: () => ['credit-card', 'paypal'].includes(form.payment),
-    },
-})
-
-function submit() {
-    if (stepper.current.value.isValid() && !isEditContent.value) stepper.goToNext();
-    else if (isEditContent.value) {
-        stepper.goTo('payment');
-        isEditContent.value = false;
-    }
-}
-
-const goBackTo = (step: string) => {
-    console.log(step, stepper);
-    isEditContent.value = true;
-    stepper.goTo(step);
-}
-
-</script>
-
 <template>
     <div>
         <form class="mt-10" @submit.prevent="submit">
@@ -56,9 +6,9 @@ const goBackTo = (step: string) => {
                 <div>
                     <div v-if="stepper.isCurrent('user-information')">
                         <span>First name:</span>
-                        <input v-model="form.firstName" class="!mt-0.5" type="text">
+                        <input v-model="form.kvk" class="!mt-0.5" type="text">
                         <span>Last name:</span>
-                        <input v-model="form.lastName" class="!mt-0.5" type="text">
+                        <input v-model="form.companyName" class="!mt-0.5" type="text">
                     </div>
 
                     <div v-if="stepper.isCurrent('billing-address')">
@@ -87,14 +37,15 @@ const goBackTo = (step: string) => {
                             <label for="paypal">PayPal</label>
                         </div>
                     </div>
+                    <p v-if="form.error">{{ form.error }}</p>
                 </div>
 
                 <div>
-                    <button v-if="!stepper.isLast.value" :disabled="!stepper.current.value.isValid()">
-                        Next
+                    <button v-if="!stepper.isLast.value">
+                        Previous
                     </button>
-                    <button v-if="stepper.isLast.value" :disabled="!stepper.current.value.isValid()">
-                        Submit
+                    <button v-if="!stepper.isLast.value">
+                        Next
                     </button>
                     <button v-if="stepper.isLast.value" @click="goBackTo('billing-address')">
                         Go To Billing
@@ -126,16 +77,69 @@ const goBackTo = (step: string) => {
     </div>
 </template>
 
+<script setup lang="ts">
+import { useStepper } from '@vueuse/core'
+import { reactive } from 'vue'
+
+const form = reactive({
+    kvk: '',
+    companyName: '',
+    billingAddress: '',
+    contractAccepted: false,
+    carbonOffsetting: false,
+    payment: 'credit-card' as 'paypal' | 'credit-card',
+    error: "",
+});
+
+
+const stepper = useStepper({
+    'user-information': {
+        title: 'User information',
+        isValid: () => form.kvk || form.companyName,
+    },
+    'billing-address': {
+        title: 'Billing address',
+        isValid: () => form.billingAddress?.trim() !== '',
+    },
+    'terms': {
+        title: 'Terms',
+        isValid: () => form.contractAccepted === true,
+    },
+    'payment': {
+        title: 'Payment',
+        isValid: () => ['credit-card', 'paypal'].includes(form.payment),
+    },
+})
+
+
+function submit() {
+    if (stepper.current.value.isValid()) {
+        stepper.goToNext();
+        form.error = ``;
+    }
+}
+
+function goToPrevious() {
+    stepper.goToPrevious();
+}
+
+const goBackTo = (step: string) => {
+    // console.log(step, stepper);
+    stepper.goTo(step);
+}
+
+</script>
+
 <style>
 button {
     background-color: #04AA6D;
-    /* Green */
     border: none;
     color: white;
-    padding: 15px 32px;
+    padding: 0.5rem 1rem;
     text-align: center;
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
+    margin-left: 0.4rem;
 }
 </style>
