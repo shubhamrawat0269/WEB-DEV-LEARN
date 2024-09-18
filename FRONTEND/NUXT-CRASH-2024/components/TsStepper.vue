@@ -4,10 +4,26 @@
             <span class="text-lg font-bold" v-text="stepper.current.value.title" />
             <div class="flex flex-col justify-center gap-2 mt-2">
                 <div>
+                    <div v-if="stepper.isCurrent('terms')">
+                        <div>
+                            <input id="carbon-offsetting" v-model="form.carbonOffsetting" type="checkbox" class="mr-2">
+                            <label for="carbon-offsetting">I accept to deposit a carbon offsetting fee</label>
+                        </div>
+                        <div>
+                            <input id="contract" :disabled="!form.contractAccepted" v-model="form.contractAccepted"
+                                type="checkbox" class="mr-2">
+                            <label for="contract">I accept the terms of the contract </label>
+                            <span class="text-blue-600 cursor-pointer" @click="showButton">Read
+                                More</span>
+                            <a v-if="form.is_button_visible" @click="handleTermsAndCondition">Accept &
+                                Continue</a>
+                        </div>
+                    </div>
+
                     <div v-if="stepper.isCurrent('user-information')">
-                        <span>First name:</span>
+                        <span>Company KvK:</span>
                         <input v-model="form.kvk" class="!mt-0.5" type="text">
-                        <span>Last name:</span>
+                        <span>Company name:</span>
                         <input v-model="form.companyName" class="!mt-0.5" type="text">
                     </div>
 
@@ -18,17 +34,6 @@
                             <div v-for="user in form.userList">
                                 {{ user.name }}
                             </div>
-                        </div>
-                    </div>
-
-                    <div v-if="stepper.isCurrent('terms')">
-                        <div>
-                            <input id="carbon-offsetting" v-model="form.carbonOffsetting" type="checkbox" class="mr-2">
-                            <label for="carbon-offsetting">I accept to deposit a carbon offsetting fee</label>
-                        </div>
-                        <div>
-                            <input id="contract" v-model="form.contractAccepted" type="checkbox" class="mr-2">
-                            <label for="contract">I accept the terms of the contract</label>
                         </div>
                     </div>
 
@@ -43,6 +48,7 @@
                             <label for="paypal">PayPal</label>
                         </div>
                     </div>
+                    <p class="text-red-800" v-if="form.error.length > 0">{{ form.error }}</p>
                 </div>
 
                 <div>
@@ -90,6 +96,7 @@ const getData = async () => {
 }
 
 const form = reactive({
+    is_button_visible: false,
     kvk: '',
     companyName: '',
     billingAddress: '',
@@ -101,26 +108,27 @@ const form = reactive({
     userList: [],
 });
 
+const showButton = () => form.is_button_visible = true;
+const handleTermsAndCondition = () => form.contractAccepted = true;
 
 const stepper = useStepper({
+    'terms': {
+        title: 'Terms',
+        isValid: () => form.contractAccepted === true && form.carbonOffsetting === true,
+    },
     'user-information': {
         title: 'User information',
-        isValid: () => form.kvk || form.companyName,
+        isValid: () => form.kvk && form.companyName,
     },
     'billing-address': {
         title: 'Billing address',
         isValid: () => form.billingAddress?.trim() !== '',
-    },
-    'terms': {
-        title: 'Terms',
-        isValid: () => form.contractAccepted === true,
     },
     'payment': {
         title: 'Payment',
         isValid: () => ['credit-card', 'paypal'].includes(form.payment),
     },
 })
-
 
 async function submit() {
     if (stepper.current.value.isValid()) {
@@ -133,7 +141,10 @@ async function submit() {
             form.userList = data;
             form.loading = false;
         }
+        form.error = ``;
         stepper.goToNext();
+    } else {
+        form.error = `field cannot be empty`;
     }
 }
 
