@@ -13,6 +13,12 @@
 
                     <div v-if="stepper.isCurrent('billing-address')">
                         <input v-model="form.billingAddress" type="text">
+
+                        <div v-if="form.userList.length > 0" class="flex gap-2">
+                            <div v-for="user in form.userList">
+                                {{ user.name }}
+                            </div>
+                        </div>
                     </div>
 
                     <div v-if="stepper.isCurrent('terms')">
@@ -37,15 +43,11 @@
                             <label for="paypal">PayPal</label>
                         </div>
                     </div>
-                    <p v-if="form.error">{{ form.error }}</p>
                 </div>
 
                 <div>
                     <button v-if="!stepper.isLast.value">
-                        Previous
-                    </button>
-                    <button v-if="!stepper.isLast.value">
-                        Next
+                        {{ form.loading ? 'Loading' : 'Next' }}
                     </button>
                     <button v-if="stepper.isLast.value" @click="goBackTo('billing-address')">
                         Go To Billing
@@ -81,6 +83,12 @@
 import { useStepper } from '@vueuse/core'
 import { reactive } from 'vue'
 
+
+const getData = async () => {
+    const data = await fetch('https://jsonplaceholder.typicode.com/users');
+    return await data.json();
+}
+
 const form = reactive({
     kvk: '',
     companyName: '',
@@ -89,6 +97,8 @@ const form = reactive({
     carbonOffsetting: false,
     payment: 'credit-card' as 'paypal' | 'credit-card',
     error: "",
+    loading: false,
+    userList: [],
 });
 
 
@@ -112,21 +122,22 @@ const stepper = useStepper({
 })
 
 
-function submit() {
+async function submit() {
     if (stepper.current.value.isValid()) {
+        const currentTitle = stepper.current.value.title;
+
+        if (currentTitle === 'User information') {
+            form.loading = true;
+            const data = await getData();
+            console.log(data);
+            form.userList = data;
+            form.loading = false;
+        }
         stepper.goToNext();
-        form.error = ``;
     }
 }
 
-function goToPrevious() {
-    stepper.goToPrevious();
-}
-
-const goBackTo = (step: string) => {
-    // console.log(step, stepper);
-    stepper.goTo(step);
-}
+const goBackTo = (step: string) => stepper.goTo(step);
 
 </script>
 
