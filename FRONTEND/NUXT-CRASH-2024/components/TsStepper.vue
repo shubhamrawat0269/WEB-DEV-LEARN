@@ -32,7 +32,10 @@
 
                         <div v-if="form.userList.length > 0" class="flex gap-2">
                             <div v-for="user in form.userList">
-                                {{ user.name }}
+                                <label>
+                                    <input type="radio" name="user-list" v-model="user.name" />
+                                    {{ user.name }}
+                                </label>
                             </div>
                         </div>
                     </div>
@@ -105,6 +108,7 @@ const form = reactive({
     payment: 'credit-card' as 'paypal' | 'credit-card',
     error: "",
     loading: false,
+    user: "",
     userList: [],
 });
 
@@ -147,6 +151,7 @@ async function submit() {
         form.error = `field cannot be empty`;
     }
 }
+
 
 const goBackTo = (step: string) => stepper.goTo(step);
 
