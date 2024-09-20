@@ -1,6 +1,7 @@
 <template>
     <!-- <TsDrawerMegaMenu /> -->
-    <TsStepper />
+    <!-- <TsStepper /> -->
+    <TsFormValidator />
 </template>
 
 <script setup lang="ts">
