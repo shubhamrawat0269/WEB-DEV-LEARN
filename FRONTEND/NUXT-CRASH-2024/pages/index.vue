@@ -2,7 +2,8 @@
     <!-- <TsDrawerMegaMenu /> -->
     <!-- <TsStepper /> -->
     <!-- <TsFormValidator /> -->
-    <TsSample />
+    <!-- <TsSample /> -->
+    <TsDownloadFile />
 </template>
 
 <script setup lang="ts">
