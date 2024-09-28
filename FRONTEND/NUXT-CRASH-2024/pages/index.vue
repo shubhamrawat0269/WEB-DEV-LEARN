@@ -3,7 +3,8 @@
     <!-- <TsStepper /> -->
     <!-- <TsFormValidator /> -->
     <!-- <TsSample /> -->
-    <TsDownloadFile />
+    <!-- <TsDownloadFile /> -->
+    <TsLink />
 </template>
 
 <script setup lang="ts">

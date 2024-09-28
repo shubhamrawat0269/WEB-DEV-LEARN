@@ -1,0 +1,18 @@
+{
+    "data": [
+    {
+        "title": "EU Net",
+        "redirection_links": [
+            "https://www.google.com",
+            "https://www.facebook.com"
+        ]
+    },
+    {
+        "title": "Post NL",
+        "redirection_links": [
+            "https://www.youtube.com",
+            "https://www.jiocinema.com"
+        ]
+    }
+]
+}
