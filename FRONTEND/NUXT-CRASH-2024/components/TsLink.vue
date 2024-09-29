@@ -8,13 +8,20 @@ const data = ref(
         {
             "title": "EU Net",
             "redirection_links": [
+                "https://www.facebook.com",
                 "https://www.google.com",
-                "https://www.facebook.com"
+            ]
+        },
+        {
+            "title": "Post NL",
+            "redirection_links": [
+                "https://www.jiocinema.com",
+                "https://www.youtube.com",
+                "https://www.toolstation.com"
             ]
         }
-    ],
+    ]
 );
-
 
 // [
 //     {
@@ -23,16 +30,10 @@ const data = ref(
 //             "https://www.google.com",
 //             "https://www.facebook.com"
 //         ]
-//     },
-//     {
-//         "title": "Post NL",
-//         "redirection_links": [
-//             "https://www.youtube.com",
-//             "https://www.jiocinema.com",
-//             "https://www.toolstation.com"
-//         ]
 //     }
-// ]
+// ],
+
+
 
 const redirect_link = ref("");
 
