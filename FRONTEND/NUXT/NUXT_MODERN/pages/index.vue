@@ -1,5 +1,5 @@
 <template>
-    <p>Hello My name is Shubham Rawat & I am not a terrorist</p>
+    <p>This is Main Page file</p>
 </template>
 
 
