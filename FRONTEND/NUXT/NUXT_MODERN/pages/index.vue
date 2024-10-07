@@ -1,7 +1,6 @@
 <template>
-    <p>This is Main Page file</p>
+    <MultiStepForm />
 </template>
-
 
 <script setup lang="ts">
     
