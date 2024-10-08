@@ -9,7 +9,7 @@
 
 <script setup>
 import { ref, watch } from 'vue'
-import { useFormStore } from '~/stores/form'
+import { useFormStore } from '~/store/form.store';
 
 const props = defineProps({
     formData: Object

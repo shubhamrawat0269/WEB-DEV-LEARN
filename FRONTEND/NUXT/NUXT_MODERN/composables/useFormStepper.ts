@@ -1,27 +1,39 @@
-import { ref } from 'vue';
 import { useStepper } from '@vueuse/core';
 import { useFormStore } from '~/store/form.store';
+
+export enum FormData {
+  PERSONAL_INFORMATION = 'Personal Information',
+  BILLING_ADDRESS = 'Billing address',
+  PAYMENT = 'Payment',
+}
 
 export const useFormStepper = () => {
   const formStore = useFormStore();
 
-  const { currentStep, goToNext, goToPrev } = useStepper({
-    steps: [1, 2, 3],
-    initial: 1,
+  const { index, current, goToNext, goToPrevious } = useStepper({
+    'personal-information': {
+      title: 'Personal Information',
+    },
+    'billing-address': {
+      title: 'Billing address',
+    },
+    payment: {
+      title: 'Payment',
+    },
   });
 
   const validateStep = () => {
-    if (currentStep.value === 1) {
+    if (current.value.title === FormData.PERSONAL_INFORMATION) {
       if (!formStore.step1Data.name || !formStore.step1Data.email) {
         alert('Name and email are required');
         return false;
       }
-    } else if (currentStep.value === 2) {
+    } else if (current.value.title === FormData.BILLING_ADDRESS) {
       if (!formStore.step2Data.address || !formStore.step2Data.city) {
         alert('Address and city are required');
         return false;
       }
-    } else if (currentStep.value === 3) {
+    } else if (current.value.title === FormData.PAYMENT) {
       if (
         !formStore.step3Data.paymentMethod ||
         !formStore.step3Data.cardDetails
@@ -37,7 +49,7 @@ export const useFormStepper = () => {
     if (validateStep()) goToNext();
   };
 
-  const prevStep = () => goToPrev();
+  const prevStep = () => goToPrevious();
 
   const submitForm = () => {
     if (validateStep()) {
@@ -47,9 +59,11 @@ export const useFormStepper = () => {
   };
 
   return {
-    currentStep,
+    index,
+    current,
     nextStep,
     prevStep,
     submitForm,
+    validateStep,
   };
 };
