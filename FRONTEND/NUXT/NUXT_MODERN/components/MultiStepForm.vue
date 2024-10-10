@@ -27,6 +27,39 @@ const formStore = useFormStore()
 const { index, current, nextStep, prevStep, submitForm, validateStep } = useFormStepper();
 
 const title = computed(() => current.value.title);
+
+import { watch } from 'vue'
+import { useRoute } from 'vue-router'
+
+const route = useRoute();
+
+const handleExternalProcessStatus = (status) => {
+    switch (status) {
+        case 'ok':
+            console.log('Process completed with OK status')
+            break
+        case 'pending':
+            console.log('Process is pending')
+            break
+        case 'failed':
+            console.log('Process failed')
+            break
+        case 'cancel':
+            console.log('Process was canceled')
+            break
+    }
+}
+
+watch(
+    () => route.fullPath,
+    (newPath) => {
+        const isExternalProcess = newPath.includes('/process')
+        const status = route.query.status
+
+        if (isExternalProcess && ['ok', 'pending', 'failed', 'cancel'].includes(status)) handleExternalProcessStatus(status)
+    }
+)
+
 </script>
 
 <style scoped>
