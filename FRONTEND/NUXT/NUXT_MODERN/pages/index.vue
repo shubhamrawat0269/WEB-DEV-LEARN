@@ -1,7 +1,7 @@
 <template>
-    <MultiStepForm />
+    <TsTableView />
 </template>
 
 <script setup lang="ts">
-    
+
 </script>
