@@ -1,5 +1,11 @@
+import { Button } from '@/components/ui/button';
+
 function App() {
-  return <h1 className="font-bold">App Content</h1>;
+  return (
+    <div>
+      <Button>Submit</Button>
+    </div>
+  );
 }
 
 export default App;
