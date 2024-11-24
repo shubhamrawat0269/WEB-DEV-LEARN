@@ -1,5 +1,6 @@
 import React from "react";
 import GreetWithName from "./GreetWithName";
+import Navbar from "./Navbar";
 
 const data = [
   { id: 1, fullname: "Kamla Rawat" },
@@ -26,16 +27,16 @@ const Greetings = () => {
   // ];
   return (
     // <React.Fragment>
-    <>
+    <Navbar>
       {data.map((member) => {
         return (
           <GreetWithName
             key={member.id}
-            name={member.fullname}
+            data={member}
           />
         );
       })}
-    </>
+    </Navbar>
     // </React.Fragment>
   );
 };
