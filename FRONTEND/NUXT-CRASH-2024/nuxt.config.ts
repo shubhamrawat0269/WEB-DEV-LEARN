@@ -1,24 +1,22 @@
 import { resolve } from "path"
 
 export default defineNuxtConfig({
-  compatibilityDate: '2024-04-03',
+  compatibilityDate: "2024-04-03",
   devtools: { enabled: true },
   css: ["~/assets/css/main.css"],
   postcss: {
     plugins: {
-      tailwindcss: {},  
+      tailwindcss: {},
       autoprefixer: {},
     },
   },
-  modules: [
-      '@pinia/nuxt',
-  ],
+  modules: ["@pinia/nuxt", "@primevue/nuxt-module"],
   runtimeConfig: {
     // The private keys which are only available server-side
-    apiSecret: '123',
+    apiSecret: "123",
     // Keys within public are also exposed client-side
     public: {
-      endpoint: 'https://localhost:3000/'
-    }
-  }
-})
+      endpoint: "https://localhost:3000/",
+    },
+  },
+});
