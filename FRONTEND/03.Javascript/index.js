@@ -58,5 +58,4 @@ console.log(typeof -number);
 
 console.log(+'')  -> 0
 
-
 */
