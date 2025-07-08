@@ -44,6 +44,7 @@ console.log("Hello Shubham Rawat ~ How are you");
  4. Difference b/w parseInt, Number() and + in type conversion.
  5. There are seven primitive datatypes in javascript
    i. number  ii. string  iii. undefined  iv. null  v. boolean  vi. bigint  vii. symbol.
+ 6. NaN ?
 
 */
 
@@ -58,4 +59,52 @@ console.log(typeof -number);
 
 console.log(+'')  -> 0
 
+let numberTwo = '56abfdvjl';
+console.log(+numberTwo); // will give NaN
+console.log(typeof +numberTwo) // will give number but it's not valid number.
+
+// To Convert string to integer in numberTwo Case, we can use parseInt
+
+console.log(parseInt(numberTwo))
+
 */
+
+
+/*
+
+ ------------- Day 3 of Javascript daily dose -------------
+ 1. camel case and snake case convention
+ 2. nature of undefined. Javascript automatically store undefined to a variable untile initialized.
+ 3. BigInt is a built-in object that allows you to store whole numbers > maximum safe integer
+  (i.e. 2^53 - 1).
+ 4. We can create BigInt in two main ways:
+  4a. Appending n to an integer value : -->
+    const bigNumber = 123454535353432453525435325353452253n;
+  4b. Using BigInt() constructor:
+    const bigNumberOne = BigInt("123454535353432453525435325353452253n");
+  4c. You cannot mix BigInt and Number types directly.
+*/
+
+/*
+
+// ---------- Codespace -------------- //
+
+let firstName = "Abhishek"
+let lastname = 'Rana'
+let age  = 21
+
+let result = `My name is ${firstName} ${lastname}. I am ${age} year old`;
+
+console.log(result);
+
+const bigNumber = BigInt(1234);  /// will give output attaching n;
+const bigNumberOne = 123454535353432453525435325353452253n
+const smallNumber = 12;
+console.log(bigNumberOne);
+Cannot mix BigInt and other types, use explicit conversions
+
+console.log(bigNumberOne + smallNumber);
+
+*/
+
+
