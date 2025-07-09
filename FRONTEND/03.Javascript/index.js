@@ -107,4 +107,19 @@ console.log(bigNumberOne + smallNumber);
 
 */
 
+/*
 
+ ------------- Day 4 of Javascript daily dose -------------
+ 1. Difference b/w const and let.
+ 2. Variable defined with var act as a global scope variable even defined inside a block
+ 3. Variable defined with let act as a local scope variable and cannot be access outside particular scope.
+
+*/
+
+/*
+
+// ---------- Codespace -------------- //
+
+*/
+
+var a = 10;
