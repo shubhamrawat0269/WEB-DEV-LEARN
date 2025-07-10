@@ -117,9 +117,27 @@ console.log(bigNumberOne + smallNumber);
 */
 
 /*
-
 // ---------- Codespace -------------- //
+var a = 10;
+*/
+
+
+
+/*
+
+ ------------- Day 5 of Javascript daily dose -------------
+ 1. When we write code to execute particular set of statement, 
+   JS engine divide it's task into two phase : 
+   i. Memory Creation   ii. Code Execution.
+ 
+ 2. usage of debugger
+ 3. async & defer ~ placement of js file
+ 4. TDZ (Temporal Dead Zone) is an environment where variables defined with let,const go to untill initialized
+   with value.
 
 */
 
-var a = 10;
+/*
+// ---------- Codespace -------------- //
+
+*/
