@@ -115,7 +115,7 @@ console.log(bigNumberOne + smallNumber);
  3. Variable defined with let act as a local scope variable and cannot be access outside particular scope.
 
 */
-
+ 
 /*
 // ---------- Codespace -------------- //
 var a = 10;
@@ -141,3 +141,18 @@ var a = 10;
 // ---------- Codespace -------------- //
 
 */
+
+debugger
+console.log(num2);  // gives undefined
+/* 
+  below code gives error : -->
+  Cannot access 'num1' before initialization.
+*/
+// console.log(num1);
+
+let num1 = 10;
+var num2 = 12;
+const num3 = 13;
+
+
+console.log(`Three Numbers are : ${num1} ${num2} ${num3}`);
