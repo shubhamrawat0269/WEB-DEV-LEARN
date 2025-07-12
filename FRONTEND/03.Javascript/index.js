@@ -140,19 +140,57 @@ var a = 10;
 /*
 // ---------- Codespace -------------- //
 
-*/
-
+Example : 1 -->
 debugger
 console.log(num2);  // gives undefined
-/* 
-  below code gives error : -->
-  Cannot access 'num1' before initialization.
-*/
-// console.log(num1);
+below code gives error : --> Cannot access 'num1' before initialization.
+console.log(num1);
 
 let num1 = 10;
 var num2 = 12;
 const num3 = 13;
 
-
 console.log(`Three Numbers are : ${num1} ${num2} ${num3}`);
+
+Example : 2 -->
+
+function calculateTotal(items) {
+  let total = 0;
+
+  for (let i = 0; i < items.length; i++) {
+    let price = items[i].price;
+    debugger;
+    total += price;
+  }
+
+  return total;
+}
+
+const cart = [
+  { name: "Book", price: 10 },
+  { name: "Pen", price: 2 },
+  { name: "Notebook", price: 5 },
+];
+
+const totalAmount = calculateTotal(cart);
+console.log("Total Amount:", totalAmount);
+
+*/
+/*
+ ------------- Day 6 of Javascript daily dose -------------
+ 1. alert("Hello Shubham How are you"); --> returns undefined 
+ 2. confirm("Would you like to proceed"); --> returns boolean
+ 3. prompt("Your message goes here"); --> return user input value | null.
+/*
+
+/*
+// ---------- Codespace -------------- //
+
+// alert("Hii");
+// console.log(alert("Hii"));
+
+// console.log(confirm("Hii")); // --> return true if press ok or false if press cancel
+// console.log(prompt("Hii")); // --> return null if enter nothing or user input value
+
+*/
+
