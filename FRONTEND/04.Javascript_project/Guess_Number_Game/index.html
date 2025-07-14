@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guess The Number</title>
+
+    <script src="index.js" defer></script>
+</head>
+<body>
+    <p>Guess the number between 0 to 100</p>
+
+    <input type="number" id="input-box" name="input-box" />
+
+    <button type="submit" id="submit-btn" onclick="handleSubmit()">Submit</button>
+    <button id="start-game" onclick="handleRestartGame()">Start Game</button>
+
+    <p id="result"></p>
+
+    <h2>
+     Your Guesses : <span id="guess-list"></span>
+    </h2>
+    
+</body>
+</html>
