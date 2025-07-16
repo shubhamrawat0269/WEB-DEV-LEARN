@@ -27,6 +27,8 @@
 console.log("Hello Shubham Rawat ~ How are you");
 */
 
+// -----------------------------------------------------------------------------------------------
+
 /*
 
  ------------- Day 2 of Javascript daily dose -------------
@@ -69,6 +71,7 @@ console.log(parseInt(numberTwo))
 
 */
 
+// -----------------------------------------------------------------------------------------------
 
 /*
 
@@ -107,6 +110,9 @@ console.log(bigNumberOne + smallNumber);
 
 */
 
+// -----------------------------------------------------------------------------------------------
+
+
 /*
 
  ------------- Day 4 of Javascript daily dose -------------
@@ -121,7 +127,7 @@ console.log(bigNumberOne + smallNumber);
 var a = 10;
 */
 
-
+// -----------------------------------------------------------------------------------------------
 
 /*
 
@@ -174,8 +180,10 @@ const cart = [
 
 const totalAmount = calculateTotal(cart);
 console.log("Total Amount:", totalAmount);
-
 */
+
+// -----------------------------------------------------------------------------------------------
+
 /*
  ------------- Day 6 of Javascript daily dose -------------
  1. alert("Hello Shubham How are you"); --> returns undefined 
@@ -194,3 +202,28 @@ console.log("Total Amount:", totalAmount);
 
 */
 
+// -----------------------------------------------------------------------------------------------
+
+/*
+ ------------- Day 7 of Javascript daily dose -------------
+ 1. We an access any single character of a string. You can also perform something like below code:
+   a. 'My Name is Shubham'[0]
+ 2. string indexed with 0.
+ 3. string comes with : property (length) , methods (without arg), methods (with arg)
+  i. toUpperCase()  ii. toLowerCase()  iii. trim()  iv. trimStart()  v. trimEnd()
+  i. includes(), indexOf(), replace(), replaceAll(), concat(), padStart(), padEnd(), charAt()
+     charCodeAt(), split()
+
+/*
+
+/*
+// ---------- Codespace -------------- //
+
+
+*/
+
+// -------------------------------------------------------------------------------------------------
+
+
+
+// -------------------------------------------------------------------------------------------------
