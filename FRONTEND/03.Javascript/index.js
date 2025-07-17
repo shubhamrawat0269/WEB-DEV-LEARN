@@ -50,7 +50,6 @@ console.log("Hello Shubham Rawat ~ How are you");
 
 */
 
-
 /*
 // ---------- Codespace -------------- //
 
@@ -112,7 +111,6 @@ console.log(bigNumberOne + smallNumber);
 
 // -----------------------------------------------------------------------------------------------
 
-
 /*
 
  ------------- Day 4 of Javascript daily dose -------------
@@ -121,7 +119,7 @@ console.log(bigNumberOne + smallNumber);
  3. Variable defined with let act as a local scope variable and cannot be access outside particular scope.
 
 */
- 
+
 /*
 // ---------- Codespace -------------- //
 var a = 10;
@@ -213,7 +211,8 @@ console.log("Total Amount:", totalAmount);
   i. toUpperCase()  ii. toLowerCase()  iii. trim()  iv. trimStart()  v. trimEnd()
   i. includes(), indexOf(), replace(), replaceAll(), concat(), padStart(), padEnd(), charAt()
      charCodeAt(), split()
-
+ 4. indexOf() returns -1 for falsy value.
+ 5. 
 /*
 
 /*
@@ -222,8 +221,8 @@ console.log("Total Amount:", totalAmount);
 
 */
 
+const str1 = "            Hello My name is is Khan";
+let trimStr = str1.trim();
 // -------------------------------------------------------------------------------------------------
-
-
 
 // -------------------------------------------------------------------------------------------------
