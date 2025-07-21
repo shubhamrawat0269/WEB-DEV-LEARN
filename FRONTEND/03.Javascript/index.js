@@ -219,10 +219,15 @@ console.log("Total Amount:", totalAmount);
 // ---------- Codespace -------------- //
 
 
-*/
-
 const str1 = "            Hello My name is is Khan";
 let trimStr = str1.trim();
+
+const lastFourDigit = 4598;
+const maskedAccountNumber = lastFourDigit.padStart(16, "*");
+
+*/
+
+
 // -------------------------------------------------------------------------------------------------
 
 // -------------------------------------------------------------------------------------------------
