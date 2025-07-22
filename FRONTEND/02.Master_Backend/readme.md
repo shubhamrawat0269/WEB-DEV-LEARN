@@ -1,0 +1,62 @@
+## Mastering backend is not about creating api's . You need to go in depth of how backend actual function behind the scene.
+
+### Course is divided into three major phases :--
+
+1. Laying a strong foundation
+  - Basics of Frontend
+  - Javascript knowledge.
+  - Basics of Terminal
+    - CLI vs GUI  
+    - Shell vs Terminal
+    - Bash Shell & .bashrc
+    - Editors (nano, vim)
+    - Basic Commands - c, ls, pwd, touch etc.
+    - Shebang
+  - Basics of OS
+    - OS, Kernel, Process, Thread.
+    - Concurrency vs Parallelism.
+    - File System, Path System, Environment variables.
+    - File Permissions.
+  - Fundamentals of node.js
+    - module system of node.js
+    - module wrapper function
+    - npm vs npx (javascript file)
+    - package.json vs package-lock.json
+    - CLI vs Library packages, local vs global packages
+    - fs module (learn all file operations)
+  - Data Reperesentation in Computers
+    - Number System (Decimal, Octal, hex, binary)
+    - Character Sets & Character Encodings (ASCII, Unicode, UTF-8)
+    - BOM & Endianness (Little-Endian & Big-Endian)
+  - Working with Binary Data in JS & Node.js
+    - ArrayBuffers
+    - DataView
+    - TypedArrays (uint8Array, uint16Array)
+    - Node.js Buffers
+  - Event-Driven Architecture & EventEmitter Class
+    - I/O Operation 
+    - Async I/O 
+    - EDA
+    - EventEmitter Class
+  - Handling Large Data Transfers with Streams
+    - Readable & Writable Streams
+    - Duplex & Transform Streams
+    - Handling Backpressure
+    - Piping & Pipeline
+    - Streams in Browser
+  - Basics of Computer Networking
+    - History of Internet & Networking
+    - Networking Devices (Repeater, Hubs, Swithes, Router)
+    - Type of networks - LAN,MAN,WAN
+    - IP Address (IPv4 & IPv6)
+    - Static vs Dynamic & Private vs Public IP Address.
+    - Make your laptop a pulic server
+    - DNS and DNS Servers
+    - Port Number, Network Interface, MAC Address, Firewall
+    - OSI Model & TCP & IP Model 
+    - Network Topologies
+    - TCP & UDP Protocols
+    - SSH, SCP
+    - Get an EC2 instance on AWS and deploy a public onto it.
+
+  - Making Networking Applications using Core Ne
