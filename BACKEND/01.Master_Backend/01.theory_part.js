@@ -37,5 +37,25 @@
 /*
 
  ------------- Day 2 of Mastery Backend -------------
+ 1. using nodejs, we can use javascript outside browser.
+ 2. we can access OS resource using nodejs
+ 3. Command-Line Tools for example -> Typescript, Webpack, ESLint, Babel, Yarn, CRA, Vue CLI, Angular CLI, Prettier and more
+ 4. Using nodejs we can create above tools instead of only creating web servers.
+ 5. We can debug our code using Run and Debug (ctrl + shift + D) in vscode itself just like your debugger in chrome. Do it practically.
+ 6. using node -v gives you version in terminal
+ 7. when you type 'node' in terminal, a NODE REPL opens.
+ 8. we don't have document, window variable in node environment . it exist in browser.
+
+ Note : --> Node current ver. is 22.17.1
 
 */
+
+let accountNumber = 8798673732349234;
+let accountHolderName = 'Shubham Rawat';
+let crnNumber = 128761334;
+
+function printUserDetail(accountNo, name, crnNo){
+    return `Account holder name is ${name} with account number ${accountNo} & ${crnNo}.`
+}
+
+console.log(printUserDetail(accountNumber, accountHolderName, crnNumber));
