@@ -50,12 +50,26 @@
 
 */
 
-let accountNumber = 8798673732349234;
-let accountHolderName = 'Shubham Rawat';
-let crnNumber = 128761334;
+// let accountNumber = 8798673732349234;
+// let accountHolderName = 'Shubham Rawat';
+// let crnNumber = 128761334;
 
-function printUserDetail(accountNo, name, crnNo){
-    return `Account holder name is ${name} with account number ${accountNo} & ${crnNo}.`
-}
+// function printUserDetail(accountNo, name, crnNo){
+//     return `Account holder name is ${name} with account number ${accountNo} & ${crnNo}.`
+// }
 
-console.log(printUserDetail(accountNumber, accountHolderName, crnNumber));
+// console.log(printUserDetail(accountNumber, accountHolderName, crnNumber));
+
+// ---------------------------------------------------------------------------- //
+
+/*
+
+ ------------- Day 3 of Mastery Backend -------------
+ 1. Terminal command list : 
+   --> echo, pwd, whoami (display current user);
+   --> cd & ls command
+   --> '/' is root directory & '~' is home directory
+   for example, ~ reperesent home directory for shubham rawat user.
+
+*/
+
