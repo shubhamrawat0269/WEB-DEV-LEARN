@@ -70,6 +70,29 @@
    --> cd & ls command
    --> '/' is root directory & '~' is home directory
    for example, ~ reperesent home directory for shubham rawat user.
+   --> bash scripting -> powerful tool
+
+   --> common command list :=> mkdir, touch, cp (copy), mv (move) -> also used to rename file.
+      rm -r flag.
+
+   --> cat {concatenate} --> command to fetch the content of any file.
+   --> learn and explore  <--:--> vim and nano { editor }
+
+   -->  1. Open a file in vim : vim filename.txt
+   - By default, vim opens in Normal mode (where you can't type text directly).
+   - To start typing/editing:
+    - Press i → enters Insert mode, Now you can type like in a regular text editor.
+   - Save Changes
+    - Press Esc to exit Insert mode (go back to Normal mode).
+   - Then type:
+     - :w → to write (save) the file.
+     - :w filename.txt → to save as a new file.
+
+   - To exit vim in Normal mode (press Esc first), type:
+     - :q → quit if no changes were made.
+     - :q! → force quit without saving.
+     - :wq → save and quit.
+     - :x → same as :wq.
 
 */
 
