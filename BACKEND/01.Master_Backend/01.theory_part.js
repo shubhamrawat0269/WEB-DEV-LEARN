@@ -96,3 +96,12 @@
 
 */
 
+
+/*
+
+ ------------- Day 4 of Mastery Backend -------------
+ 1. What is CPU and cabinet?
+ 2. Cores can't be seen because of nano size
+ 3. 
+
+*/
