@@ -1,4 +1,5 @@
 import "./globals.css";
+import Link from "next/link";
 
 export const metadata = {
   title: "Learning App",
@@ -9,8 +10,13 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body>
-      <h2>Hii</h2>
-      {children}</body>
+        <nav className="flex gap-4 bg-amber-400 p-2 items-center justify-center">
+          <Link href={`/`}>Home</Link>
+          <Link href={`/services`}>Services</Link>
+          <Link href={`/about`}>About</Link>
+        </nav>
+        {children}
+      </body>
     </html>
   );
 }

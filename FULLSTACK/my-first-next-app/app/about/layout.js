@@ -6,7 +6,7 @@ export const metadata = {
 export default function AboutLayout({ children }) {
   return (
     <section lang="en">
-      <h1>About Header</h1>
+      <h1>About Header Custom Layout</h1>
       <div>{children}</div>
     </section>
   );
