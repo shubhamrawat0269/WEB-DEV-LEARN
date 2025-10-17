@@ -1,0 +1,28 @@
+* {
+    margin: 0;
+    padding: 0;
+
+}
+
+body {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.container {
+    background-color: tomato;
+    display: flex;
+    width: 40vw;
+    height: 40vh;
+
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+button {
+    background-color: bisque;
+    padding: 3px 8px;
+    border: none;
+    cursor: pointer;
+
+}
