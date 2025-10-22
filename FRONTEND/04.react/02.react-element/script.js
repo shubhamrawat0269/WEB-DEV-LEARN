@@ -1,6 +1,12 @@
-const mainContainer = document.querySelector('#main');
-const para = React.createElement('p', {className:'para', title: 'para-content'}, 'This is my first React para element');
+const primaryContainer = React.createElement(
+  "section",
+  {
+    className: "container",
+    title: "primary-container",
+  },
+  "This is the first primary container i created"
+);
 
-const root = ReactDOM.createRoot(mainContainer);
 
-root.render(para)
+const root = ReactDOM.createRoot(document.querySelector("#main"));
+root.render(primaryContainer);
