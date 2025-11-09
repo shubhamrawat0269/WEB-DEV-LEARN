@@ -1,5 +1,5 @@
 const CustomButton = ({label}) => {
-  return <button>{label}</button>;
+  return <button title={label}>{label}</button>;
 };
 
 export default CustomButton;

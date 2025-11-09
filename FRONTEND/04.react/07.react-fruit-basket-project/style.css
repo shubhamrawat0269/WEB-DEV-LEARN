@@ -31,13 +31,7 @@ p {
     font-size: 1.5rem;
 }
 
-.btns {
-    display: flex;
-    gap: 2rem;
-    align-items: center;
-}
-
-.btns button {
+button {
     cursor: pointer;
     border: none;
     padding: 1rem;
