@@ -1,5 +1,18 @@
-const CustomButton = ({label}) => {
-  return <button title={label}>{label}</button>;
+const CustomButton = ({
+  label,
+  buttonName,
+  onClickHandler,
+  isButtonDisable,
+}) => {
+  return (
+    <button
+      title={buttonName}
+      onClick={onClickHandler}
+      disabled={isButtonDisable}
+    >
+      {label}
+    </button>
+  );
 };
 
 export default CustomButton;
