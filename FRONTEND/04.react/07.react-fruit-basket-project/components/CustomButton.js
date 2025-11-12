@@ -1,14 +1,14 @@
 const CustomButton = ({
   label,
   buttonName,
-  onClickHandler,
-  isButtonDisable,
+  onClickHandler = () => {},
+  // isButtonDisable,
 }) => {
   return (
     <button
       title={buttonName}
       onClick={onClickHandler}
-      disabled={isButtonDisable}
+      // disabled={isButtonDisable}
     >
       {label}
     </button>
