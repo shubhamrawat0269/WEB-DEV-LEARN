@@ -2,7 +2,9 @@ const AppleCounter = ({ value, label }) => {
   return (
     <section className="basket">
       <span>{value}</span>
-      <p>{label}</p>
+      <p>
+        {label} {value === 10 ? "(FULL)" : value === 0 ? "(EMPTY)" : ""}
+      </p>
     </section>
   );
 };
