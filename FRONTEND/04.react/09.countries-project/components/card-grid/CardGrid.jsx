@@ -19,6 +19,8 @@ const CardGrid = () => {
     },
   ];
 
+  // API URL : https://www.apicountries.com/countries
+
   return (
     <div className={styles.wrapper}>
       <div className={styles.grid}>
