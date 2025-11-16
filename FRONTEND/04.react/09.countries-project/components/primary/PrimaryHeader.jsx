@@ -4,7 +4,7 @@ import styles from "./PrimaryHeader.module.css";
 
 const PrimaryHeader = () => {
   return (
-    <div className={styles.bgColor}>
+    <div className={styles.primaryContainer}>
       <Searchbox />
       <FilterBox />
     </div>

@@ -4,7 +4,7 @@ import PrimaryHeader from "./components/primary/PrimaryHeader";
 
 const App = () => {
   return (
-    <div>
+    <div className="container">
       {/* Header */}
       <Header />
       {/* Primary Container */}
