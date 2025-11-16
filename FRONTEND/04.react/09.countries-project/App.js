@@ -1,3 +1,4 @@
+import "./theme.css";
 import CardGrid from "./components/card-grid/CardGrid";
 import Header from "./components/header/Header";
 import PrimaryHeader from "./components/primary/PrimaryHeader";
