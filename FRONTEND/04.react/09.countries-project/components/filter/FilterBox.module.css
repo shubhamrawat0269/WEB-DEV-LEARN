@@ -1,0 +1,31 @@
+
+
+.styledSelect {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+
+    background-color: white;
+    font-size: 12px;
+    font-weight: 600;
+    color: #333;
+    cursor: pointer;
+    outline: none;
+    transition: all 0.2s ease;
+}
+
+.styledSelect:hover {
+    border-color: #888;
+}
+
+.styledSelect:focus {
+    border-color: #0077ff;
+    box-shadow: 0 0 4px rgba(0, 119, 255, 0.5);
+}
+
+.selectedText {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #0077ff;
+    font-weight: 500;
+}

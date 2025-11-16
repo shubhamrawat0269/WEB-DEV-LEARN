@@ -3,7 +3,7 @@ import styles from "./CardGrid.module.css";
 
 const CardGrid = () => {
   return (
-    <div className={styles.bgColor}>
+    <div className={styles.cardContainer}>
       <Card />
     </div>
   );
