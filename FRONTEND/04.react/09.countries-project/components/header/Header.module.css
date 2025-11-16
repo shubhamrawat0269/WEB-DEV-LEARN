@@ -1,3 +1,20 @@
-.bgColor {
-    background-color: blueviolet;
+.headerContainer {
+    background-color: rgb(69, 44, 101);
+    padding: 1rem 2.5rem;
+}
+
+.headerContent {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.25rem;
+    color: white;
+}
+
+.modeBtn button {
+    padding: 0.5rem 1rem;
+    cursor: pointer;
 }
