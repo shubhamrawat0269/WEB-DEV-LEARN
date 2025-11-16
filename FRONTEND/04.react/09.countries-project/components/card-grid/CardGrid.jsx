@@ -1,25 +1,11 @@
 import Card from "./Card";
+import countriesData from "../../json/countriesData.json";
 import styles from "./CardGrid.module.css";
+import { useState } from "react";
+// API URL : https://www.apicountries.com/countries
 
 const CardGrid = () => {
-  const countries = [
-    {
-      name: "India",
-      flag: "https://flagcdn.com/w320/in.png",
-      population: 1405290000,
-      region: "Asia",
-      capital: "New Delhi",
-    },
-    {
-      name: "Canada",
-      flag: "https://flagcdn.com/w320/ca.png",
-      population: 38005238,
-      region: "Americas",
-      capital: "Ottawa",
-    },
-  ];
-
-  // API URL : https://www.apicountries.com/countries
+  const [countries] = useState(countriesData.data);
 
   return (
     <div className={styles.wrapper}>
