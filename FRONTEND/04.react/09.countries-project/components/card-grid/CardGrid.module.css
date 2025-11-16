@@ -1,3 +1,59 @@
-.cardContainer {
+.wrapper {
+    padding: 1.5rem;
     background-color: rgb(46, 12, 90);
+}
+
+.grid {
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+}
+
+
+.card {
+    background: #fff;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+    transition: box-shadow 0.2s ease;
+}
+
+
+.card:hover {
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
+}
+
+
+.flag {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    display: block;
+}
+
+
+.content {
+    padding: 1rem;
+}
+
+
+.title {
+    margin: 0 0 0.5rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+
+.infoList {
+    font-size: 0.9rem;
+    color: #444;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+
+.label {
+    font-weight: 600;
+    color: #222;
 }
