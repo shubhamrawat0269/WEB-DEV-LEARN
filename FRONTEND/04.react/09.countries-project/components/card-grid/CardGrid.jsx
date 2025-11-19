@@ -3,7 +3,7 @@ import countriesData from "../../json/countriesData.json";
 import styles from "./CardGrid.module.css";
 import { useEffect, useState } from "react";
 
-const CardGrid = () => {
+const CardGrid = ({ queryText }) => {
   const [countries, setCountries] = useState([]);
 
   const handleFetchData = async () => {
@@ -19,9 +19,11 @@ const CardGrid = () => {
   return (
     <div className={styles.wrapper}>
       <div className={styles.grid}>
-        {countries.map((country) => (
-          <Card key={country.name.common} country={country.name} />
-        ))}
+        {countries
+          .filter((country) => country.name.common.includes(queryText))
+          .map((country) => (
+            <Card key={country.name.common} country={country.name} />
+          ))}
       </div>
     </div>
   );
