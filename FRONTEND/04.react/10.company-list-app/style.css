@@ -12,6 +12,13 @@ html{
     font-size: 62.5%;
 }
 
+.container{
+    padding: 5rem 0;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 2.5rem;
+}
+
 h1{
     font-size: 3rem;
     color: beige;

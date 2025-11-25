@@ -1,0 +1,76 @@
+.card {
+    width: 320px;
+    background: #ffffff;
+    border-radius: 18px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    cursor: pointer;
+
+    max-width: 1480px;
+    margin: 0 auto;
+    padding: 1.35rem;
+}
+
+.card:hover {
+    transform: translateY(-8px) scale(1.03);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.15);
+}
+
+.logoWrapper {
+    width: 100%;
+    height: 22rem;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 12px;
+}
+
+.logo {
+    width: inherit;
+    object-fit: cover;
+}
+
+.name {
+    font-size: 2rem;
+    font-weight: 700;
+    margin: 6px 0;
+    text-align: center;
+}
+
+.industry {
+    font-size: 2rem;
+    color: #555;
+    text-align: center;
+    margin-bottom: 16px;
+}
+
+.infoGrid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 6px;
+    font-size: 0.9rem;
+    color: #333;
+    margin-bottom: 16px;
+}
+
+strong {
+    font-size: 1.65rem;
+}
+
+.infoGrid p {
+    font-size: 1.5rem;
+}
+
+.button {
+    width: 100%;
+    padding: 1rem;
+    background: #007bff;
+    border: none;
+    color: #fff;
+    border-radius: 10px;
+    font-size: 1.35rem;
+    transition: background 0.25s ease;
+}
+
+.button:hover {
+    background: #005fcc;
+}

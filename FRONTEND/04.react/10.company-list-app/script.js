@@ -11,8 +11,6 @@ const router = createBrowserRouter([
 ]);
 
 const root = ReactDOM.createRoot(document.querySelector("#root"));
-
-// Companies API : --> https://json-placeholder.mock.beeceptor.com/companies
 // Single Company data : --> https://json-placeholder.mock.beeceptor.com/companies/1
 
 root.render(<RouterProvider router={router} />);
