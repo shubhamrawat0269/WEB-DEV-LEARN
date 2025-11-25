@@ -7,11 +7,7 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
-  },
-  {
-    path: "/contact",
-    element: <h1>Contact Page</h1>,
-  },
+  }
 ]);
 
 const root = ReactDOM.createRoot(document.querySelector("#root"));

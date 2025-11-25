@@ -1,5 +1,13 @@
+import CompaniesList from "./components/CompaniesList";
+import Header from "./components/Header";
+
 const App = () => {
-  return <div>App</div>;
+  return (
+    <>
+      <Header />
+      <CompaniesList />
+    </>
+  );
 };
 
 export default App;
