@@ -1,6 +1,9 @@
+import { useNavigate } from "react-router";
 import styles from "./CompanyCard.module.css";
 
 const CompanyCard = ({ company }) => {
+  const navigate = useNavigate();
+
   return (
     <div className={styles.card}>
       <div className={styles.logoWrapper}>
@@ -35,7 +38,9 @@ const CompanyCard = ({ company }) => {
         </p>
       </div>
 
-      <button className={styles.button}>View Company</button>
+      <button className={styles.button} onClick={() => navigate(`/${company.id}`)}>
+        View Company
+      </button>
     </div>
   );
 };
