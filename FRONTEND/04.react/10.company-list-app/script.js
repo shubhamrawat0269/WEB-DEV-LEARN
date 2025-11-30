@@ -1,20 +1,28 @@
 import "./style.css";
-import App from "./App";
+import AppLayout from "./App";
 import Error from "./components/Error";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router";
 import CompanyDetail from "./components/CompanyDetail";
+import Home from "./components/Home";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <App />,
+    element: <AppLayout />,
     errorElement: <Error />,
-  },
-  {
-    path: "/:id",
-    element: <CompanyDetail />,
-    errorElement: <Error />,
+    children: [
+      {
+        path: "/",
+        element: <Home />,
+        errorElement: <Error />,
+      },
+      {
+        path: "/:id",
+        element: <CompanyDetail />,
+        errorElement: <Error />,
+      },
+    ],
   },
 ]);
 

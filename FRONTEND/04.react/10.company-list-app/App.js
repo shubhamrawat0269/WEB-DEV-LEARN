@@ -1,13 +1,13 @@
-import CompaniesList from "./components/CompaniesList";
+import { Outlet } from "react-router";
 import Header from "./components/Header";
 
-const App = () => {
+const AppLayout = () => {
   return (
     <>
       <Header />
-      <CompaniesList />
+      <Outlet />
     </>
   );
 };
 
-export default App;
+export default AppLayout;
