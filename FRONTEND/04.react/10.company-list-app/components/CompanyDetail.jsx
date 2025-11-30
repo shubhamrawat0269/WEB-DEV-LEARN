@@ -1,8 +1,9 @@
-import { useParams } from "react-router";
+import { useSearchParams } from "react-router";
 import { useFetchData } from "../hooks/useFetchData";
 
-const dataDetail = () => {
-  const { id } = useParams();
+const CompanyDetail = () => {
+  const [searchParams] = useSearchParams();
+  const id = searchParams.get("id");
 
   const { data, loading, error } = useFetchData(
     `https://json-placeholder.mock.beeceptor.com/companies/${id}`
@@ -37,4 +38,4 @@ const dataDetail = () => {
   );
 };
 
-export default dataDetail;
+export default CompanyDetail;

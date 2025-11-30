@@ -18,7 +18,7 @@ const router = createBrowserRouter([
         errorElement: <Error />,
       },
       {
-        path: "/:id",
+        path: "/company",
         element: <CompanyDetail />,
         errorElement: <Error />,
       },
