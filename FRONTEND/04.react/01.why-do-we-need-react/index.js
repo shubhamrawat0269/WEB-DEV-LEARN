@@ -4,39 +4,29 @@ const buttonRight = document.querySelector(".shift-right");
 const buttonLeft = document.querySelector(".shift-left");
 
 const totalApples = 10;
-let transferApple = 0;
+let bucketOneApple = totalApples;
+let bucketTwoApple = 0;
 
-bucketOne.innerHTML = totalApples;
-bucketTwo.innerHTML = transferApple;
-buttonLeft.disabled = true;
 
-buttonRight.addEventListener("click", function () {
-  transferApple++;
-  let firstBucketApple = totalApples - transferApple;
-  console.log("First Bucket", firstBucketApple);
-  console.log("Second Bucket", transferApple);
+bucketOne.textContent = bucketOneApple;
+bucketTwo.textContent = bucketTwoApple;
 
-  bucketOne.textContent = firstBucketApple;
-  bucketTwo.textContent = transferApple;
-
-  if (transferApple === totalApples) {
-    buttonRight.disabled = true;
+buttonRight.addEventListener('click', function(){
+  if(bucketTwoApple < totalApples){
+    bucketOneApple--;
+    bucketTwoApple++;
+  
+    bucketOne.textContent = bucketOneApple;
+    bucketTwo.textContent = bucketTwoApple;
   }
-  if (firstBucketApple !== totalApples) buttonLeft.disabled = false;
-});
+})
 
-buttonLeft.addEventListener("click", function () {
-  transferApple--;
-  let firstBucketApple = totalApples - transferApple;
-  console.log("First Bucket", firstBucketApple);
-  console.log("Second Bucket", transferApple);
+buttonLeft.addEventListener('click', function(){
+  if(bucketOneApple < totalApples){
+    bucketOneApple++;
+    bucketTwoApple--;
 
-  bucketOne.textContent = firstBucketApple;
-  bucketTwo.textContent = transferApple;
-
-  if (transferApple !== totalApples) {
-    buttonRight.disabled = false;
+    bucketOne.textContent = bucketOneApple;
+    bucketTwo.textContent = bucketTwoApple;
   }
-
-  if (firstBucketApple === totalApples) buttonLeft.disabled = true;
-});
+})
