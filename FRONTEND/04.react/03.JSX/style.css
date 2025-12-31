@@ -1,0 +1,23 @@
+.header, ul{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+ul{
+    list-style: none;
+    gap: 2rem;
+}
+
+.btns-container{
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+button{
+    cursor: pointer;
+    border: none;
+    padding: 0.5rem 1.5rem;
+    border-radius: 10px;
+}
