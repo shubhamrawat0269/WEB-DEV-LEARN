@@ -1,7 +1,7 @@
 import ReactDOM from "react-dom/client";
 import "./style.css";
 
-function Card(product) {
+function Card({product}) {
   const {
     id,
     title,
@@ -63,7 +63,7 @@ fetch("https://dummyjson.com/products")
   .then((res) => res.json())
   .then((res) => {
     const productsList = res.products.map((product) => {
-      return Card(product);
+      return <Card product={product} key={product.id} />
     });
 
     const container = (
