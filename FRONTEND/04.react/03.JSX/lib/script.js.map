@@ -1,0 +1,30 @@
+{
+  "version": 3,
+  "file": "script.js",
+  "names": [
+    "primaryContainer",
+    "React",
+    "createElement",
+    "id",
+    "className",
+    "src",
+    "alt",
+    "type",
+    "console",
+    "log",
+    "root",
+    "ReactDOM",
+    "createRoot",
+    "document",
+    "querySelector",
+    "render"
+  ],
+  "sources": [
+    "../script.js"
+  ],
+  "sourcesContent": [
+    "// const primaryContainer = React.createElement(\r\n//   \"header\",\r\n//   { id: \"header-section\", key: 1, className: \"header\" },\r\n//   [\r\n//     React.createElement(\"div\", { key: 1, className: \"logo-container\" }, [\r\n//       React.createElement(\"img\", {\r\n//         key: 1,\r\n//         src: \"https://static.naukimg.com/s/0/0/i/ni-hamburger/nc_new_logo.svg\",\r\n//         alt: \"logo-image\",\r\n//       }),\r\n//     ]),\r\n//     React.createElement(\"ul\", { key: 2, className: \"menu-list\" }, [\r\n//       React.createElement(\r\n//         \"li\",\r\n//         {\r\n//           key: 1,\r\n//         },\r\n//         \"Prepare\"\r\n//       ),\r\n//       React.createElement(\r\n//         \"li\",\r\n//         {\r\n//           key: 2,\r\n//         },\r\n//         \"Participate\"\r\n//       ),\r\n//       React.createElement(\r\n//         \"li\",\r\n//         {\r\n//           key: 3,\r\n//         },\r\n//         \"Opportunities\"\r\n//       ),\r\n//       React.createElement(\"input\", {\r\n//         key: 4,\r\n//         type: \"text\",\r\n//       }),\r\n//     ]),\r\n//     React.createElement(\"div\", { key: 3, className: \"btns-container\" }, [\r\n//       React.createElement(\r\n//         \"button\",\r\n//         {\r\n//           key: 1,\r\n//         },\r\n//         \"Reminder\"\r\n//       ),\r\n//       React.createElement(\r\n//         \"button\",\r\n//         {\r\n//           key: 2,\r\n//         },\r\n//         \"Profile\"\r\n//       ),\r\n//     ]),\r\n//   ]\r\n// );\r\n\r\nconst primaryContainer = (\r\n  <header id=\"header-section\" className=\"header\">\r\n    <div className=\"logo-container\">\r\n      <img\r\n        src=\"https://static.naukimg.com/s/0/0/i/ni-hamburger/nc_new_logo.svg\"\r\n        alt=\"logo-image\"\r\n      />\r\n    </div>\r\n    <ul className=\"menu-list\">\r\n      <li>Prepare</li>\r\n      <li>Participate</li>\r\n      <li>Opportunities</li>\r\n      <input type=\"text\" />\r\n    </ul>\r\n    <div className=\"btns-container\">\r\n      <button>Reminder</button>\r\n      <button>Profile</button>\r\n    </div>\r\n  </header>\r\n);\r\n\r\nconsole.log(primaryContainer)\r\nconst root = ReactDOM.createRoot(document.querySelector(\"#main\"));\r\nroot.render(primaryContainer);\r\n"
+  ],
+  "mappings": ";;AAAA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;;AAEA,IAAMA,gBAAgB,gBACpBC,KAAA,CAAAC,aAAA;EAAQC,EAAE,EAAC,gBAAgB;EAACC,SAAS,EAAC;AAAQ,gBAC5CH,KAAA,CAAAC,aAAA;EAAKE,SAAS,EAAC;AAAgB,gBAC7BH,KAAA,CAAAC,aAAA;EACEG,GAAG,EAAC,iEAAiE;EACrEC,GAAG,EAAC;AAAY,CACjB,CACE,CAAC,eACNL,KAAA,CAAAC,aAAA;EAAIE,SAAS,EAAC;AAAW,gBACvBH,KAAA,CAAAC,aAAA,aAAI,SAAW,CAAC,eAChBD,KAAA,CAAAC,aAAA,aAAI,aAAe,CAAC,eACpBD,KAAA,CAAAC,aAAA,aAAI,eAAiB,CAAC,eACtBD,KAAA,CAAAC,aAAA;EAAOK,IAAI,EAAC;AAAM,CAAE,CAClB,CAAC,eACLN,KAAA,CAAAC,aAAA;EAAKE,SAAS,EAAC;AAAgB,gBAC7BH,KAAA,CAAAC,aAAA,iBAAQ,UAAgB,CAAC,eACzBD,KAAA,CAAAC,aAAA,iBAAQ,SAAe,CACpB,CACC,CACT;AAEDM,OAAO,CAACC,GAAG,CAACT,gBAAgB,CAAC;AAC7B,IAAMU,IAAI,GAAGC,QAAQ,CAACC,UAAU,CAACC,QAAQ,CAACC,aAAa,CAAC,OAAO,CAAC,CAAC;AACjEJ,IAAI,CAACK,MAAM,CAACf,gBAAgB,CAAC",
+  "ignoreList": []
+}

@@ -75,3 +75,4 @@ var primaryContainer = /*#__PURE__*/React.createElement("header", {
 console.log(primaryContainer);
 var root = ReactDOM.createRoot(document.querySelector("#main"));
 root.render(primaryContainer);
+//# sourceMappingURL=script.js.map
