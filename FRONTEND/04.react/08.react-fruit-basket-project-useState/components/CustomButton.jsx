@@ -1,6 +1,6 @@
 const CustomButton = ({ label, disableButton, dispatch}) => {
   return (
-    <button disabled={disableButton} onClick={dispatch}>{label}</button>
+    <button title={label} disabled={disableButton} onClick={dispatch}>{label}</button>
   )
 }
 
