@@ -7,7 +7,7 @@ const App = () => {
   const [rightBasketApple, setRightBasketApple] = React.useState(0);
 
   const handleLeftShift = () => {
-    setLeftBasketApple(leftBasketApple + 1);
+    setLeftBasketApple(leftBasketApple + 1); 
     setRightBasketApple(rightBasketApple - 1);
   }
 
