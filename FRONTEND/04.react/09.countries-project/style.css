@@ -180,3 +180,25 @@ html {
         background-position: 200% 0;
     }
 }
+
+body.dark {
+    background-color: hsl(207, 26%, 17%);
+    color: white;
+}
+
+body.dark .header-container,
+body.dark .search-input-container,
+body.dark .filter-select,
+body.dark .country-card,
+body.dark .search-input {
+    background-color: hsl(209, 23%, 22%);
+    color: white;
+}
+
+body.dark .country-card {
+    border: none;
+}
+
+body.dark .shimmer-card {
+    background-color: hsl(209, 23%, 22%);
+}
