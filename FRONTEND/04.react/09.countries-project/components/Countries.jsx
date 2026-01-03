@@ -1,13 +1,20 @@
 import Card from "./Card";
 import countriesData from "../countriesData";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import CountriesShimmer from "./CountriesShimmer";
 
 const Countries = ({ query, sortBy }) => {
   const [countries, setCountries] = useState([]);
 
-  setTimeout(() => {
-    setCountries(countriesData);
-  }, 3000);
+  useEffect(() => {
+    setTimeout(() => {
+      setCountries(countriesData);
+    }, 3000);
+  }, []);
+
+  if (!countries.length) {
+    return <CountriesShimmer />
+  }
 
   return (
     <div className="countries-container">

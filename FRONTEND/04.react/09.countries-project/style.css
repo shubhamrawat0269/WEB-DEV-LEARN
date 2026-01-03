@@ -126,3 +126,57 @@ html {
     margin-block: 0.5rem;
     font-size: 1.25rem;
 }
+
+.shimmer-card {
+    background-color: #fff;
+    cursor: default;
+    pointer-events: none;
+}
+
+.shimmer-card .flag-container {
+    height: 160px;
+    width: 100%;
+    margin-bottom: 24px;
+    background-color: #ccc;
+    background-image: linear-gradient(to right, #ccc 0%, #eee 50%, #ccc 100%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite linear;
+}
+
+.shimmer-card .card-text {
+    padding: 0 24px 24px;
+}
+
+.shimmer-card .card-text .card-title {
+    background-color: #ccc;
+    height: 30px;
+    width: 60%;
+    margin-bottom: 16px;
+    background-image: linear-gradient(to right, #ccc 0%, #eee 50%, #ccc 100%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite linear;
+}
+
+.shimmer-card .card-text p {
+    background-color: #ccc;
+    height: 20px;
+    width: 80%;
+    margin-bottom: 8px;
+    background-image: linear-gradient(to right, #ccc 0%, #eee 50%, #ccc 100%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite linear;
+}
+
+.shimmer-card .card-text p:last-child {
+    width: 50%;
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: -200% 0;
+    }
+
+    100% {
+        background-position: 200% 0;
+    }
+}
