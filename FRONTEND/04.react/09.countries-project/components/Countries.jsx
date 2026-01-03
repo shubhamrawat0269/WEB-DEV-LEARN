@@ -1,15 +1,19 @@
 import Card from "./Card";
+import countriesData from "../countriesData";
 
 const Countries = () => {
   return (
     <div className="countries-container">
-      <Card
-        name="Moldova"
-        flag="https://flagcdn.com/md.svg"
-        population={2617820}
-        region="Europe"
-        capital="Chișinău"
-      />
+      {countriesData.map((country) => (
+        <Card
+          key={country.name}
+          name={country.name}
+          flag={country.flag}
+          population={country.population}
+          region={country.region}
+          capital={country.capital}
+        />
+      ))}
     </div>
   )
 }
