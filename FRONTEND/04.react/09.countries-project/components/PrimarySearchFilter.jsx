@@ -1,6 +1,6 @@
 import { FaSearch } from "react-icons/fa";
 
-const PrimarySearchFilter = () => {
+const PrimarySearchFilter = ({ setQuery }) => {
   return (
     <div className="search-filter-container">
       <div className="search-input-container">
@@ -9,6 +9,7 @@ const PrimarySearchFilter = () => {
           type="text"
           placeholder="Search for a country..."
           className="search-input"
+          onChange={(e) => setQuery(e.target.value.toLowerCase())}
         />
       </div>
       <select className="filter-select">
