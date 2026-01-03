@@ -5,11 +5,12 @@ import { useState } from "react";
 
 const App = () => {
   const [query, setQuery] = useState('')
+  const [sortBy, setSortBy] = useState('')
   return (
     <>
       <Header />
-      <PrimarySearchFilter setQuery={setQuery} />
-      <Countries query={query} />
+      <PrimarySearchFilter setQuery={setQuery} setSortBy={setSortBy} />
+      <Countries query={query} sortBy={sortBy} />
     </>
   )
 }

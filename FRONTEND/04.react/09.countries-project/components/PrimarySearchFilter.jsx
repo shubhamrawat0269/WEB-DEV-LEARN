@@ -1,6 +1,6 @@
 import { FaSearch } from "react-icons/fa";
 
-const PrimarySearchFilter = ({ setQuery }) => {
+const PrimarySearchFilter = ({ setQuery, setSortBy }) => {
   return (
     <div className="search-filter-container">
       <div className="search-input-container">
@@ -12,12 +12,12 @@ const PrimarySearchFilter = ({ setQuery }) => {
           onChange={(e) => setQuery(e.target.value.toLowerCase())}
         />
       </div>
-      <select className="filter-select">
+      <select className="filter-select" onChange={(e) => setSortBy(e.target.value)}>
         <option value="" hidden>Filter by Region</option>
-        <option value="Africa">Africa</option>
-        <option value="America">America</option>
-        <option value="Asia">Asia</option>
         <option value="Europe">Europe</option>
+        <option value="Americas">Americas</option>
+        <option value="Asia">Asia</option>
+        <option value="Africa">Africa</option>
         <option value="Oceania">Oceania</option>
       </select>
     </div>
