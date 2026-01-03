@@ -14,12 +14,12 @@ export default function Header({ theme }) {
             isDark ? (
               <>
                 <CiLight />
-                &nbsp;&nbsp;Light Mode
+                &nbsp;Light Mode
               </>
             ) : (
               <>
                 <CiDark />
-                &nbsp;&nbsp;Dark Mode
+                &nbsp;Dark Mode
               </>
             )
           }
