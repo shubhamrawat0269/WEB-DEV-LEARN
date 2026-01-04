@@ -202,3 +202,10 @@ body.dark .country-card {
 body.dark .shimmer-card {
     background-color: hsl(209, 23%, 22%);
 }
+
+.error-page {
+    text-align: center;
+    margin-top: 50px;
+
+    font-size: 2.5rem;
+}
