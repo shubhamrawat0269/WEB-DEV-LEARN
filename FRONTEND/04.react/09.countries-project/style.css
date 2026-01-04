@@ -92,6 +92,12 @@ html {
     gap: 2rem;
 }
 
+.country-card-link {
+    text-decoration: none;
+    color: inherit;
+    display: inline-block;
+}
+
 .country-card {
     background-color: white;
     border-radius: 5px;
@@ -208,4 +214,92 @@ body.dark .shimmer-card {
     margin-top: 50px;
 
     font-size: 2.5rem;
+}
+
+.country-details-container {
+    max-width: 1200px;
+    margin: 3rem auto;
+    padding: 0 2rem;
+}
+
+.back-button {
+    padding: 8px 24px;
+    box-shadow: 0 0 6px 0px rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+    cursor: pointer;
+    display: inline-block;
+    margin-bottom: 3rem;
+    background-color: white;
+    transition: all 0.2s ease-in-out;
+}
+
+.back-button:hover {
+    transform: scale(1.05);
+}
+
+.country-details {
+    display: flex;
+    /* align-items: center; */
+    gap: 6rem;
+}
+
+.country-details img {
+    width: 40%;
+    box-shadow: 0 0 10px 0px rgba(0, 0, 0, 0.1);
+}
+
+.details-text-container {
+    width: 50%;
+}
+
+.details-text-container h1 {
+    margin-bottom: 2rem;
+}
+
+.details-text {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 3rem;
+    font-size: 1.65rem;
+}
+
+.border-countries {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.border-countries a {
+    padding: 5px 15px;
+    box-shadow: 0 0 4px 0px rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+    text-decoration: none;
+    color: inherit;
+    font-size: 14px;
+    background-color: white;
+}
+
+/* Dark mode support */
+body.dark .back-button,
+body.dark .border-countries a {
+    background-color: hsl(209, 23%, 22%);
+    color: white;
+}
+
+@media (max-width: 900px) {
+    .country-details {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 3rem;
+    }
+
+    .country-details img {
+        width: 60%;
+    }
+
+    .details-text-container {
+        width: 100%;
+    }
 }

@@ -2,6 +2,7 @@ import Card from "./Card";
 import countriesData from "../countriesData";
 import { useEffect, useState } from "react";
 import CountriesShimmer from "./CountriesShimmer";
+import { Link } from "react-router-dom";
 
 const Countries = ({ query, sortBy }) => {
   const [countries, setCountries] = useState([]);
@@ -24,14 +25,15 @@ const Countries = ({ query, sortBy }) => {
           if (country.region.includes(sortBy)) return country
         })
         .map((country) => (
-          <Card
-            key={country.name}
-            name={country.name}
-            flag={country.flag}
-            population={country.population}
-            region={country.region}
-            capital={country.capital}
-          />
+          <Link className="country-card-link" to={`/country?name=${country.name}`} key={country.name}>
+            <Card
+              name={country.name}
+              flag={country.flag}
+              population={country.population}
+              region={country.region}
+              capital={country.capital}
+            />
+          </Link>
         ))}
     </div>
   )
