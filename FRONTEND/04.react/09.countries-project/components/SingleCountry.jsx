@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { Link, useNavigate, useSearchParams } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import countriesData from '../countriesData'
 import { IoReturnUpBack } from "react-icons/io5";
 
@@ -7,19 +7,18 @@ import { IoReturnUpBack } from "react-icons/io5";
 export default function SingleCountry() {
   const [country, setCountry] = useState(null)
   const [notFound, setNotFound] = useState(false)
-  const navigate = useNavigate()
-  const [searchParams] = useSearchParams();
-  const name = searchParams.get('name');
+  const params = useParams();
+  const countryName = params.country;
 
   useEffect(() => {
-    const countryData = countriesData.find((c) => c.name.toLowerCase() === name?.toLowerCase())
+    const countryData = countriesData.find((c) => c.name.toLowerCase() === countryName?.toLowerCase())
     if (countryData) {
       setCountry(countryData)
       setNotFound(false)
     } else {
       setNotFound(true)
     }
-  }, [name])
+  }, [countryName])
 
   if (notFound) {
     return <div className="error-page">Country Not Found</div>
@@ -28,9 +27,9 @@ export default function SingleCountry() {
   return (
     <main>
       <div className="country-details-container">
-        <span className="back-button" onClick={() => navigate(-1)}>
+        <Link className="back-button" to={`/`}>
           <IoReturnUpBack /> Back
-        </span>
+        </Link>
         {country && (
           <div className="country-details">
             <img src={country.flag} alt={`${country.name} flag`} />
@@ -49,36 +48,10 @@ export default function SingleCountry() {
                   {country.region}
                 </p>
                 <p>
-                  <b>Sub Region: </b>
-                  {country.subregion}
-                </p>
-                <p>
                   <b>Capital: </b>
                   {country.capital}
                 </p>
-                <p>
-                  <b>Top Level Domain: </b>
-                  {country.topLevelDomain?.join(', ')}
-                </p>
-                <p>
-                  <b>Currencies: </b>
-                  {country.currencies?.map((c) => c.name).join(', ')}
-                </p>
-                <p>
-                  <b>Languages: </b>
-                  {country.languages?.map((l) => l.name).join(', ')}
-                </p>
               </div>
-              {country.borders && country.borders.length > 0 && (
-                <div className="border-countries">
-                  <b>Border Countries: </b>&nbsp;
-                  {country.borders.map((border) => (
-                    <Link key={border} to={`/country?name=${border}`}>
-                      {border}
-                    </Link>
-                  ))}
-                </div>
-              )}
             </div>
           </div>
         )}
