@@ -8,16 +8,8 @@ export default function SingleCountry() {
   const params = useParams();
   const countryName = params.country;
 
-  const languages = {
-    "eng": "English",
-    "hin": "Hindi",
-    "tam": "Tamil"
-  };
-
-
-  useEffect(async () => {
-
-    await fetch(`https://restcountries.com/v3.1/name/${countryName}?fullText=true`)
+  useEffect(() => {
+    fetch(`https://restcountries.com/v3.1/name/${countryName}?fullText=true`)
       .then((res) => res.json())
       .then(([data]) => {
         setCountry(data)
@@ -41,12 +33,12 @@ export default function SingleCountry() {
         </Link>
         {country && (
           <div className="country-details">
-            <img src={country.flags.svg} alt={`${country.name} flag`} />
+            <img src={country.flags.svg} alt={`${country.name.common} flag`} />
             <div className="details-text-container">
               <h1>{country.name.common}</h1>
               <div className="details-text">
                 <p>
-                  <b>Native Name: </b> {country.name.nativeName.eng.official || country.name}
+                  <b>Native Name: </b> {country.name.nativeName ? Object.values(country.name.nativeName)[0].common : country.name.common}
                 </p>
                 <p>
                   <b>Population: </b>
