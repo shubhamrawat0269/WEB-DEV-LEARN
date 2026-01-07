@@ -1,8 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
-import countriesData from '../countriesData'
 import { IoReturnUpBack } from "react-icons/io5";
-
 
 export default function SingleCountry() {
   const [country, setCountry] = useState(null)
@@ -10,14 +8,25 @@ export default function SingleCountry() {
   const params = useParams();
   const countryName = params.country;
 
-  useEffect(() => {
-    const countryData = countriesData.find((c) => c.name.toLowerCase() === countryName?.toLowerCase())
-    if (countryData) {
-      setCountry(countryData)
-      setNotFound(false)
-    } else {
-      setNotFound(true)
-    }
+  const languages = {
+    "eng": "English",
+    "hin": "Hindi",
+    "tam": "Tamil"
+  };
+
+
+  useEffect(async () => {
+
+    await fetch(`https://restcountries.com/v3.1/name/${countryName}?fullText=true`)
+      .then((res) => res.json())
+      .then(([data]) => {
+        setCountry(data)
+        setNotFound(false)
+      })
+      .catch((err) => {
+        console.error(err);
+        setNotFound(true)
+      })
   }, [countryName])
 
   if (notFound) {
@@ -32,12 +41,12 @@ export default function SingleCountry() {
         </Link>
         {country && (
           <div className="country-details">
-            <img src={country.flag} alt={`${country.name} flag`} />
+            <img src={country.flags.svg} alt={`${country.name} flag`} />
             <div className="details-text-container">
-              <h1>{country.name}</h1>
+              <h1>{country.name.common}</h1>
               <div className="details-text">
                 <p>
-                  <b>Native Name: </b> {country.nativeName || country.name}
+                  <b>Native Name: </b> {country.name.nativeName.eng.official || country.name}
                 </p>
                 <p>
                   <b>Population: </b>
@@ -48,8 +57,24 @@ export default function SingleCountry() {
                   {country.region}
                 </p>
                 <p>
+                  <b>Sub Region: </b>
+                  {country.subregion}
+                </p>
+                <p>
                   <b>Capital: </b>
-                  {country.capital}
+                  {country.capital[0]}
+                </p>
+                <p>
+                  <b>Top Level Domain: </b>
+                  {country.tld[0]}
+                </p>
+                {/* <p>
+                  <b>Currencies: </b>
+                  {country.capital[0]}
+                </p> */}
+                <p>
+                  <b>Languages: </b>
+                  {Object.keys(languages).map((lang) => languages[lang]).join(', ')}
                 </p>
               </div>
             </div>
