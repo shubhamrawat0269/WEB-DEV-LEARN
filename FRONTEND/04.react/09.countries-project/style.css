@@ -311,3 +311,55 @@ body.dark .border-countries a {
         width: 100%;
     }
 }
+
+/* Single Country Shimmer */
+
+.shimmer-container .shimmer-img {
+    height: 300px;
+    width: 400px;
+    background-color: #ccc;
+    background-image: linear-gradient(to right, #ccc 0%, #eee 50%, #ccc 100%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite linear;
+    box-shadow: 0 0 10px 0px rgba(0, 0, 0, 0.1);
+}
+
+.shimmer-container .shimmer-title {
+    background-color: #ccc;
+    height: 35px;
+    width: 250px;
+    margin-bottom: 2rem;
+    background-image: linear-gradient(to right, #ccc 0%, #eee 50%, #ccc 100%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite linear;
+}
+
+.shimmer-container .shimmer-line {
+    background-color: #ccc;
+    height: 20px;
+    width: 100%;
+    margin-bottom: 1rem;
+    background-image: linear-gradient(to right, #ccc 0%, #eee 50%, #ccc 100%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite linear;
+}
+
+.shimmer-button {
+    background-color: #ccc;
+    height: 35px;
+    width: 100px;
+    margin-bottom: 3rem;
+    background-image: linear-gradient(to right, #ccc 0%, #eee 50%, #ccc 100%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite linear;
+    box-shadow: 0 0 6px 0px rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+}
+
+body.dark .shimmer-container .shimmer-img,
+body.dark .shimmer-container .shimmer-title,
+body.dark .shimmer-container .shimmer-line,
+body.dark .shimmer-button {
+    background-color: hsl(209, 23%, 22%);
+    background-image: linear-gradient(to right, hsl(209, 23%, 22%) 0%, hsl(207, 26%, 17%) 50%, hsl(209, 23%, 22%) 100%);
+}

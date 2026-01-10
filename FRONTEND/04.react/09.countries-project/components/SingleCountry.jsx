@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { IoReturnUpBack } from "react-icons/io5";
+import SingleCountryShimmer from './SingleCountryShimmer';
 
 
 export default function SingleCountry() {
@@ -26,6 +27,10 @@ export default function SingleCountry() {
           languages: data.languages,
           borders: []
         })
+
+        if(!data.borders){
+          data.borders = [];
+        }
 
         const borderCountriesPromises = data.borders.map((border) => {
            return fetch(`https://restcountries.com/v3.1/alpha/${border}`)
@@ -57,7 +62,9 @@ export default function SingleCountry() {
         <Link className="back-button" to={`/`}>
           <IoReturnUpBack /> Back
         </Link>
-        {country && (
+        {country === null ? (
+          <SingleCountryShimmer />
+        ) : (
           <div className="country-details">
             <img src={country.flags.svg} alt={`${country.name} flag`} />
             <div className="details-text-container">
