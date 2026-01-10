@@ -239,7 +239,7 @@ body.dark .shimmer-card {
 
 .country-details {
     display: flex;
-    /* align-items: center; */
+    align-items: start;
     gap: 6rem;
 }
 
@@ -258,10 +258,14 @@ body.dark .shimmer-card {
 
 .details-text {
     display: flex;
-    flex-direction: column;
+    justify-content: space-between;
     gap: 1rem;
     margin-bottom: 3rem;
     font-size: 1.65rem;
+}
+
+.details-text p{
+    padding-bottom: 1rem;
 }
 
 .border-countries {
@@ -269,6 +273,10 @@ body.dark .shimmer-card {
     gap: 1rem;
     flex-wrap: wrap;
     align-items: center;
+}
+
+.border-countries b{
+    font-size: 1.5rem;
 }
 
 .border-countries a {

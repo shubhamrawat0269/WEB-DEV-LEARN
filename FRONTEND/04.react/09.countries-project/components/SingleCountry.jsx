@@ -63,7 +63,8 @@ export default function SingleCountry() {
             <div className="details-text-container">
               <h1>{country.name}</h1>
               <div className="details-text">
-                <p>
+                <div>
+                  <p>
                   <b>Native Name: </b> {country.nativeName}
                 </p>
                 <p>
@@ -78,7 +79,9 @@ export default function SingleCountry() {
                   <b>Sub Region: </b>
                   {country.subregion}
                 </p>
-                <p>
+                </div>
+                <div>
+                  <p>
                   <b>Capital: </b>
                   {country.capital}
                 </p>
@@ -94,13 +97,14 @@ export default function SingleCountry() {
                   <b>Languages: </b>
                   {Object.values(country.languages || {}).join(', ')}
                 </p>
-                  {country.borders.length !== 0 && (
-                  <div className="border-countries">
-                    <b>Borders Countries: </b>&nbsp;
-                    {country.borders.map((border) => <Link key={border} to={`/${border}`}>{border}</Link>)}
-                  </div>
-                  )}
+                </div>
               </div>
+                {country.borders.length !== 0 && (
+                <div className="border-countries">
+                  <b>Borders Countries: </b>&nbsp;
+                  {country.borders.map((border) => <Link key={border} to={`/${border}`}>{border}</Link>)}
+                </div>
+                )}
             </div>
           </div>
         )}
