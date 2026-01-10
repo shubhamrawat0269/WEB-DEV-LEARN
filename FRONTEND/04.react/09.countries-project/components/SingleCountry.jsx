@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { IoReturnUpBack } from "react-icons/io5";
 
+
 export default function SingleCountry() {
   const [country, setCountry] = useState(null)
   const [notFound, setNotFound] = useState(false)
@@ -12,15 +13,36 @@ export default function SingleCountry() {
     fetch(`https://restcountries.com/v3.1/name/${countryName}?fullText=true`)
       .then((res) => res.json())
       .then(([data]) => {
-        setCountry(data)
+        setCountry({
+          name: data.name.common,
+          flags: data.flags,
+          population: data.population,
+          region: data.region,
+          subregion: data.subregion,
+          capital: data.capital.join(', '),
+          nativeName: Object.values(data.name.nativeName)[0].official,
+          currency: Object.values(data.currencies)[0].name,
+          tld: data.tld.join(', '),
+          languages: data.languages,
+          borders: []
+        })
+
+        data.borders.map((border) => {
+           fetch(`https://restcountries.com/v3.1/alpha/${border}`)
+           .then((res) => res.json())
+           .then(([borderCountry]) => {
+            setCountry((preState) => ({...preState, borders: [...preState.borders, borderCountry.name.common ]}))
+           })
+        })
+
         setNotFound(false)
       })
       .catch((err) => {
         console.error(err);
         setNotFound(true)
       })
-  }, [countryName])
-
+    }, [countryName])
+    
   if (notFound) {
     return <div className="error-page">Country Not Found</div>
   }
@@ -33,12 +55,12 @@ export default function SingleCountry() {
         </Link>
         {country && (
           <div className="country-details">
-            <img src={country.flags.svg} alt={`${country.name.common} flag`} />
+            <img src={country.flags.svg} alt={`${country.name} flag`} />
             <div className="details-text-container">
-              <h1>{country.name.common}</h1>
+              <h1>{country.name}</h1>
               <div className="details-text">
                 <p>
-                  <b>Native Name: </b> {country.name.nativeName ? Object.values(country.name.nativeName)[0].common : country.name.common}
+                  <b>Native Name: </b> {country.nativeName}
                 </p>
                 <p>
                   <b>Population: </b>
@@ -54,20 +76,25 @@ export default function SingleCountry() {
                 </p>
                 <p>
                   <b>Capital: </b>
-                  {country.capital[0]}
+                  {country.capital}
                 </p>
                 <p>
                   <b>Top Level Domain: </b>
-                  {country.tld[0]}
+                  {country.tld}
                 </p>
-                {/* <p>
-                  <b>Currencies: </b>
-                  {country.capital[0]}
-                </p> */}
+                <p>
+                  <b>Currency: </b>
+                  {country.currency}
+                </p>
                 <p>
                   <b>Languages: </b>
-                  {Object.keys(languages).map((lang) => languages[lang]).join(', ')}
+                  {Object.values(country.languages || {}).join(', ')}
                 </p>
+                  country.borders.length !== 0 && (
+                  <div className="border-countries">
+                    <b>Borders Countries: </b>&nbsp;
+                    {country.borders.map((border) => <Link key={border} to={`/${border}`}>{border}</Link>)}
+                  </div>
               </div>
             </div>
           </div>
