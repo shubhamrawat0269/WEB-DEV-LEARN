@@ -26,7 +26,7 @@ const Countries = ({ query, sortBy }) => {
           if (country.region.includes(sortBy)) return country
         })
         .map((country) => (
-          <Link className="country-card-link" to={`/${country.name.common}`} key={country.name.common}>
+          <Link className="country-card-link" to={`/${country.name.common}`} key={country.name.common} state={country}>
             <Card
               name={country.name.common}
               flag={country.flags.svg}

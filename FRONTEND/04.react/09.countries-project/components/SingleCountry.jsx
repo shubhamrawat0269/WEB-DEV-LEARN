@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { Link, useParams } from 'react-router-dom'
+import { Link, useLocation, useParams } from 'react-router-dom'
 import { IoReturnUpBack } from "react-icons/io5";
 import SingleCountryShimmer from './SingleCountryShimmer';
 
@@ -10,40 +10,44 @@ export default function SingleCountry() {
   const params = useParams();
   const countryName = params.country;
 
+  function modifyCountry(data){
+    setCountry({
+      name: data.name.common,
+      flags: data.flags,
+      population: data.population,
+      region: data.region,
+      subregion: data.subregion,
+      capital: data.capital.join(', '),
+      nativeName: Object.values(data.name.nativeName)[0].official,
+      currency: Object.values(data.currencies)[0].name,
+      tld: data.tld.join(', '),
+      languages: data.languages,
+      borders: []
+    })
+
+    if(!data.borders){
+      data.borders = [];
+    }
+
+    const borderCountriesPromises = data.borders.map((border) => {
+        return fetch(`https://restcountries.com/v3.1/alpha/${border}`)
+        .then((res) => res.json())
+        .then(([borderCountry]) => borderCountry.name.common)
+    })
+
+    Promise.all(borderCountriesPromises)
+    .then((borders) => {
+      setCountry((preState) => ({...preState, borders}))
+    })
+
+    setNotFound(false)
+  }
+
   useEffect(() => {
     fetch(`https://restcountries.com/v3.1/name/${countryName}?fullText=true`)
       .then((res) => res.json())
       .then(([data]) => {
-        setCountry({
-          name: data.name.common,
-          flags: data.flags,
-          population: data.population,
-          region: data.region,
-          subregion: data.subregion,
-          capital: data.capital.join(', '),
-          nativeName: Object.values(data.name.nativeName)[0].official,
-          currency: Object.values(data.currencies)[0].name,
-          tld: data.tld.join(', '),
-          languages: data.languages,
-          borders: []
-        })
-
-        if(!data.borders){
-          data.borders = [];
-        }
-
-        const borderCountriesPromises = data.borders.map((border) => {
-           return fetch(`https://restcountries.com/v3.1/alpha/${border}`)
-           .then((res) => res.json())
-           .then(([borderCountry]) => borderCountry.name.common)
-        })
-
-        Promise.all(borderCountriesPromises)
-        .then((borders) => {
-          setCountry((preState) => ({...preState, borders}))
-        })
-
-        setNotFound(false)
+        modifyCountry(data);
       })
       .catch((err) => {
         console.error(err);
