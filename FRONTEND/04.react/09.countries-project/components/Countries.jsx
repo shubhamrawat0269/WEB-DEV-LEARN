@@ -1,16 +1,17 @@
 import Card from "./Card";
-import countriesData from "../countriesData";
+import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import CountriesShimmer from "./CountriesShimmer";
-import { Link } from "react-router-dom";
 
 const Countries = ({ query, sortBy }) => {
   const [countries, setCountries] = useState([]);
 
   useEffect(() => {
-    setTimeout(() => {
-      setCountries(countriesData);
-    }, 3000);
+    fetch(`https://restcountries.com/v3.1/all?fields=name,flags,population,region,capital`)
+      .then((res) => res.json())
+      .then((res) => {
+        setCountries(res);
+      })
   }, []);
 
   if (!countries.length) {
@@ -20,18 +21,18 @@ const Countries = ({ query, sortBy }) => {
   return (
     <div className="countries-container">
       {countries
-        .filter((country) => country.name.toLowerCase().includes(query))
+        .filter((country) => country.name.common.toLowerCase().includes(query))
         .filter((country) => {
           if (country.region.includes(sortBy)) return country
         })
         .map((country) => (
-          <Link className="country-card-link" to={`/${country.name}`} key={country.name}>
+          <Link className="country-card-link" to={`/${country.name.common}`} key={country.name.common}>
             <Card
-              name={country.name}
-              flag={country.flag}
+              name={country.name.common}
+              flag={country.flags.svg}
               population={country.population}
               region={country.region}
-              capital={country.capital}
+              capital={country.capital?.[0]}
             />
           </Link>
         ))}
