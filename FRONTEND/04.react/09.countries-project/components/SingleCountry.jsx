@@ -27,12 +27,15 @@ export default function SingleCountry() {
           borders: []
         })
 
-        data.borders.map((border) => {
-           fetch(`https://restcountries.com/v3.1/alpha/${border}`)
+        const borderCountriesPromises = data.borders.map((border) => {
+           return fetch(`https://restcountries.com/v3.1/alpha/${border}`)
            .then((res) => res.json())
-           .then(([borderCountry]) => {
-            setCountry((preState) => ({...preState, borders: [...preState.borders, borderCountry.name.common ]}))
-           })
+           .then(([borderCountry]) => borderCountry.name.common)
+        })
+
+        Promise.all(borderCountriesPromises)
+        .then((borders) => {
+          setCountry((preState) => ({...preState, borders}))
         })
 
         setNotFound(false)
@@ -42,6 +45,7 @@ export default function SingleCountry() {
         setNotFound(true)
       })
     }, [countryName])
+
     
   if (notFound) {
     return <div className="error-page">Country Not Found</div>
@@ -90,11 +94,12 @@ export default function SingleCountry() {
                   <b>Languages: </b>
                   {Object.values(country.languages || {}).join(', ')}
                 </p>
-                  country.borders.length !== 0 && (
+                  {country.borders.length !== 0 && (
                   <div className="border-countries">
                     <b>Borders Countries: </b>&nbsp;
                     {country.borders.map((border) => <Link key={border} to={`/${border}`}>{border}</Link>)}
                   </div>
+                  )}
               </div>
             </div>
           </div>
