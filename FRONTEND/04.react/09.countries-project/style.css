@@ -380,10 +380,43 @@ body.dark .border-countries a {
     border-radius: 4px;
 }
 
-body.dark .shimmer-container .shimmer-img,
-body.dark .shimmer-container .shimmer-title,
 body.dark .shimmer-container .shimmer-line,
 body.dark .shimmer-button {
     background-color: hsl(209, 23%, 22%);
     background-image: linear-gradient(to right, hsl(209, 23%, 22%) 0%, hsl(207, 26%, 17%) 50%, hsl(209, 23%, 22%) 100%);
+}
+
+@media (max-width: 1200px) {
+    .countries-container {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media (max-width: 992px) {
+    .countries-container {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .countries-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .countries-container {
+        grid-template-columns: 1fr;
+        padding-inline: 2rem;
+    }
+
+    .search-filter-container {
+     flex-direction: column;
+     gap: 2rem;
+    }
+
+    .search-input-container,
+    .filter-select{
+        width: 85%;
+    }
 }
