@@ -4,6 +4,7 @@ import AppLayout from "./Layout/AppLayout";
 import ErrorPage from "./components/ErrorPage";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import SingleCountry from "./components/SingleCountry";
+import { ThemeProvider } from "./context/ThemeContext";
 
 const router = createBrowserRouter([
   {
@@ -26,4 +27,8 @@ const router = createBrowserRouter([
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(<RouterProvider router={router} />);
+root.render(
+<ThemeProvider>
+  <RouterProvider router={router} />
+</ThemeProvider>
+);
