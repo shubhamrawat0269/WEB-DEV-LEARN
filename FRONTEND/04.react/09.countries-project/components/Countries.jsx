@@ -2,9 +2,10 @@ import Card from "./Card";
 import { Link } from "react-router-dom";
 import { useFetch } from "../hooks/useFetch";
 import CountriesShimmer from "./CountriesShimmer";
+import { ALL_COUNTRY_DATA_API } from "../utils/namespace";
 
 const Countries = ({ query, sortBy }) => {
-  const { data: countries, loading, error } = useFetch('https://restcountries.com/v3.1/all?fields=name,flags,population,region,capital')
+  const { data: countries, loading, error } = useFetch(ALL_COUNTRY_DATA_API)
 
   if (loading) {
     return <CountriesShimmer />
