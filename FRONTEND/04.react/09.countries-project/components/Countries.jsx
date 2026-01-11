@@ -1,21 +1,17 @@
 import Card from "./Card";
 import { Link } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useFetch } from "../hooks/useFetch";
 import CountriesShimmer from "./CountriesShimmer";
 
 const Countries = ({ query, sortBy }) => {
-  const [countries, setCountries] = useState([]);
+  const { data: countries, loading, error } = useFetch('https://restcountries.com/v3.1/all?fields=name,flags,population,region,capital')
 
-  useEffect(() => {
-    fetch(`https://restcountries.com/v3.1/all?fields=name,flags,population,region,capital`)
-      .then((res) => res.json())
-      .then((res) => {
-        setCountries(res);
-      })
-  }, []);
-
-  if (!countries.length) {
+  if (loading) {
     return <CountriesShimmer />
+  }
+
+  if (error) {
+    return <div style={{ textAlign: 'center' }}>Something went wrong! {error}</div>
   }
 
   return (
