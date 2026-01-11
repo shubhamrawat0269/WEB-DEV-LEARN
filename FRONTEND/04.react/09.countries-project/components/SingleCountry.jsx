@@ -5,6 +5,7 @@ import SingleCountryShimmer from './SingleCountryShimmer';
 import { useGlobalContext } from '../hooks/useGlobalContext';
 import { useFetch } from '../hooks/useFetch';
 import { updatedCountryData } from '../utils/shared-function.js';
+import { GET_SINGLE_COUNTRY_DETAILS } from '../utils/namespace.js';
 
 export default function SingleCountry() {
   const [country, setCountry] = useState(null)
@@ -12,7 +13,9 @@ export default function SingleCountry() {
   const { isDark } = useGlobalContext();
   const params = useParams();
   const countryName = params.country;
-  const { data : countryDetail, loading, error } = useFetch(`https://restcountries.com/v3.1/name/${countryName}?fullText=true`)
+  const GET_COUNRTRY_API = GET_SINGLE_COUNTRY_DETAILS(countryName);
+  
+  const { data : countryDetail, loading, error } = useFetch(GET_COUNRTRY_API)
 
   useEffect(() => {
     if(countryDetail) updatedCountryData(countryDetail[0], setCountry, setNotFound)
