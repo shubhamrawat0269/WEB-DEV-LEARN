@@ -4,6 +4,7 @@ import { IoReturnUpBack } from "react-icons/io5";
 import SingleCountryShimmer from './SingleCountryShimmer';
 import { useGlobalContext } from '../hooks/useGlobalContext';
 import { useFetch } from '../hooks/useFetch';
+import { updatedCountryData } from '../utils/shared-function.js';
 
 export default function SingleCountry() {
   const [country, setCountry] = useState(null)
@@ -11,46 +12,10 @@ export default function SingleCountry() {
   const { isDark } = useGlobalContext();
   const params = useParams();
   const countryName = params.country;
-
-  function modifyCountry(data){
-    setCountry({
-      name: data.name.common,
-      flags: data.flags,
-      population: data.population,
-      region: data.region,
-      subregion: data.subregion,
-      capital: data.capital.join(', '),
-      nativeName: Object.values(data.name.nativeName)[0].official,
-      currency: Object.values(data.currencies)[0].name,
-      tld: data.tld.join(', '),
-      languages: data.languages,
-      borders: []
-    })
-
-    if(!data.borders){
-      data.borders = [];
-    }
-
-    const borderCountriesPromises = data.borders.map((border) => {
-        return fetch(`https://restcountries.com/v3.1/alpha/${border}`)
-        .then((res) => res.json())
-        .then(([borderCountry]) => borderCountry.name.common)
-    })
-
-    Promise.all(borderCountriesPromises)
-    .then((borders) => {
-      setCountry((preState) => ({...preState, borders}))
-    })
-
-    setNotFound(false)
-  }
-
   const { data : countryDetail, loading, error } = useFetch(`https://restcountries.com/v3.1/name/${countryName}?fullText=true`)
 
   useEffect(() => {
-    if(countryDetail) {
-      modifyCountry(countryDetail[0])
-    }
+    if(countryDetail) updatedCountryData(countryDetail[0], setCountry, setNotFound)
   }, [countryDetail])
     
   if (loading) {
