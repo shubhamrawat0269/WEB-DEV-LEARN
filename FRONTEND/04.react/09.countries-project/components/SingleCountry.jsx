@@ -1,14 +1,13 @@
-import { useContext, useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { IoReturnUpBack } from "react-icons/io5";
 import SingleCountryShimmer from './SingleCountryShimmer';
-import { ThemeContext } from '../context/ThemeContext';
-
+import { useGlobalContext } from '../hooks/useGlobalContext';
 
 export default function SingleCountry() {
   const [country, setCountry] = useState(null)
   const [notFound, setNotFound] = useState(false)
-  const { isDark } = useContext(ThemeContext);
+  const { isDark } = useGlobalContext();
   const params = useParams();
   const countryName = params.country;
 

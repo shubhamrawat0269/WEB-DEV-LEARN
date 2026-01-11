@@ -1,12 +1,12 @@
 import Countries from "../components/Countries";
 import PrimarySearchFilter from "../components/PrimarySearchFilter";
-import { useContext, useState } from "react";
-import { ThemeContext } from "../context/ThemeContext";
+import { useState } from "react";
+import { useGlobalContext } from "../hooks/useGlobalContext";
 
 const Home = () => {
   const [query, setQuery] = useState('')
   const [sortBy, setSortBy] = useState('')
-  const { isDark } = useContext(ThemeContext);
+  const { isDark } = useGlobalContext();
 
   return (
     <main className={`${isDark && 'dark'}`}>

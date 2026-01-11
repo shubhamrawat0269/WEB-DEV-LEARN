@@ -1,10 +1,9 @@
-import { useContext } from "react";
 import Header from "../components/Header"
 import { Outlet } from "react-router-dom"
-import { ThemeContext } from "../context/ThemeContext";
+import { useGlobalContext } from "../hooks/useGlobalContext";
 
 const AppLayout = () => {
-  const { isDark, setIsDark } = useContext(ThemeContext);
+  const { isDark, setIsDark } = useGlobalContext();
 
   return (
     <>
