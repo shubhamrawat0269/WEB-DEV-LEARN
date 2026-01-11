@@ -3,6 +3,7 @@ import { Link, useParams } from 'react-router-dom'
 import { IoReturnUpBack } from "react-icons/io5";
 import SingleCountryShimmer from './SingleCountryShimmer';
 import { useGlobalContext } from '../hooks/useGlobalContext';
+import { useFetch } from '../hooks/useFetch';
 
 export default function SingleCountry() {
   const [country, setCountry] = useState(null)
@@ -44,20 +45,19 @@ export default function SingleCountry() {
     setNotFound(false)
   }
 
-  useEffect(() => {
-    fetch(`https://restcountries.com/v3.1/name/${countryName}?fullText=true`)
-      .then((res) => res.json())
-      .then(([data]) => {
-        modifyCountry(data);
-      })
-      .catch((err) => {
-        console.error(err);
-        setNotFound(true)
-      })
-    }, [countryName])
+  const { data : countryDetail, loading, error } = useFetch(`https://restcountries.com/v3.1/name/${countryName}?fullText=true`)
 
+  useEffect(() => {
+    if(countryDetail) {
+      modifyCountry(countryDetail[0])
+    }
+  }, [countryDetail])
     
-  if (notFound) {
+  if (loading) {
+    return <SingleCountryShimmer />
+  }
+
+  if (error || notFound) {
     return <div className="error-page">Country Not Found</div>
   }
 
