@@ -12,6 +12,10 @@ html {
     font-size: 62.5%;
 }
 
+main{
+    min-height: calc(100vh - 62px);
+}
+
 .header-container {
     box-shadow: 0 2px 4px 0px rgba(0, 0, 0, 0.1);
     padding-inline: 24px;
@@ -46,7 +50,8 @@ html {
     justify-content: space-between;
     align-items: center;
     max-width: 1440px;
-    margin: 2rem auto;
+    margin: 0 auto 2rem auto;
+    padding-top: 1.5rem;
 }
 
 .search-input-container {
@@ -188,25 +193,34 @@ html {
     }
 }
 
-body.dark {
+header.dark {
+    --body-bg-color: hsl(207, 26%, 17%);
+    --text-color: white;
+
+    background-color: var(--body-bg-color);
+    color: var(--text-color);
+}
+
+main.dark,
+main.dark .search-input-container,
+main.dark .filter-select,
+main.dark .country-card,
+main.dark .search-input {
+   background-color: hsl(209, 23%, 22%);
+   color: white; 
+}
+
+main.dark .country-card {
+    border: 1px solid hsl(207, 26%, 17%);
+}
+
+main.dark .border-countries a,
+main.dark .back-button{
+    color: white;
     background-color: hsl(207, 26%, 17%);
-    color: white;
 }
 
-body.dark .header-container,
-body.dark .search-input-container,
-body.dark .filter-select,
-body.dark .country-card,
-body.dark .search-input {
-    background-color: hsl(209, 23%, 22%);
-    color: white;
-}
-
-body.dark .country-card {
-    border: none;
-}
-
-body.dark .shimmer-card {
+main.dark .shimmer-card {
     background-color: hsl(209, 23%, 22%);
 }
 
@@ -219,8 +233,8 @@ body.dark .shimmer-card {
 
 .country-details-container {
     max-width: 1200px;
-    margin: 3rem auto;
-    padding: 0 2rem;
+    margin: 0 auto 3rem auto;
+    padding: 2rem;
 }
 
 .back-button {

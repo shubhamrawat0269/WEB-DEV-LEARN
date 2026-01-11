@@ -1,10 +1,10 @@
 import { CiLight, CiDark } from "react-icons/ci";
 
-export default function Header({ theme }) {
-  const [isDark, setIsDark] = theme
+export default function Header({theme}) {
+  const [isDark, setIsDark] = theme;
 
   return (
-    <header className="header-container">
+    <header className={`header-container ${isDark && 'dark'}`}>
       <div className="header-content">
         <h2 className="title">Where in the world?</h2>
         <div className="theme-changer" onClick={() => {

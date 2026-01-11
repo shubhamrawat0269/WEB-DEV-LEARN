@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { Link, useParams } from 'react-router-dom'
+import { Link, useOutletContext, useParams } from 'react-router-dom'
 import { IoReturnUpBack } from "react-icons/io5";
 import SingleCountryShimmer from './SingleCountryShimmer';
 
@@ -7,6 +7,7 @@ import SingleCountryShimmer from './SingleCountryShimmer';
 export default function SingleCountry() {
   const [country, setCountry] = useState(null)
   const [notFound, setNotFound] = useState(false)
+  const {isDark} = useOutletContext()
   const params = useParams();
   const countryName = params.country;
 
@@ -61,7 +62,7 @@ export default function SingleCountry() {
   }
 
   return (
-    <main>
+    <main className={`${isDark && 'dark'}`}>
       <div className="country-details-container">
         <Link className="back-button" to={`/`}>
           <IoReturnUpBack size={16} /> Back
