@@ -1,5 +1,23 @@
-import ReactDOM from 'react-dom/client'
+import ReactDOM from 'react-dom/client';
+import AppLayout from "./layout/AppLayout";
+import ErrorPage from "./pages/ErrorPage";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import Home from './pages/Home';
 
-const root = ReactDOM.createRoot(document.querySelector('#root'))
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <AppLayout />,
+    errorElement: <ErrorPage />,
+    children: [
+      {
+        path: "/",
+        element: <Home />,
+        errorElement: <ErrorPage />,
+      }
+    ]
+  },
+]);
 
-root.render('App Component');
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<RouterProvider router={router} />);
