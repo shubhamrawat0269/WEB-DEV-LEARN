@@ -4,24 +4,23 @@ const ExpenseTracker = () => {
   const [title, setTitle] = useState("");
   const [category, setCategory] = useState("");
   const [amount, setAmount] = useState(0);
+  const [expenses, setExpenses] = useState([]);
+  const [totalExpense, setTotalExpense] = useState(0);
 
-  // Static UI data (example)
-//   const expenses = [
-//     { title: "Groceries", category: "Food", amount: 2500 },
-//     { title: "Electricity Bill", category: "Bills", amount: 3200 },
-//     { title: "Internet", category: "Utilities", amount: 2400 },
-//   ];
+  function handleSubmitForm(e){
+    e.preventDefault();
 
-
-  const expenses = [];
-  const totalExpense = 8100;
+    const expense = {title, category, amount};
+    setExpenses((prevState) => [...prevState, expense]);
+    setTotalExpense((prevState) => Number(prevState) + Number(amount));
+  }
 
   return (
     <div className="expense-container">
       <h1 className="expense-title">Expense Tracker</h1>
 
       {/* Input Section */}
-      <div className="expense-form">
+      <form className="expense-form" onSubmit={handleSubmitForm}>
         <input
           type="text"
           placeholder="Expense Title"
@@ -42,7 +41,7 @@ const ExpenseTracker = () => {
         />
 
         <button className="add-btn">Add</button>
-      </div>
+      </form>
 
       {/* Table Section */}
       <table className="expense-table">
