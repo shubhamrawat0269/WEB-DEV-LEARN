@@ -10,9 +10,14 @@ const ExpenseTracker = () => {
   function handleSubmitForm(e){
     e.preventDefault();
 
-    const expense = {title, category, amount};
-    setExpenses((prevState) => [...prevState, expense]);
-    setTotalExpense((prevState) => Number(prevState) + Number(amount));
+    if(title && category && amount){
+      const expense = {title, category, amount};
+      setExpenses((prevState) => [...prevState, expense]);
+      setTotalExpense((prevState) => Number(prevState) + Number(amount));
+      setTitle('');
+      setCategory('');
+      setAmount(0);
+    }
   }
 
   return (
@@ -48,7 +53,16 @@ const ExpenseTracker = () => {
         <thead>
           <tr>
             <th>Title</th>
-            <th>Category</th>
+            <th>
+              <select id="category">
+                <option value="" hidden>Select Category</option>
+                <option value="grocery">Grocery</option>
+                <option value="clothes">Clothes</option>
+                <option value="bills">Bills</option>
+                <option value="education">Education</option>
+                <option value="medicine">Medicine</option>
+              </select>
+            </th>
             <th>Amount (₹)</th>
           </tr>
         </thead>
