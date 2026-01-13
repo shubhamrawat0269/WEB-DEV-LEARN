@@ -67,13 +67,22 @@ const ExpenseTracker = () => {
           </tr>
         </thead>
         <tbody>
-          {expenses.map((item, index) => (
-            <tr key={index}>
-              <td>{item.title}</td>
-              <td>{item.category}</td>
-              <td>{item.amount}</td>
+
+          {expenses.length === 0 ? (
+            <tr>
+              <td className="text-center" colSpan="3">
+                No Data
+              </td>
             </tr>
-          ))}
+          ) : (
+            expenses.map((item, index) => (
+              <tr key={index}>
+                <td>{item.title}</td>
+                <td>{item.category}</td>
+                <td>{item.amount}</td>
+              </tr>
+            ))
+          )}
         </tbody>
       </table>
 
