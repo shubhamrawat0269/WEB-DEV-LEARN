@@ -1,20 +1,23 @@
 import { useState } from "react";
 
-const ExpenseTracker = () => {
-    const [expenses, setExpenses] = useState([]);
-    const [totalExpense, setTotalExpense] = useState(0);
+const ExpenseTrackerControlled = () => {
+  const [title, setTitle] = useState("");
+  const [category, setCategory] = useState("");
+  const [amount, setAmount] = useState(0);
+  const [expenses, setExpenses] = useState([]);
+  const [totalExpense, setTotalExpense] = useState(0);
 
   function handleSubmitForm(e){
     e.preventDefault();
 
-    const formData = new FormData(e.target);
-    let expense = {};
-    for(let [key, value] of formData.entries()){
-      expense[key] = value;
+    if(title && category && amount){
+      const expense = {title, category, amount};
+      setExpenses((prevState) => [...prevState, expense]);
+      setTotalExpense((prevState) => Number(prevState) + Number(amount));
+      setTitle('');
+      setCategory('');
+      setAmount(0);
     }
-    
-    setExpenses((prevState) => [...prevState, expense]);
-    setTotalExpense((prevState) => Number(prevState) + Number(expense.amount));
   }
 
   return (
@@ -26,17 +29,20 @@ const ExpenseTracker = () => {
         <input
           type="text"
           placeholder="Expense Title"
-          name="title"
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
         />
         <input
           type="text"
           placeholder="Category"
-          name="category"
+          value={category}
+          onChange={(e) => setCategory(e.target.value)}
         />
         <input
           type="number"
           placeholder="Amount"
-          name="amount"
+          value={amount}
+          onChange={(e) => setAmount(e.target.value)}
         />
 
         <button className="add-btn">Add</button>
@@ -61,7 +67,8 @@ const ExpenseTracker = () => {
           </tr>
         </thead>
         <tbody>
-        {expenses.length === 0 ? (
+
+          {expenses.length === 0 ? (
             <tr>
               <td className="text-center" colSpan="3">
                 No Data
@@ -87,4 +94,4 @@ const ExpenseTracker = () => {
   );
 };
 
-export default ExpenseTracker;
+export default ExpenseTrackerControlled;
