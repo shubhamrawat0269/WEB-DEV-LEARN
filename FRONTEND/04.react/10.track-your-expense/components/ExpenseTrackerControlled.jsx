@@ -6,6 +6,7 @@ const ExpenseTrackerControlled = () => {
   const [amount, setAmount] = useState(0);
   const [expenses, setExpenses] = useState([]);
   const [totalExpense, setTotalExpense] = useState(0);
+  const [selectedCategory, setSelectedCategory] = useState('');
 
   function handleSubmitForm(e){
     e.preventDefault();
@@ -54,7 +55,7 @@ const ExpenseTrackerControlled = () => {
           <tr>
             <th>Title</th>
             <th>
-              <select id="category">
+              <select id="category" onChange={(e) => setSelectedCategory(e.target.value)}>
                 <option value="" hidden>Select Category</option>
                 <option value="grocery">Grocery</option>
                 <option value="clothes">Clothes</option>
@@ -75,7 +76,9 @@ const ExpenseTrackerControlled = () => {
               </td>
             </tr>
           ) : (
-            expenses.map((item, index) => (
+            expenses
+            .filter((item) => item.category.toLowerCase().includes(selectedCategory))
+            .map((item, index) => (
               <tr key={index}>
                 <td>{item.title}</td>
                 <td>{item.category}</td>
