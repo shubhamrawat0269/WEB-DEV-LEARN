@@ -55,6 +55,10 @@ const ExpenseTrackerControlled = () => {
           <tr>
             <th>Title</th>
             <th>
+              {
+                expenses.length === 0 ? (
+                  <>Category</>
+                ) : (
               <select id="category" onChange={(e) => setSelectedCategory(e.target.value)}>
                 <option value="" hidden>Select Category</option>
                 <option value="grocery">Grocery</option>
@@ -63,6 +67,8 @@ const ExpenseTrackerControlled = () => {
                 <option value="education">Education</option>
                 <option value="medicine">Medicine</option>
               </select>
+                )
+              }
             </th>
             <th>Amount (₹)</th>
           </tr>
