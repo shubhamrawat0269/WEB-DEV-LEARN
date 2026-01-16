@@ -1,23 +1,38 @@
 import { useState } from "react";
+import ExpenseTrackerForm from "./ExpenseTrackerForm";
+import ExpenseTrackerTable from "./ExpenseTrackerTable";
+import ExpenseTrackerTotal from "./ExpenseTrackerTotal";
 
 const ExpenseTrackerControlled = () => {
-  const [title, setTitle] = useState("");
-  const [category, setCategory] = useState("");
-  const [amount, setAmount] = useState(0);
   const [expenses, setExpenses] = useState([]);
   const [totalExpense, setTotalExpense] = useState(0);
   const [selectedCategory, setSelectedCategory] = useState('');
 
+  const [expense, setExpense] = useState({
+    title: '',
+    category: '',
+    amount: '',
+    totalExpense: 0,
+    selectedCategory: ''
+  })
+
   function handleSubmitForm(e){
     e.preventDefault();
 
-    if(title && category && amount){
-      const expense = {title, category, amount};
-      setExpenses((prevState) => [...prevState, expense]);
-      setTotalExpense((prevState) => Number(prevState) + Number(amount));
-      setTitle('');
-      setCategory('');
-      setAmount(0);
+    if(expense.title && expense.category && expense.amount){
+      const expenseDetails = {
+        title: expense.title, 
+        category: expense.category, 
+        amount: expense.amount
+      };
+      setExpenses((prevState) => [...prevState, expenseDetails]);
+      setTotalExpense((prevState) => Number(prevState) + Number(expenseDetails.amount));
+      setExpense((preState) => ({
+        ...preState,
+        title: '',
+        category: '',
+        amount: '',
+      }))
     }
   }
 
@@ -25,80 +40,21 @@ const ExpenseTrackerControlled = () => {
     <div className="expense-container">
       <h1 className="expense-title">Expense Tracker</h1>
 
-      {/* Input Section */}
-      <form className="expense-form" onSubmit={handleSubmitForm}>
-        <input
-          type="text"
-          placeholder="Expense Title"
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
-        />
-        <input
-          type="text"
-          placeholder="Category"
-          value={category}
-          onChange={(e) => setCategory(e.target.value)}
-        />
-        <input
-          type="number"
-          placeholder="Amount"
-          value={amount}
-          onChange={(e) => setAmount(e.target.value)}
-        />
+      <ExpenseTrackerForm 
+       expense={expense} 
+       dispatch={setExpense} 
+       dispatchHandler={handleSubmitForm} 
+      />
 
-        <button className="add-btn">Add</button>
-      </form>
+      <ExpenseTrackerTable 
+       expenses={expenses}
+       selectedCategory={selectedCategory}
+       dispatchSelectedCategory={setSelectedCategory}
+      />
 
-      {/* Table Section */}
-      <table className="expense-table">
-        <thead>
-          <tr>
-            <th>Title</th>
-            <th>
-              {
-                expenses.length === 0 ? (
-                  <>Category</>
-                ) : (
-              <select id="category" onChange={(e) => setSelectedCategory(e.target.value)}>
-                <option value="" hidden>Select Category</option>
-                <option value="grocery">Grocery</option>
-                <option value="clothes">Clothes</option>
-                <option value="bills">Bills</option>
-                <option value="education">Education</option>
-                <option value="medicine">Medicine</option>
-              </select>
-                )
-              }
-            </th>
-            <th>Amount (₹)</th>
-          </tr>
-        </thead>
-        <tbody>
-
-          {expenses.length === 0 ? (
-            <tr>
-              <td className="text-center" colSpan="3">
-                No Data
-              </td>
-            </tr>
-          ) : (
-            expenses
-            .filter((item) => item.category.toLowerCase().includes(selectedCategory))
-            .map((item, index) => (
-              <tr key={index}>
-                <td>{item.title}</td>
-                <td>{item.category}</td>
-                <td>{item.amount}</td>
-              </tr>
-            ))
-          )}
-        </tbody>
-      </table>
-
-      {/* Total */}
-      <div className="total-expense">
-        <strong>Total Expense:</strong> ₹{totalExpense}
-      </div>
+       <ExpenseTrackerTotal 
+        totalExpense={totalExpense}
+       />
     </div>
   );
 };
