@@ -1,9 +1,11 @@
+import Common from "./components/Common"
 import ExpenseTrackerControlled from "./components/ExpenseTrackerControlled"
 
 const App = () => {
   return (
   <>
-    <ExpenseTrackerControlled />
+    {/* <ExpenseTrackerControlled /> */}
+    <Common />
   </>
   )
 }
