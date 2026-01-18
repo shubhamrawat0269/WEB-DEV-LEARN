@@ -8,6 +8,22 @@ const RegisterForm = () => {
   });
 
   const [isSubmitted, setSubmitted] = useState(false);
+  const [errors, setErrors] = useState({});
+
+  function validateData(data) {
+    const errorData = {};
+    if (!data.name) {
+      errorData["name"] = "name field is required";
+    }
+    if (!data.email) {
+      errorData["email"] = "email field is required";
+    }
+    if (!data.password) {
+      errorData["password"] = "password field is required";
+    }
+
+    return errorData;
+  }
 
   function handleInputChange(e) {
     const { name, value } = e.target;
@@ -19,14 +35,9 @@ const RegisterForm = () => {
 
   function handleSubmitForm(e) {
     e.preventDefault();
-
-    console.log(formData)
-    if (!formData.name || !formData.email || !formData.password) {
-      alert("All fields are required!");
-      return;
-    }
-
-    setSubmitted(true);
+    const errorMessages = validateData(formData);
+    console.log(errorMessages);
+    Object.keys(errorMessages).length === 0 ? setSubmitted(true) : alert('Some Field missing in form')
   }
 
   return (
