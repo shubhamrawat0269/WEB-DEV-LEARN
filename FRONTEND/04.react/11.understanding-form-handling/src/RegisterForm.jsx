@@ -21,7 +21,7 @@ const RegisterForm = () => {
     if (!data.password) {
       errorData["password"] = "password field is required";
     }
-
+    setErrors(errorData);
     return errorData;
   }
 
@@ -31,45 +31,67 @@ const RegisterForm = () => {
       ...preState,
       [name]: value,
     }));
+
+    delete errors[name];
   }
 
   function handleSubmitForm(e) {
     e.preventDefault();
     const errorMessages = validateData(formData);
-    console.log(errorMessages);
-    Object.keys(errorMessages).length === 0 ? setSubmitted(true) : alert('Some Field missing in form')
+    if(Object.keys(errorMessages).length === 0){
+      setSubmitted(true)
+    }
   }
 
   return (
-    <div>
-      <form onSubmit={handleSubmitForm}>
+    <div className="register-container">
+      <form className="register-form" onSubmit={handleSubmitForm}>
+        <div>
+        <label htmlFor="name">Name</label>
         <input
+          className="input-field"
           type="text"
           name="name"
           value={formData.name}
           onChange={handleInputChange}
           placeholder="enter name"
         />
+        <p>{errors.name}</p>
+        </div>
+
+        <div>
+          <label htmlFor="name">Email</label>
         <input
+          className="input-field"
           type="text"
           name="email"
           value={formData.email}
           onChange={handleInputChange}
           placeholder="enter email"
         />
+        <p>{errors.email}</p>
+        </div>
+
+        <div>
+          <label htmlFor="name">Password</label>
         <input
+          className="input-field"
           type="password"
           name="password"
           value={formData.password}
           onChange={handleInputChange}
           placeholder="enter password"
         />
+        <p>{errors.password}</p>
+        </div>
 
-        <button type="register">Register</button>
+        <button className="submit-btn" type="submit">
+          Register
+        </button>
       </form>
 
       {isSubmitted && (
-        <div>
+        <div className="submitted-data">
           <h3>Submitted Data:</h3>
           <p>Name: {formData.name}</p>
           <p>Email: {formData.email}</p>
