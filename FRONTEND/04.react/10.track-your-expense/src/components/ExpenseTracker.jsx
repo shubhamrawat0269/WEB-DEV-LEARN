@@ -1,7 +1,6 @@
 import { useState } from "react";
 
 const ExpenseTracker = () => {
-  // Dummy Data
   const [expenses, setExpenses] = useState([
     { id: 1, title: "Grocery Shopping", category: "Food", amount: 120 },
     {
@@ -25,14 +24,16 @@ const ExpenseTracker = () => {
   const [sortOrder, setSortOrder] = useState("asc");
 
   // Derived State
-  const filteredExpenses = expenses
-    .filter(
-      (expense) =>
-        categoryFilter === "All" || expense.category === categoryFilter,
-    )
-    .sort((a, b) => {
-      return sortOrder === "asc" ? a.amount - b.amount : b.amount - a.amount;
-    });
+  //   const filteredExpenses = expenses
+  //     .filter(
+  //       (expense) =>
+  //         categoryFilter === "All" || expense.category === categoryFilter,
+  //     )
+  //     .sort((a, b) => {
+  //       return sortOrder === "asc" ? a.amount - b.amount : b.amount - a.amount;
+  //     });
+
+  const filteredExpenses = expenses;
 
   const totalAmount = expenses.reduce(
     (sum, expense) => sum + expense.amount,
