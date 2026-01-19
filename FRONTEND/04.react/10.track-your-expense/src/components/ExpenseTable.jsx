@@ -48,7 +48,7 @@ const ExpenseTable = ({
                 <td>
                   <span className="category-badge">{expense.category}</span>
                 </td>
-                <td>${expense.amount.toFixed(2)}</td>
+                <td>₹{expense.amount.toFixed(2)}</td>
               </tr>
             ))
           ) : (

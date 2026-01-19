@@ -1,4 +1,5 @@
 const ExpenseForm = ({
+  errors,
   expense,
   categories,
   handleOnChange,
@@ -18,6 +19,7 @@ const ExpenseForm = ({
             value={expense.title}
             onChange={handleOnChange}
           />
+          <p className="error-message">{errors.title}</p>
         </div>
 
         <div className="input-group">
@@ -37,6 +39,7 @@ const ExpenseForm = ({
               </option>
             ))}
           </select>
+          <p className="error-message">{errors.category}</p>
         </div>
 
         <div className="input-group">
@@ -49,6 +52,7 @@ const ExpenseForm = ({
             value={expense.amount}
             onChange={handleOnChange}
           />
+          <p className="error-message">{errors.amount}</p>
         </div>
 
         <button type="submit" className="add-btn">

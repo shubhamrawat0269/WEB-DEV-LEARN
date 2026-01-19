@@ -49,6 +49,16 @@ body {
   color: var(--text-primary);
 }
 
+.error-message{
+  font-size: 0.65rem;
+  color: #ef4444;
+  font-weight: 500;
+  margin: 0;
+
+  position: absolute;
+  bottom: -1rem;
+}
+
 /* Total Balance Card */
 .total-balance-card {
   background: linear-gradient(135deg, var(--primary-color), var(--primary-hover));
@@ -81,6 +91,7 @@ body {
   border-radius: var(--radius);
   box-shadow: var(--shadow-md);
   border: 1px solid var(--border-color);
+  padding-bottom: 2.5rem;
 }
 
 .form-title {
@@ -100,7 +111,8 @@ body {
 .input-group {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 0.25rem;
+  position: relative;
 }
 
 .input-group label {

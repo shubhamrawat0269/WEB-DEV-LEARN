@@ -4,25 +4,8 @@ import TotalBalance from "./TotalBalance";
 import ExpenseForm from "./ExpenseForm";
 import ExpenseTable from "./ExpenseTable";
 
-// { id: 1, title: "Grocery Shopping", category: "Food", amount: 120 },
-//     {
-//       id: 2,
-//       title: "Netflix Subscription",
-//       category: "Entertainment",
-//       amount: 15,
-//     },
-//     { id: 3, title: "Electricity Bill", category: "Utilities", amount: 85 },
-//     { id: 4, title: "New Keyboard", category: "Technology", amount: 150 },
-//     { id: 5, title: "Gym Membership", category: "Health", amount: 50 },
-
 const ExpenseTracker = () => {
   const [expenses, setExpenses] = useState([]);
-
-  // Form States
-  const [title, setTitle] = useState("");
-  const [category, setCategory] = useState("");
-  const [amount, setAmount] = useState("");
-
   const [expense, setExpense] = useState({
     title: "",
     category: "",
@@ -30,8 +13,15 @@ const ExpenseTracker = () => {
   });
 
   // Filter & Sort States
-  const [categoryFilter, setCategoryFilter] = useState("All");
   const [sortOrder, setSortOrder] = useState("asc");
+  const [errors, setErrors] = useState({});
+  const [categoryFilter, setCategoryFilter] = useState("All");
+
+  const validateConfig = {
+    title: [{ required: true, message: "title field is required" }],
+    category: [{ required: true, message: "category field is required" }],
+    amount: [{ required: true, message: "amount field is required" }],
+  };
 
   // Derived State
   //   const filteredExpenses = expenses
@@ -57,10 +47,26 @@ const ExpenseTracker = () => {
       ...preState,
       [id]: value,
     }));
+
+    setErrors({})
+  };
+
+  const validateInputs = (data) => {
+    const errorObj = {};
+    Object.entries(data).forEach(([key, value]) => {
+      validateConfig[key].forEach((rule) => {
+        if(rule.required && !value) errorObj[key] = rule.message;
+      })
+    });
+
+    // console.log(errorObj)
+    setErrors(errorObj);
+    return errorObj;
   };
 
   const handleAddExpense = (e) => {
     e.preventDefault();
+    validateInputs(expense);
     if (!expense.title || !expense.category || !expense.amount) return;
 
     const newExpense = {
@@ -93,7 +99,7 @@ const ExpenseTracker = () => {
   ];
 
   return (
-    <div className="expense-tracker-container">
+    <section className="expense-tracker-container">
       {/* Expense Heacher */}
       <ExpenseHeader />
       {/* Total Balance */}
@@ -101,11 +107,11 @@ const ExpenseTracker = () => {
       {/* Expense Form */}
       <ExpenseForm
         expense={expense}
+        errors={errors}
         categories={categories}
         handleAddExpense={handleAddExpense}
         handleOnChange={handleOnChange}
       />
-
       {/* Expense Table */}
       <ExpenseTable
         categories={categories}
@@ -115,7 +121,7 @@ const ExpenseTracker = () => {
         categoryFilter={categoryFilter}
         setCategoryFilter={setCategoryFilter}
       />
-    </div>
+    </section>
   );
 };
 
