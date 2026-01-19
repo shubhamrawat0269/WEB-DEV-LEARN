@@ -18,9 +18,15 @@ const ExpenseTracker = () => {
   const [categoryFilter, setCategoryFilter] = useState("All");
 
   const validateConfig = {
-    title: [{ required: true, message: "title field is required" }],
+    title: [
+      { required: true, message: "title field is required" },
+      { maxLength: 5, message: "title max length should be > 5" },
+    ],
     category: [{ required: true, message: "category field is required" }],
-    amount: [{ required: true, message: "amount field is required" }],
+    amount: [
+      { required: true, message: "amount field is required" },
+      { maxAmount: 40, message: "max amount allowed must > 40" },
+    ],
   };
 
   // Derived State
@@ -48,26 +54,38 @@ const ExpenseTracker = () => {
       [id]: value,
     }));
 
-    setErrors({})
+    setErrors({});
   };
 
   const validateInputs = (data) => {
     const errorObj = {};
     Object.entries(data).forEach(([key, value]) => {
-      validateConfig[key].forEach((rule) => {
-        if(rule.required && !value) errorObj[key] = rule.message;
-      })
+      validateConfig[key].some((rule) => {
+        if (rule.required && !value) {
+          errorObj[key] = rule.message;
+          return true;
+        }
+        if (rule.maxLength && value.length < 5) {
+          errorObj[key] = rule.message;
+          return true;
+        }
+        
+        if (rule.maxAmount && value <= 40) {
+          errorObj[key] = rule.message;
+          return true;
+        }
+      });
     });
 
-    // console.log(errorObj)
+    // console.log(errorObj);
     setErrors(errorObj);
     return errorObj;
   };
 
   const handleAddExpense = (e) => {
     e.preventDefault();
-    validateInputs(expense);
-    if (!expense.title || !expense.category || !expense.amount) return;
+    const validErrors = validateInputs(expense);
+    if (Object.keys(validErrors).length !== 0) return;
 
     const newExpense = {
       id: Date.now(),
