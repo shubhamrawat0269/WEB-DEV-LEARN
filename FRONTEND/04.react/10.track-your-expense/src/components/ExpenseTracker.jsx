@@ -1,23 +1,31 @@
 import { useState } from "react";
+import ExpenseHeader from "./ExpenseHeader";
+import TotalBalance from "./TotalBalance";
+
+// { id: 1, title: "Grocery Shopping", category: "Food", amount: 120 },
+//     {
+//       id: 2,
+//       title: "Netflix Subscription",
+//       category: "Entertainment",
+//       amount: 15,
+//     },
+//     { id: 3, title: "Electricity Bill", category: "Utilities", amount: 85 },
+//     { id: 4, title: "New Keyboard", category: "Technology", amount: 150 },
+//     { id: 5, title: "Gym Membership", category: "Health", amount: 50 },
 
 const ExpenseTracker = () => {
-  const [expenses, setExpenses] = useState([
-    { id: 1, title: "Grocery Shopping", category: "Food", amount: 120 },
-    {
-      id: 2,
-      title: "Netflix Subscription",
-      category: "Entertainment",
-      amount: 15,
-    },
-    { id: 3, title: "Electricity Bill", category: "Utilities", amount: 85 },
-    { id: 4, title: "New Keyboard", category: "Technology", amount: 150 },
-    { id: 5, title: "Gym Membership", category: "Health", amount: 50 },
-  ]);
+  const [expenses, setExpenses] = useState([]);
 
   // Form States
   const [title, setTitle] = useState("");
   const [category, setCategory] = useState("");
   const [amount, setAmount] = useState("");
+
+  const [expense, setExpense] = useState({
+    title: "",
+    category: "",
+    amount: 0,
+  });
 
   // Filter & Sort States
   const [categoryFilter, setCategoryFilter] = useState("All");
@@ -40,21 +48,32 @@ const ExpenseTracker = () => {
     0,
   );
 
+  const handleOnChange = (e) => {
+    const { id, value } = e.target;
+
+    setExpense((preState) => ({
+      ...preState,
+      [id]: value,
+    }));
+  };
+
   const handleAddExpense = (e) => {
     e.preventDefault();
-    if (!title || !category || !amount) return;
+    if (!expense.title || !expense.category || !expense.amount) return;
 
     const newExpense = {
       id: Date.now(),
-      title,
-      category,
-      amount: parseFloat(amount),
+      title: expense.title,
+      category: expense.category,
+      amount: parseFloat(expense.amount),
     };
 
-    setExpenses([...expenses, newExpense]);
-    setTitle("");
-    setCategory("");
-    setAmount("");
+    setExpenses((preState) => [...preState, newExpense]);
+    setExpense({
+      title: "",
+      category: "",
+      amount: 0,
+    });
   };
 
   const toggleSort = () => {
@@ -73,16 +92,9 @@ const ExpenseTracker = () => {
 
   return (
     <div className="expense-tracker-container">
-      <header className="header-section">
-        <h1 className="title">Expense Tracker</h1>
-      </header>
-
+      <ExpenseHeader />
       {/* Total Balance */}
-      <div className="total-balance-card">
-        <span className="total-label">Total Expenses</span>
-        <span className="total-amount">${totalAmount.toFixed(2)}</span>
-      </div>
-
+      <TotalBalance totalAmount={totalAmount} />
       {/* Expense Form */}
       <div className="expense-form-container">
         <h2 className="form-title">Add New Expense</h2>
@@ -94,8 +106,8 @@ const ExpenseTracker = () => {
               type="text"
               className="form-input"
               placeholder="e.g. Monthly Rent"
-              value={title}
-              onChange={(e) => setTitle(e.target.value)}
+              value={expense.title}
+              onChange={handleOnChange}
             />
           </div>
 
@@ -104,8 +116,8 @@ const ExpenseTracker = () => {
             <select
               id="category"
               className="form-select"
-              value={category}
-              onChange={(e) => setCategory(e.target.value)}
+              value={expense.category}
+              onChange={handleOnChange}
             >
               <option value="" disabled hidden>
                 Select Category
@@ -125,8 +137,8 @@ const ExpenseTracker = () => {
               type="number"
               className="form-input"
               placeholder="0.00"
-              value={amount}
-              onChange={(e) => setAmount(e.target.value)}
+              value={expense.amount}
+              onChange={handleOnChange}
             />
           </div>
 
