@@ -1,3 +1,4 @@
+import { useState } from "react";
 import Input from "./components/Input";
 import SelectBox from "./components/SelectBox";
 
@@ -12,10 +13,36 @@ const categories = [
 ];
 
 const sortOrder = "asc";
-
-const filteredExpenses = [];
+const totalExpense = 200;
 
 function App() {
+  const [expenses, setExpenses] = useState([]);
+  const [expense, setExpense] = useState({
+    title: "",
+    category: "",
+    amount: 0,
+  });
+
+  const handleInputChange = (e) => {
+    const { id, value } = e.target;
+
+    setExpense((preState) => ({
+      ...preState,
+      [id]: value,
+    }));
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    setExpenses((preState) => ([...preState, expense]));
+    setExpense({
+      title: "",
+      category: "",
+      amount: 0,
+    });
+  };
+
   return (
     <section className="expense-tracker-container">
       {/* section header */}
@@ -26,26 +53,30 @@ function App() {
       {/* expense total balance */}
       <div className="total-balance-card">
         <span className="total-label">Total Expenses</span>
-        <span className="total-amount">₹{`200`}</span>
+        <span className="total-amount">₹{totalExpense}</span>
       </div>
 
       {/* Expense Form  */}
 
       <main className="expense-form-container">
         <h2 className="form-title">Add New Expense</h2>
-        <form className="expense-form">
+        <form className="expense-form" onSubmit={handleSubmit}>
           <Input
             id={`title`}
             type="text"
             title={`Title`}
+            value={expense.title}
             error={`title is required`}
+            onChange={handleInputChange}
             placeholder="e.g. Netflix Subscription"
           />
 
           <SelectBox
             id={`category`}
-            categories={categories}
             title={`Title`}
+            value={expense.category}
+            onChange={handleInputChange}
+            categories={categories}
             error={"Category is required"}
           />
 
@@ -53,8 +84,10 @@ function App() {
             id={`amount`}
             type="number"
             title={`Amount`}
-            error={`Amount is required`}
             placeholder="0.00"
+            value={expense.amount}
+            error={`Amount is required`}
+            onChange={handleInputChange}
           />
           <button type="submit" className="add-btn">
             Add Expense
@@ -83,14 +116,14 @@ function App() {
             </tr>
           </thead>
           <tbody>
-            {filteredExpenses.length > 0 ? (
-              filteredExpenses.map((expense) => (
+            {expenses.length > 0 ? (
+              expenses.map((expense) => (
                 <tr key={expense.id}>
                   <td>{expense.title}</td>
                   <td>
                     <span className="category-badge">{expense.category}</span>
                   </td>
-                  <td>₹{expense.amount.toFixed(2)}</td>
+                  <td>₹{expense.amount}</td>
                 </tr>
               ))
             ) : (
