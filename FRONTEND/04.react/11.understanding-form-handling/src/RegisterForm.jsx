@@ -10,17 +10,39 @@ const RegisterForm = () => {
   const [isSubmitted, setSubmitted] = useState(false);
   const [errors, setErrors] = useState({});
 
+  const validationConfig = {
+    name: [
+      {required: true, message: 'Please enter title'},
+      {minLength: 5, message: 'Title should be at least 5 characters long'}
+    ],
+    email: [{required: true, message: 'Please enter email'}],
+    password: [{required: true, message: 'Please enter password'}]
+  }
+
   function validateData(data) {
     const errorData = {};
-    if (!data.name) {
-      errorData["name"] = "name field is required";
-    }
-    if (!data.email) {
-      errorData["email"] = "email field is required";
-    }
-    if (!data.password) {
-      errorData["password"] = "password field is required";
-    }
+
+    Object.entries(data).forEach(([key,value]) => {
+      validationConfig[key].forEach((rule) => {
+        if(rule.required && !value){
+          errorData[key] = rule.message;
+        }
+
+        if(rule.minLength && value.length < 5){
+          errorData[key] = rule.message;
+        }
+      })
+    })
+
+    // if (!data.name) {
+    //   errorData["name"] = "name field is required";
+    // }
+    // if (!data.email) {
+    //   errorData["email"] = "email field is required";
+    // }
+    // if (!data.password) {
+    //   errorData["password"] = "password field is required";
+    // }
     setErrors(errorData);
     return errorData;
   }
