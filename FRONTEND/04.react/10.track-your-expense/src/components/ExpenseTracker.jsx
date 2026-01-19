@@ -1,6 +1,8 @@
 import { useState } from "react";
 import ExpenseHeader from "./ExpenseHeader";
 import TotalBalance from "./TotalBalance";
+import ExpenseForm from "./ExpenseForm";
+import ExpenseTable from "./ExpenseTable";
 
 // { id: 1, title: "Grocery Shopping", category: "Food", amount: 120 },
 //     {
@@ -92,120 +94,27 @@ const ExpenseTracker = () => {
 
   return (
     <div className="expense-tracker-container">
+      {/* Expense Heacher */}
       <ExpenseHeader />
       {/* Total Balance */}
       <TotalBalance totalAmount={totalAmount} />
       {/* Expense Form */}
-      <div className="expense-form-container">
-        <h2 className="form-title">Add New Expense</h2>
-        <form className="expense-form" onSubmit={handleAddExpense}>
-          <div className="input-group">
-            <label htmlFor="title">Title</label>
-            <input
-              id="title"
-              type="text"
-              className="form-input"
-              placeholder="e.g. Monthly Rent"
-              value={expense.title}
-              onChange={handleOnChange}
-            />
-          </div>
-
-          <div className="input-group">
-            <label htmlFor="category">Category</label>
-            <select
-              id="category"
-              className="form-select"
-              value={expense.category}
-              onChange={handleOnChange}
-            >
-              <option value="" disabled hidden>
-                Select Category
-              </option>
-              {categories.map((cat) => (
-                <option key={cat} value={cat}>
-                  {cat}
-                </option>
-              ))}
-            </select>
-          </div>
-
-          <div className="input-group">
-            <label htmlFor="amount">Amount</label>
-            <input
-              id="amount"
-              type="number"
-              className="form-input"
-              placeholder="0.00"
-              value={expense.amount}
-              onChange={handleOnChange}
-            />
-          </div>
-
-          <button type="submit" className="add-btn">
-            Add Expense
-          </button>
-        </form>
-      </div>
+      <ExpenseForm
+        expense={expense}
+        categories={categories}
+        handleAddExpense={handleAddExpense}
+        handleOnChange={handleOnChange}
+      />
 
       {/* Expense Table */}
-      <div className="expense-table-container">
-        <table>
-          <thead>
-            <tr>
-              <th>Title</th>
-              <th>
-                <div className="header-control">
-                  Category
-                  <select
-                    className="filter-select"
-                    value={categoryFilter}
-                    onChange={(e) => setCategoryFilter(e.target.value)}
-                    onClick={(e) => e.stopPropagation()}
-                  >
-                    <option value="All">All</option>
-                    {categories.map((cat) => (
-                      <option key={cat} value={cat}>
-                        {cat}
-                      </option>
-                    ))}
-                  </select>
-                </div>
-              </th>
-              <th onClick={toggleSort} style={{ cursor: "pointer" }}>
-                <div className="header-control">
-                  Amount
-                  <span className="sort-icon">
-                    {sortOrder === "asc" ? "▲" : "▼"}
-                  </span>
-                </div>
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            {filteredExpenses.length > 0 ? (
-              filteredExpenses.map((expense) => (
-                <tr key={expense.id}>
-                  <td>{expense.title}</td>
-                  <td>
-                    <span className="category-badge">{expense.category}</span>
-                  </td>
-                  <td>${expense.amount.toFixed(2)}</td>
-                </tr>
-              ))
-            ) : (
-              <tr>
-                <td
-                  colSpan="3"
-                  style={{ textAlign: "center", color: "#94a3b8" }}
-                >
-                  No expenses found.
-                </td>
-              </tr>
-            )}
-          </tbody>
-        </table>
-      </div>
+      <ExpenseTable
+        categories={categories}
+        toggleSort={toggleSort}
+        filteredExpenses={filteredExpenses}
+        sortOrder={sortOrder}
+        categoryFilter={categoryFilter}
+        setCategoryFilter={setCategoryFilter}
+      />
     </div>
   );
 };

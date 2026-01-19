@@ -1,4 +1,9 @@
-const ExpenseForm = ({handleAddExpense}) => {
+const ExpenseForm = ({
+  expense,
+  categories,
+  handleOnChange,
+  handleAddExpense,
+}) => {
   return (
     <div className="expense-form-container">
       <h2 className="form-title">Add New Expense</h2>
@@ -10,8 +15,8 @@ const ExpenseForm = ({handleAddExpense}) => {
             type="text"
             className="form-input"
             placeholder="e.g. Monthly Rent"
-            value={title}
-            onChange={(e) => setTitle(e.target.value)}
+            value={expense.title}
+            onChange={handleOnChange}
           />
         </div>
 
@@ -20,8 +25,8 @@ const ExpenseForm = ({handleAddExpense}) => {
           <select
             id="category"
             className="form-select"
-            value={category}
-            onChange={(e) => setCategory(e.target.value)}
+            value={expense.category}
+            onChange={handleOnChange}
           >
             <option value="" disabled hidden>
               Select Category
@@ -41,8 +46,8 @@ const ExpenseForm = ({handleAddExpense}) => {
             type="number"
             className="form-input"
             placeholder="0.00"
-            value={amount}
-            onChange={(e) => setAmount(e.target.value)}
+            value={expense.amount}
+            onChange={handleOnChange}
           />
         </div>
 
