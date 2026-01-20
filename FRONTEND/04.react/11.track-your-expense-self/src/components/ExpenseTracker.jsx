@@ -16,13 +16,20 @@ const categories = [
 
 const ExpenseTracker = () => {
   const sortOrder = "asc";
-  const totalExpense = 200;
   const [expenses, setExpenses] = useState([]);
   const [expense, setExpense] = useState({
     title: "",
     category: "",
     amount: 0,
   });
+  const [totalExpense, setTotalExpense] = useState(0);
+  const [errors, setErrors] = useState({});
+
+  const inputValidConfig = {
+    title: [{ required: true, message: "Title field is required" }],
+    category: [{ required: true, message: "Category field is required" }],
+    amount: [{ required: true, message: "Amount field is required" }],
+  };
 
   const handleInputChange = (e) => {
     const { id, value } = e.target;
@@ -31,12 +38,32 @@ const ExpenseTracker = () => {
       ...preState,
       [id]: value,
     }));
+
+    setErrors({});
+  };
+
+  const validateInput = (data) => {
+    const errorData = {};
+    Object.entries(data).forEach(([key, value]) => {
+      inputValidConfig[key].forEach((rule) => {
+        if (rule.required && !value) errorData[key] = rule.message;
+      });
+    });
+
+    // console.log(errorData);
+    setErrors(errorData);
+    return errorData;
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    const validInput = validateInput(expense);
+
+    if (Object.keys(validInput).length !== 0) return;
+
     setExpenses((preState) => [...preState, expense]);
+    setTotalExpense((preState) => Number(preState) + Number(expense.amount));
     setExpense({
       title: "",
       category: "",
@@ -52,6 +79,7 @@ const ExpenseTracker = () => {
       <ExpenseTotalBalance totalExpense={totalExpense} />
       {/* Expense Form  */}
       <ExpenseForm
+        errors={errors}
         expense={expense}
         categories={categories}
         handleSubmit={handleSubmit}

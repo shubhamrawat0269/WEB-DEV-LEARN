@@ -2,6 +2,7 @@ import Input from "./Input";
 import SelectBox from "./SelectBox";
 
 const ExpenseForm = ({
+  errors,
   expense,
   categories,
   handleInputChange,
@@ -12,31 +13,31 @@ const ExpenseForm = ({
       <h2 className="form-title">Add New Expense</h2>
       <form className="expense-form" onSubmit={handleSubmit}>
         <Input
-          id={`title`}
+          id="title"
           type="text"
-          title={`Title`}
+          title="Title"
           value={expense.title}
-          error={`title is required`}
+          error={errors.title}
           onChange={handleInputChange}
           placeholder="e.g. Netflix Subscription"
         />
 
         <SelectBox
-          id={`category`}
-          title={`Title`}
+          id="category"
+          title="Title"
           value={expense.category}
           onChange={handleInputChange}
           categories={categories}
-          error={"Category is required"}
+          error={errors.category}
         />
 
         <Input
-          id={`amount`}
+          id="amount"
           type="number"
-          title={`Amount`}
+          title="Amount"
           placeholder="0.00"
           value={expense.amount}
-          error={`Amount is required`}
+          error={errors.amount}
           onChange={handleInputChange}
         />
         <button type="submit" className="add-btn">
