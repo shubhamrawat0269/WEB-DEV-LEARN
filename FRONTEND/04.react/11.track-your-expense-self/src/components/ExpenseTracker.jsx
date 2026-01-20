@@ -24,12 +24,15 @@ const ExpenseTracker = () => {
   });
   const [totalExpense, setTotalExpense] = useState(0);
   const [errors, setErrors] = useState({});
+  const [selCategory, setSelCategory] = useState('');
 
   const inputValidConfig = {
     title: [{ required: true, message: "Title field is required" }],
     category: [{ required: true, message: "Category field is required" }],
     amount: [{ required: true, message: "Amount field is required" }],
   };
+
+  const filteredExpenses = expenses.filter((expense) => expense.category.includes(selCategory));
 
   const handleInputChange = (e) => {
     const { id, value } = e.target;
@@ -84,9 +87,15 @@ const ExpenseTracker = () => {
         categories={categories}
         handleSubmit={handleSubmit}
         handleInputChange={handleInputChange}
+        />
+        {/* Expense Table */}
+        <ExpenseTable
+        expenses={filteredExpenses}
+        sortOrder={sortOrder}
+        categories={categories}
+        selCategory={selCategory}
+        setSelCategory={setSelCategory}
       />
-      {/* Expense Table */}
-      <ExpenseTable expenses={expenses} sortOrder={sortOrder} />
     </section>
   );
 };

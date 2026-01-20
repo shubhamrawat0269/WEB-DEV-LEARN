@@ -59,6 +59,12 @@ body {
   bottom: -1rem;
 }
 
+.table-header{
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
 /* Total Balance Card */
 .total-balance-card {
   background: linear-gradient(135deg, var(--primary-color), var(--primary-hover));

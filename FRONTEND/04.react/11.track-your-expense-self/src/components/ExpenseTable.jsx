@@ -1,12 +1,29 @@
-const ExpenseTable = ({ sortOrder, expenses }) => {
+const ExpenseTable = ({ sortOrder, expenses, categories, selCategory, setSelCategory }) => {
   return (
     <div className="expense-table-container">
       <table>
         <thead>
           <tr>
             <th>Title</th>
-            <th>
+            <th className="table-header">
               <div className="header-control">Category</div>
+              <div>
+                <select
+                  className="form-select"
+                  value={selCategory}
+                  onChange={(e) => setSelCategory(e.target.value)}
+                >
+                  <option value="" disabled hidden>
+                    Select Category
+                  </option>
+
+                  {categories.map((cat) => (
+                    <option key={cat} value={cat}>
+                      {cat}
+                    </option>
+                  ))}
+                </select>
+              </div>
             </th>
             <th>
               <div className="header-control">
