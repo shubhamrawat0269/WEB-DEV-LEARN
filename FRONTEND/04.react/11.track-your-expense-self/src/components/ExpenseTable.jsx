@@ -12,7 +12,7 @@ const ExpenseTable = ({ sortOrder, expenses, categories, setQuery }) => {
                   className="form-select"
                   onChange={(e) => setQuery(e.target.value)}
                 >
-                  <option value="" disabled hidden>
+                  <option value="" hidden>
                     Select Category
                   </option>
 
