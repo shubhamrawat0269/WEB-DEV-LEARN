@@ -3,6 +3,7 @@ import ExpenseForm from "./ExpenseForm";
 import ExpenseHeader from "./ExpenseHeader";
 import ExpenseTable from "./ExpenseTable";
 import ExpenseTotalBalance from "./ExpenseTotalBalance";
+import { useFilter } from "../hooks/useFilter";
 
 const categories = [
   "Food",
@@ -24,7 +25,6 @@ const ExpenseTracker = () => {
   });
   const [totalExpense, setTotalExpense] = useState(0);
   const [errors, setErrors] = useState({});
-  const [selCategory, setSelCategory] = useState('');
 
   const inputValidConfig = {
     title: [{ required: true, message: "Title field is required" }],
@@ -32,7 +32,8 @@ const ExpenseTracker = () => {
     amount: [{ required: true, message: "Amount field is required" }],
   };
 
-  const filteredExpenses = expenses.filter((expense) => expense.category.includes(selCategory));
+  const [filterData, setQuery] = useFilter(expenses, (data) => data.category);
+  // console.log(filterData);
 
   const handleInputChange = (e) => {
     const { id, value } = e.target;
@@ -87,14 +88,13 @@ const ExpenseTracker = () => {
         categories={categories}
         handleSubmit={handleSubmit}
         handleInputChange={handleInputChange}
-        />
-        {/* Expense Table */}
-        <ExpenseTable
-        expenses={filteredExpenses}
+      />
+      {/* Expense Table */}
+      <ExpenseTable
+        expenses={filterData}
         sortOrder={sortOrder}
         categories={categories}
-        selCategory={selCategory}
-        setSelCategory={setSelCategory}
+        setQuery={setQuery}
       />
     </section>
   );

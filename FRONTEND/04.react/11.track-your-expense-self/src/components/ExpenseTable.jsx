@@ -1,4 +1,4 @@
-const ExpenseTable = ({ sortOrder, expenses, categories, selCategory, setSelCategory }) => {
+const ExpenseTable = ({ sortOrder, expenses, categories, setQuery }) => {
   return (
     <div className="expense-table-container">
       <table>
@@ -10,8 +10,7 @@ const ExpenseTable = ({ sortOrder, expenses, categories, selCategory, setSelCate
               <div>
                 <select
                   className="form-select"
-                  value={selCategory}
-                  onChange={(e) => setSelCategory(e.target.value)}
+                  onChange={(e) => setQuery(e.target.value)}
                 >
                   <option value="" disabled hidden>
                     Select Category
