@@ -46,7 +46,7 @@ const ExpenseTable = ({ sortOrder, expenses, categories, setQuery }) => {
               </tr>
             ))
           ) : (
-            <tr>
+            <tr key={'no-expense'}>
               <td colSpan="3" style={{ textAlign: "center", color: "#94a3b8" }}>
                 No expenses found.
               </td>

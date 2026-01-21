@@ -23,7 +23,6 @@ const ExpenseTracker = () => {
     category: "",
     amount: 0,
   });
-  const [totalExpense, setTotalExpense] = useState(0);
   const [errors, setErrors] = useState({});
 
   const inputValidConfig = {
@@ -33,7 +32,10 @@ const ExpenseTracker = () => {
   };
 
   const [filterData, setQuery] = useFilter(expenses, (data) => data.category);
-  // console.log(filterData);
+  const totalExpenseAmount = filterData.reduce(
+    (acc, curr) => Number(acc) + Number(curr.amount),
+    0,
+  );
 
   const handleInputChange = (e) => {
     const { id, value } = e.target;
@@ -63,11 +65,9 @@ const ExpenseTracker = () => {
     e.preventDefault();
 
     const validInput = validateInput(expense);
-
     if (Object.keys(validInput).length !== 0) return;
 
     setExpenses((preState) => [...preState, expense]);
-    setTotalExpense((preState) => Number(preState) + Number(expense.amount));
     setExpense({
       title: "",
       category: "",
@@ -80,7 +80,7 @@ const ExpenseTracker = () => {
       {/* section header */}
       <ExpenseHeader />
       {/* expense total balance */}
-      <ExpenseTotalBalance totalExpense={totalExpense} />
+      <ExpenseTotalBalance totalExpense={totalExpenseAmount} />
       {/* Expense Form  */}
       <ExpenseForm
         errors={errors}
