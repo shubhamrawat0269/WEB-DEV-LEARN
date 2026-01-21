@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import ExpenseForm from "./ExpenseForm";
 import ExpenseHeader from "./ExpenseHeader";
 import ExpenseTable from "./ExpenseTable";
@@ -17,7 +17,9 @@ const categories = [
 
 const ExpenseTracker = () => {
   const sortOrder = "asc";
-  const [expenses, setExpenses] = useState([]);
+  const [expenses, setExpenses] = useState(
+    JSON.parse(localStorage.getItem("expenses")) ? JSON.parse(localStorage.getItem("expenses")) : [],
+  );
   const [expense, setExpense] = useState({
     title: "",
     category: "",
@@ -74,6 +76,12 @@ const ExpenseTracker = () => {
       amount: 0,
     });
   };
+
+  useEffect(() => {
+    if (expenses.length > 0) {
+      localStorage.setItem("expenses", JSON.stringify(expenses));
+    }
+  }, [expenses]);
 
   return (
     <section className="expense-tracker-container">
