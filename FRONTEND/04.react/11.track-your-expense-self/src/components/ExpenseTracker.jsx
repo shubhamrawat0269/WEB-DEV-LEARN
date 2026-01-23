@@ -1,19 +1,12 @@
 import { useEffect, useState } from "react";
-import ExpenseForm from "./ExpenseForm";
-import ExpenseHeader from "./ExpenseHeader";
-import ExpenseTable from "./ExpenseTable";
-import ExpenseTotalBalance from "./ExpenseTotalBalance";
-import { useFilter } from "../hooks/useFilter";
 
-const categories = [
-  "Food",
-  "Entertainment",
-  "Utilities",
-  "Health",
-  "Technology",
-  "Travel",
-  "Education",
-];
+import { useFilter } from "../hooks/useFilter";
+import { categories, inputValidConfig } from "../utils/dummy-data";
+
+import ExpenseForm from "./ExpenseForm";
+import ExpenseTable from "./ExpenseTable";
+import ExpenseHeader from "./ExpenseHeader";
+import ExpenseTotalBalance from "./ExpenseTotalBalance";
 
 const ExpenseTracker = () => {
   const sortOrder = "asc";
@@ -29,12 +22,6 @@ const ExpenseTracker = () => {
   });
   const [errors, setErrors] = useState({});
   const [expenseUpdatedRowId, setExpenseUpdatedRowId] = useState("");
-
-  const inputValidConfig = {
-    title: [{ required: true, message: "Title field is required" }],
-    category: [{ required: true, message: "Category field is required" }],
-    amount: [{ required: true, message: "Amount field is required" }],
-  };
 
   const [filterData, setQuery] = useFilter(expenses, (data) => data.category);
   const totalExpenseAmount = filterData.reduce(
@@ -60,8 +47,6 @@ const ExpenseTracker = () => {
         if (rule.required && !value) errorData[key] = rule.message;
       });
     });
-
-    // console.log(errorData);
     setErrors(errorData);
     return errorData;
   };
