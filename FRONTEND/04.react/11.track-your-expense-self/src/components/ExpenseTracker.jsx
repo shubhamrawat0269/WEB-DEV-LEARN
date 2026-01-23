@@ -7,8 +7,11 @@ import ExpenseForm from "./ExpenseForm";
 import ExpenseTable from "./ExpenseTable";
 import ExpenseHeader from "./ExpenseHeader";
 import ExpenseTotalBalance from "./ExpenseTotalBalance";
+import useAppContext from "../hooks/useAppContext";
 
 const ExpenseTracker = () => {
+  const {name} = useAppContext();
+
   const sortOrder = "asc";
   const [expenses, setExpenses] = useState(
     JSON.parse(localStorage.getItem("expenses"))
