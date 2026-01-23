@@ -68,8 +68,7 @@ const ExpenseTracker = () => {
 
     const validInput = validateInput(expense);
     if (Object.keys(validInput).length !== 0) return;
-
-    setExpenses((preState) => [...preState, expense]);
+    setExpenses((preState) => [...preState, {...expense, id: crypto.randomUUID()}]);
     setExpense({
       title: "",
       category: "",
@@ -100,6 +99,7 @@ const ExpenseTracker = () => {
       {/* Expense Table */}
       <ExpenseTable
         expenses={filterData}
+        setExpenses={setExpenses}
         sortOrder={sortOrder}
         categories={categories}
         setQuery={setQuery}

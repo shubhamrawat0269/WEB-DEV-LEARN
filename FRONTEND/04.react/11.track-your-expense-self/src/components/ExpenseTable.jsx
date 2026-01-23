@@ -1,6 +1,29 @@
-const ExpenseTable = ({ sortOrder, expenses, categories, setQuery }) => {
+import { useState } from "react";
+import ContextMenu from "./ContextMenu";
+
+const ExpenseTable = ({
+  sortOrder,
+  expenses,
+  setExpenses,
+  categories,
+  setQuery,
+}) => {
+  const [menu, setMenu] = useState(null);
+  const [rowId, setRowId] = useState(null);
+  const handleContextMenu = (e, id) => {
+    e.preventDefault();
+    setMenu({ x: e.clientX, y: e.clientY });
+    setRowId(id);
+  };
+
+  const handleDelete = () => {
+    const filteredExpenses = expenses.filter((expense) => expense.id !== rowId);
+    setExpenses(filteredExpenses);
+    localStorage.setItem("expenses", JSON.stringify(filteredExpenses));
+  };
+
   return (
-    <div className="expense-table-container">
+    <div className="expense-table-container" onClick={() => setMenu(null)}>
       <table>
         <thead>
           <tr>
@@ -37,7 +60,10 @@ const ExpenseTable = ({ sortOrder, expenses, categories, setQuery }) => {
         <tbody>
           {expenses.length > 0 ? (
             expenses.map((expense) => (
-              <tr key={expense.id}>
+              <tr
+                key={expense.id}
+                onContextMenu={(e) => handleContextMenu(e, expense.id)}
+              >
                 <td>{expense.title}</td>
                 <td>
                   <span className="category-badge">{expense.category}</span>
@@ -46,7 +72,7 @@ const ExpenseTable = ({ sortOrder, expenses, categories, setQuery }) => {
               </tr>
             ))
           ) : (
-            <tr key={'no-expense'}>
+            <tr key={"no-expense"}>
               <td colSpan="3" style={{ textAlign: "center", color: "#94a3b8" }}>
                 No expenses found.
               </td>
@@ -54,6 +80,8 @@ const ExpenseTable = ({ sortOrder, expenses, categories, setQuery }) => {
           )}
         </tbody>
       </table>
+
+      {menu && <ContextMenu x={menu.x} y={menu.y} onDelete={handleDelete} />}
     </div>
   );
 };
