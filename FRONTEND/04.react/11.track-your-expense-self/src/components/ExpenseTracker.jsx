@@ -13,6 +13,7 @@ const ExpenseTracker = () => {
     setQuery,
     setExpense,
     sortOrder,
+    handleSort,
     filterData,
     setExpenses,
     handleSubmit,
@@ -44,6 +45,7 @@ const ExpenseTracker = () => {
         expenses={filterData}
         setExpenses={setExpenses}
         sortOrder={sortOrder}
+        onSort={handleSort}
         categories={categories}
         setQuery={setQuery}
         setExpenseUpdatedRowId={setExpenseUpdatedRowId}

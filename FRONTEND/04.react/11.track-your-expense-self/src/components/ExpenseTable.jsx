@@ -2,13 +2,13 @@ import { useState } from "react";
 import ContextMenu from "./ContextMenu";
 
 const ExpenseTable = ({
-  expense,
   setExpense,
   sortOrder,
   expenses,
   setExpenses,
   categories,
   setQuery,
+  onSort,
   setExpenseUpdatedRowId,
 }) => {
   const [menu, setMenu] = useState(null);
@@ -60,7 +60,7 @@ const ExpenseTable = ({
             <th>
               <div className="header-control">
                 Amount
-                <span className="sort-icon">
+                <span className="sort-icon" onClick={onSort}>
                   {sortOrder === "asc" ? "▲" : "▼"}
                 </span>
               </div>

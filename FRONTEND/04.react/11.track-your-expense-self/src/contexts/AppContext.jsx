@@ -5,8 +5,7 @@ import { useFilter } from "../hooks/useFilter";
 const AppContext = createContext();
 
 function AppProvider({ children }) {
-  const sortOrder = "asc";
-
+  const [sortOrder, setSortOrder] = useState("");
   const [expenseUpdatedRowId, setExpenseUpdatedRowId] = useState("");
   const [expenses, setExpenses] = useState(
     JSON.parse(localStorage.getItem("expenses"))
@@ -90,14 +89,26 @@ function AppProvider({ children }) {
     });
   };
 
+  const handleSort = () => {
+    setSortOrder(sortOrder === "asc" ? "desc" : "asc");
+  };
+
   useEffect(() => {
     if (expenses.length > 0) {
       localStorage.setItem("expenses", JSON.stringify(expenses));
     }
   }, [expenses]);
 
+  useEffect(() => {
+    expenses.sort((a, b) => {
+      if (sortOrder === "asc") return a.amount - b.amount;
+      else return b.amount - a.amount;
+    });
+  }, [sortOrder]);
+
   const values = {
     sortOrder,
+    handleSort,
     expenses,
     expense,
     errors,
