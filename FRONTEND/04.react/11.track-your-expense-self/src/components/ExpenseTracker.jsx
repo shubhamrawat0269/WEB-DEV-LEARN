@@ -1,7 +1,7 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 import { useFilter } from "../hooks/useFilter";
-import { categories, inputValidConfig } from "../utils/dummy-data";
+import { categories } from "../utils/dummy-data";
 
 import ExpenseForm from "./ExpenseForm";
 import ExpenseTable from "./ExpenseTable";
@@ -10,20 +10,17 @@ import ExpenseTotalBalance from "./ExpenseTotalBalance";
 import useAppContext from "../hooks/useAppContext";
 
 const ExpenseTracker = () => {
-  const {name} = useAppContext();
+  const {
+    sortOrder,
+    expenses,
+    setExpenses,
+    expense,
+    setExpense,
+    errors,
+    validateInput,
+    handleInputChange,
+  } = useAppContext();
 
-  const sortOrder = "asc";
-  const [expenses, setExpenses] = useState(
-    JSON.parse(localStorage.getItem("expenses"))
-      ? JSON.parse(localStorage.getItem("expenses"))
-      : [],
-  );
-  const [expense, setExpense] = useState({
-    title: "",
-    category: "",
-    amount: 0,
-  });
-  const [errors, setErrors] = useState({});
   const [expenseUpdatedRowId, setExpenseUpdatedRowId] = useState("");
 
   const [filterData, setQuery] = useFilter(expenses, (data) => data.category);
@@ -31,28 +28,6 @@ const ExpenseTracker = () => {
     (acc, curr) => Number(acc) + Number(curr.amount),
     0,
   );
-
-  const handleInputChange = (e) => {
-    const { id, value } = e.target;
-
-    setExpense((preState) => ({
-      ...preState,
-      [id]: value,
-    }));
-
-    setErrors({});
-  };
-
-  const validateInput = (data) => {
-    const errorData = {};
-    Object.entries(data).forEach(([key, value]) => {
-      inputValidConfig[key].forEach((rule) => {
-        if (rule.required && !value) errorData[key] = rule.message;
-      });
-    });
-    setErrors(errorData);
-    return errorData;
-  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -89,12 +64,6 @@ const ExpenseTracker = () => {
       amount: 0,
     });
   };
-
-  useEffect(() => {
-    if (expenses.length > 0) {
-      localStorage.setItem("expenses", JSON.stringify(expenses));
-    }
-  }, [expenses]);
 
   return (
     <section className="expense-tracker-container">
