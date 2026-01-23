@@ -1,10 +1,13 @@
 import { createContext, useEffect, useState } from "react";
 import { inputValidConfig } from "../utils/dummy-data";
+import { useFilter } from "../hooks/useFilter";
 
 const AppContext = createContext();
 
 function AppProvider({ children }) {
   const sortOrder = "asc";
+
+  const [expenseUpdatedRowId, setExpenseUpdatedRowId] = useState("");
   const [expenses, setExpenses] = useState(
     JSON.parse(localStorage.getItem("expenses"))
       ? JSON.parse(localStorage.getItem("expenses"))
@@ -41,6 +44,52 @@ function AppProvider({ children }) {
     return errorData;
   };
 
+  const [filterData, setQuery] = useFilter(expenses, (data) => data.category);
+
+  const totalExpenseAmount = filterData.reduce(
+    (acc, curr) => Number(acc) + Number(curr.amount),
+    0,
+  );
+
+  const updateExistingRecord = () => {
+    if (expenseUpdatedRowId) {
+      setExpenses((preState) => {
+        return preState.map((prevExpense) => {
+          if (prevExpense.id === expenseUpdatedRowId)
+            return { ...expense, id: expenseUpdatedRowId };
+          return prevExpense;
+        });
+      });
+
+      setExpense({
+        title: "",
+        category: "",
+        amount: 0,
+      });
+
+      setExpenseUpdatedRowId("");
+      return;
+    }
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    const validInput = validateInput(expense);
+    updateExistingRecord();
+
+    if (Object.keys(validInput).length !== 0) return;
+    setExpenses((preState) => [
+      ...preState,
+      { ...expense, id: crypto.randomUUID() },
+    ]);
+    setExpense({
+      title: "",
+      category: "",
+      amount: 0,
+    });
+  };
+
   useEffect(() => {
     if (expenses.length > 0) {
       localStorage.setItem("expenses", JSON.stringify(expenses));
@@ -50,13 +99,20 @@ function AppProvider({ children }) {
   const values = {
     sortOrder,
     expenses,
-    setExpenses,
     expense,
-    setExpense,
     errors,
+    filterData,
     setErrors,
+    setExpense,
+    setExpenses,
+    setQuery,
+    handleSubmit,
+    expenseUpdatedRowId,
+    updateExistingRecord,
     handleInputChange,
     validateInput,
+    totalExpenseAmount,
+    setExpenseUpdatedRowId,
   };
 
   return <AppContext.Provider value={values}>{children}</AppContext.Provider>;
