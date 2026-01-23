@@ -7,6 +7,7 @@ const ExpenseForm = ({
   categories,
   handleInputChange,
   handleSubmit,
+  expenseUpdatedRowId
 }) => {
   return (
     <main className="expense-form-container">
@@ -41,7 +42,7 @@ const ExpenseForm = ({
           onChange={handleInputChange}
         />
         <button type="submit" className="add-btn">
-          Add Expense
+          {expenseUpdatedRowId ? 'Save Expense' : 'Add Expense'}
         </button>
       </form>
     </main>

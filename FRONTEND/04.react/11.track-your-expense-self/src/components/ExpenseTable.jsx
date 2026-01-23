@@ -2,11 +2,14 @@ import { useState } from "react";
 import ContextMenu from "./ContextMenu";
 
 const ExpenseTable = ({
+  expense,
+  setExpense,
   sortOrder,
   expenses,
   setExpenses,
   categories,
   setQuery,
+  setExpenseUpdatedRowId,
 }) => {
   const [menu, setMenu] = useState(null);
   const [rowId, setRowId] = useState(null);
@@ -20,6 +23,13 @@ const ExpenseTable = ({
     const filteredExpenses = expenses.filter((expense) => expense.id !== rowId);
     setExpenses(filteredExpenses);
     localStorage.setItem("expenses", JSON.stringify(filteredExpenses));
+  };
+
+  const handleEdit = () => {
+    const {title, category, amount} = expenses.find((expense) => expense.id === rowId);
+    // console.log(editExpense);
+    setExpense({title, category, amount});
+    setExpenseUpdatedRowId(rowId);
   };
 
   return (
@@ -81,7 +91,14 @@ const ExpenseTable = ({
         </tbody>
       </table>
 
-      {menu && <ContextMenu x={menu.x} y={menu.y} onDelete={handleDelete} />}
+      {menu && (
+        <ContextMenu
+          x={menu.x}
+          y={menu.y}
+          onDelete={handleDelete}
+          onEdit={handleEdit}
+        />
+      )}
     </div>
   );
 };
