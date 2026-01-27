@@ -22,7 +22,6 @@ const ExpenseTable = ({
   const handleDelete = () => {
     const filteredExpenses = expenses.filter((expense) => expense.id !== rowId);
     setExpenses(filteredExpenses);
-    localStorage.setItem("expenses", JSON.stringify(filteredExpenses));
   };
 
   const handleEdit = () => {
