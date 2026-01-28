@@ -1,12 +1,10 @@
 import { useEffect, useState } from "react";
 
 const useLocalStorage = (key, initialData) => {
-  const existingData = localStorage.getItem(key);
-  const [updatedData, setUpdatedData] = useState(
-    existingData ? JSON.parse(existingData) : initialData,
-  );
-
+  const [updatedData, setUpdatedData] = useState(initialData);
+  
   useEffect(() => {
+    const existingData = JSON.parse(localStorage.getItem(key));
     if (existingData) {
       setUpdatedData(existingData);
     } else {
@@ -15,9 +13,8 @@ const useLocalStorage = (key, initialData) => {
   }, []);
 
   const updateLocalStorage = (newData) => {
-    // console.log(newData)
     const valueToStore =
-      newData instanceof Function ? value(updatedData) : newData;
+      typeof newData === "function" ? newData(updatedData) : newData;
     setUpdatedData(valueToStore);
     localStorage.setItem(key, JSON.stringify(valueToStore));
   };

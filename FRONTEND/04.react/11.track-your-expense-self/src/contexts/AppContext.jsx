@@ -1,17 +1,14 @@
 import { createContext, useEffect, useState } from "react";
 import { inputValidConfig } from "../utils/dummy-data";
 import { useFilter } from "../hooks/useFilter";
+import useLocalStorage from "../hooks/useLocalStorage";
 
 const AppContext = createContext();
 
 function AppProvider({ children }) {
   const [sortOrder, setSortOrder] = useState("");
   const [expenseUpdatedRowId, setExpenseUpdatedRowId] = useState("");
-  const [expenses, setExpenses] = useState(
-    JSON.parse(localStorage.getItem("expenses"))
-      ? JSON.parse(localStorage.getItem("expenses"))
-      : [],
-  );
+  const [expenses, setExpenses] = useLocalStorage('expenses', []);
 
   const [expense, setExpense] = useState({
     title: "",
