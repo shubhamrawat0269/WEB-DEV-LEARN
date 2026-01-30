@@ -20,7 +20,7 @@ const Header = () => {
             <NavLink
               to="/"
               className={({ isActive }) =>
-                isActive ? "text-blue-800" : "text-grey-500"
+                isActive ? "text-blue-800 underline" : "text-grey-500"
               }
             >
               Home
@@ -28,7 +28,7 @@ const Header = () => {
             <NavLink
               to="/about"
               className={({ isActive }) =>
-                isActive ? "text-blue-800" : "text-grey-500"
+                isActive ? "text-blue-800 underline" : "text-grey-500"
               }
             >
               About
@@ -36,7 +36,7 @@ const Header = () => {
             <NavLink
               to="/contact"
               className={({ isActive }) =>
-                isActive ? "text-blue-800" : "text-grey-500"
+                isActive ? "text-blue-800 underline" : "text-grey-500"
               }
             >
               Contact
