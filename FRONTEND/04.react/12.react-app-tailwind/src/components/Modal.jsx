@@ -1,13 +1,12 @@
-export default function Modal({
-  isOpen,
+import { createPortal } from "react-dom";
+
+function ModalContent({
   onClose,
   title,
   children,
   size = "md",
   showCloseButton = true,
 }) {
-  if (!isOpen) return null;
-
   const sizeClasses = {
     sm: "max-w-sm",
     md: "max-w-md",
@@ -39,5 +38,31 @@ export default function Modal({
         <div className="p-5 text-gray-600">{children}</div>
       </div>
     </div>
+  );
+}
+
+export default function Modal({
+  isOpen,
+  onClose,
+  title,
+  children,
+  size = "md",
+  showCloseButton = true,
+}) {
+  if (!isOpen) return null;
+
+  return (
+    <>
+      {createPortal(
+        <ModalContent
+          onClose={onClose}
+          title={title}
+          children={children}
+          size={size}
+          showCloseButton={showCloseButton}
+        />,
+        document.body,
+      )}
+    </>
   );
 }
