@@ -7,10 +7,10 @@ const AppContext = createContext();
 
 function AppProvider({ children }) {
   const [sortOrder, setSortOrder] = useState("");
-  const [expenseUpdatedRowId, setExpenseUpdatedRowId] = useState("");
+  const [expenseUpdatedRowId, setExpenseUpdatedRowId] = useLocalStorage("expenseUpdatedRowId","");
   const [expenses, setExpenses] = useLocalStorage('expenses', []);
 
-  const [expense, setExpense] = useState({
+  const [expense, setExpense] = useLocalStorage("expense",{
     title: "",
     category: "",
     amount: 0,
