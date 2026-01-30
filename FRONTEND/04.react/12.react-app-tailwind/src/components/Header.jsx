@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { NavLink } from "react-router-dom";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -16,30 +17,30 @@ const Header = () => {
 
           {/* Desktop Menu */}
           <nav className="hidden md:flex space-x-8">
-            <a
-              href="/"
-              className="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium"
+            <NavLink
+              to="/"
+              className={({ isActive }) =>
+                isActive ? "text-blue-800" : "text-grey-500"
+              }
             >
               Home
-            </a>
-            <a
-              href="/about"
-              className="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium"
+            </NavLink>
+            <NavLink
+              to="/about"
+              className={({ isActive }) =>
+                isActive ? "text-blue-800" : "text-grey-500"
+              }
             >
               About
-            </a>
-            <a
-              href="/services"
-              className="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium"
-            >
-              Services
-            </a>
-            <a
-              href="/contact"
-              className="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium"
+            </NavLink>
+            <NavLink
+              to="/contact"
+              className={({ isActive }) =>
+                isActive ? "text-blue-800" : "text-grey-500"
+              }
             >
               Contact
-            </a>
+            </NavLink>
           </nav>
 
           {/* Mobile Menu Button */}
@@ -91,31 +92,31 @@ const Header = () => {
       {/* Mobile Menu */}
       {isMenuOpen && (
         <div className="md:hidden" id="mobile-menu">
-          <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white border-t border-gray-100">
-            <a
-              href="/"
-              className="block text-gray-700 hover:text-blue-600 hover:bg-gray-50 px-3 py-2 rounded-md text-base font-medium"
+          <div className="flex flex-col px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white border-t border-gray-100">
+            <NavLink
+              to="/"
+              className={({ isActive }) =>
+                isActive ? "text-blue-800" : "text-grey-500"
+              }
             >
               Home
-            </a>
-            <a
-              href="/about"
-              className="block text-gray-700 hover:text-blue-600 hover:bg-gray-50 px-3 py-2 rounded-md text-base font-medium"
+            </NavLink>
+            <NavLink
+              to="/about"
+              className={({ isActive }) =>
+                isActive ? "text-blue-800" : "text-grey-500"
+              }
             >
               About
-            </a>
-            <a
-              href="/services"
-              className="block text-gray-700 hover:text-blue-600 hover:bg-gray-50 px-3 py-2 rounded-md text-base font-medium"
-            >
-              Services
-            </a>
-            <a
-              href="/contact"
-              className="block text-gray-700 hover:text-blue-600 hover:bg-gray-50 px-3 py-2 rounded-md text-base font-medium"
+            </NavLink>
+            <NavLink
+              to="/contact"
+              className={({ isActive }) =>
+                isActive ? "text-blue-800" : "text-grey-500"
+              }
             >
               Contact
-            </a>
+            </NavLink>
           </div>
         </div>
       )}
