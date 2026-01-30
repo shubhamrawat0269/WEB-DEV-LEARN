@@ -1,7 +1,9 @@
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
+import Modal from "./Modal";
 
 const Header = () => {
+  const [showModal, setShowModal] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
@@ -16,7 +18,7 @@ const Header = () => {
           </div>
 
           {/* Desktop Menu */}
-          <nav className="hidden md:flex space-x-8">
+          <nav className="hidden md:flex md:items-center space-x-8">
             <NavLink
               to="/"
               className={({ isActive }) =>
@@ -41,6 +43,14 @@ const Header = () => {
             >
               Contact
             </NavLink>
+            <div>
+              <button
+                className="bg-blue-500 cursor-pointer text-white p-2 px-4"
+                onClick={() => setShowModal(true)}
+              >
+                Sign In
+              </button>
+            </div>
           </nav>
 
           {/* Mobile Menu Button */}
@@ -120,6 +130,18 @@ const Header = () => {
           </div>
         </div>
       )}
+
+      <Modal
+        isOpen={showModal}
+        onClose={() => setShowModal(false)}
+        title="Register Form"
+        size="md"
+      >
+        <p className="mb-4">This is a reusable modal built with Tailwind CSS</p>
+        <button className="px-4 py-2 bg-green-600 text-white rounded-md hover:bg-green-700">
+          Confirm Action
+        </button>
+      </Modal>
     </header>
   );
 };
