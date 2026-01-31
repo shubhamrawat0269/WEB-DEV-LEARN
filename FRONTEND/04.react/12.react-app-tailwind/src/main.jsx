@@ -1,10 +1,23 @@
-import { createRoot } from "react-dom/client";
 import "./index.css";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { lazy } from "react";
 import AppLayout from "./Layout/AppLayout.jsx";
-import Home from "./pages/Home.jsx";
-import Contact from "./pages/Contact.jsx";
-import About from "./pages/About.jsx";
+import { createRoot } from "react-dom/client";
+
+const wait = (time) => {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve();
+    }, time);
+  });
+};
+
+const Home = lazy(() => wait(1000).then(() => import("./pages/Home.jsx")));
+const About = lazy(() => wait(1000).then(() => import("./pages/About.jsx")));
+const Contact = lazy(() =>
+  wait(1000).then(() => import("./pages/Contact.jsx")),
+);
+
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 const router = createBrowserRouter([
   {
