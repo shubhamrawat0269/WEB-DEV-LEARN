@@ -294,6 +294,10 @@ const userDetails = {
 
 //----------------------------------------------- //
 
+/*
+
+Topic : Array in JS
+
 const favouritePlayersList = ["Bumrah", "Virat", "Rohit", "Sky"];
 const rainbowColors = ["Violet", "Indigo", "Blue", "Green"];
 const fruitBasket = [];
@@ -311,3 +315,206 @@ rainbowColors.push("Yellow", "Orange", "Red");
 // fruitBasket.potato = 40;
 
 favouritePlayersList[favouritePlayersList.length - 1] = "Ravindra";
+
+const ticTacToe = [
+  ['X', null , null ],
+  [null, null , 'O' ],
+  ['O', null , 'X' ],
+];
+
+// ticTacToe[15] = ['O', null , 'X']
+
+// console.log(ticTacToe);
+
+*/
+
+//----------------------------------------------- //
+
+/*
+// Topic : Loops in JS 
+
+// const procoders = ["Anuj", "Revti", "Jamimah", "Rupali"];
+// const evenNumbersList = [];
+
+// let pos = 0;
+// while(pos < procoders.length){
+//   const element = procoders[pos];
+//   procoders[pos++] = "Procoder" + " " + element;
+// }
+
+// for (let index = 0; index < procoders.length; index++) {
+//   const element = procoders[index];
+//   procoders[index] = "Procoder" + " " + element;
+// }
+
+// for (let index = 0; index <= 100; index++) {
+//   const element = index;
+//   if(element % 2 == 0) evenNumbersList.push(element); 
+// }
+
+// console.log(procoders);
+// console.log(evenNumbersList);
+
+
+// let secretNumber = 7;
+// let guess;
+
+// do {
+//   guess = Number(prompt("Guess the secret number (1–10):"));
+
+//   if (guess > secretNumber) {
+//     alert("Too high! Try again.");
+//   } else if (guess < secretNumber) {
+//     alert("Too low! Try again.");
+//   } else {
+//     alert("Correct! You won the game.");
+//   }
+// } while (guess !== secretNumber);
+
+*/
+
+//----------------------------------------------- //
+
+// debugger;
+// console.log("Start");
+
+// var a = 10;
+// const b = 20;
+
+// function outer() {
+//   console.log("Outer start");
+
+//   var b = 20;
+
+//   function inner() {
+//     console.log("Inner start"); //  console.log(a);
+//     console.log(b);
+//     var c = 30;
+//     console.log(c);
+//     console.log("Inner end");
+//   }
+
+//   inner();
+//   console.log("Outer end");
+// }
+
+// outer();
+
+// console.log("End");
+
+// debugger;
+
+// let scopeChainVar = "Global Level";
+
+// function firstLevel() {
+//   let firstVar = "First Level";
+
+//   function secondLevel() {
+//     let secondVar = "Second Level";
+
+//     if(secondVar){
+//       var favourite = 'Manchurian';
+//       console.log(favourite)
+//     }
+
+//     console.log(scopeChainVar); // Global
+//     console.log(firstVar); // Parent
+//     console.log(secondVar); // Own
+//   }
+
+//   secondLevel();
+
+//   console.log(favourite);
+// }
+
+// firstLevel();
+// console.log(favourite);
+// "use strict";
+
+// function printSum(a, b) {
+//   a = 20;
+//   b = 30;
+//   console.log(arguments[0] + arguments[1]);
+// }
+
+// printSum(1, 2);
+
+// printSum.genre = 'Popmusic'
+
+// console.dir(printSum)
+
+//----------------------------------------------- //
+
+// Topic : Timing Based Interval
+
+// setTimeout(undefined, 500);
+// setTimeout('console.log("My name is Shubham Rawat and I am not a terrorist")', 500);
+// setTimeout(printAdd(1,2), 500);
+
+// function printAdd(a, b) {
+//   console.log(a + b);
+// }
+
+//----------------------------------------------- //
+
+// Topic : Closures in js
+// const a = 5;
+// const b = 5;
+
+// function parentFunc() {
+//   function childFunc() {
+//     console.log(a * b);
+//   }
+
+//   return childFunc;
+// }
+
+// const closureFn = parentFunc();
+
+// closureFn();
+
+//----------------------------------------------- //
+
+// Topic : Methods vs Fn
+
+// function addTwoNum(a, b) {
+//   return a + b;
+// }
+
+// var E = "0.42232";
+
+// const maths = {
+//   E: 0.4141,
+//   addTwoNum: function (a, b) {
+//     return `${this.E} : ${a + b}`;
+//   },
+//   subTwoNum: (a, b) => {
+//     return `${this.E} : ${a - b}`;
+//   },
+//   multiplyTwoNum(a, b) {
+//     return `${this.E} : ${a * b}`;
+//   },
+//   cubeNum(a) {
+//     return `${a ** 3}`;
+//   },
+// };
+
+// // console.log(maths.subTwoNum(5, 4));
+// console.log(maths.multiplyTwoNum(5, 4));
+
+//----------------------------------------------- //
+
+// TOpic : forof , forin & forEach method 
+
+// const arr = [10, 20, 30];
+
+// const character = 'Javascript'
+
+// for(let value of arr){
+//   console.log(value)
+// }
+
+// for(let char of character){
+//   console.log(char)
+// }
+
