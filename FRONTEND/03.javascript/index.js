@@ -504,7 +504,7 @@ const ticTacToe = [
 
 //----------------------------------------------- //
 
-// TOpic : forof , forin & forEach method 
+// TOpic : forof , forin & forEach method
 
 // const arr = [10, 20, 30];
 
@@ -518,3 +518,58 @@ const ticTacToe = [
 //   console.log(char)
 // }
 
+//----------------------------------------------- //
+
+// Topic : this keyword in JS
+
+// console.log(this)
+
+const user = {
+  firstname: "Shubham",
+  lastname: "Rawat",
+  tags: ["a", "b", "c"],
+  fullName() {
+    // console.log(this);
+    const getAge = () => {
+      console.log(this); // window object
+    };
+    getAge();
+  },
+};
+
+// user.fullName();
+
+// function greet() {
+//   this.a = 40;
+//   this.b = 10;
+//   console.log(this);
+// }
+
+// const h1 = new greet();
+
+// console.log(h1.a, h1.b);
+
+function printSum() {
+  const argsVal = [...arguments];
+
+  // for(let ele of arguments){
+  //   sum += ele;
+  // }
+  let sum = argsVal.reduce((cur, acc) => cur + acc, 0);
+  return sum;
+}
+
+// const printSum = () =>{
+// console.log(arguments)
+// let sum = 0;
+
+// for(let ele of arguments){
+//   sum += ele;
+// }
+// return sum;
+
+// return arguments; // arguments keyword is unknown to arrow fn.
+// }
+
+const sumOfNVar = printSum(3, 4, 6, 5);
+console.log(sumOfNVar);
