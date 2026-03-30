@@ -1,0 +1,10 @@
+{
+  "scripts": {
+    "start": "whoami",
+    "test": "node --version",
+    "restart": "node"
+  },
+  "dependencies": {
+    "chalk": "*"
+  }
+}
