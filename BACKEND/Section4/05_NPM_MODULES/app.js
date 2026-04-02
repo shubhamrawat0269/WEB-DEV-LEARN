@@ -1,4 +1,4 @@
-import {myProfile} from 'math'
-// const {myProfile} = require('math');
+import {myProfile} from 'shubham-profile'
+// const {myProfile} = require('shubham-profile');
 
-console.log(myProfile)
+console.log(myProfile);
