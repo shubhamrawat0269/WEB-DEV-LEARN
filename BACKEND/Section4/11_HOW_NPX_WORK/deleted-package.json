@@ -1,0 +1,4 @@
+{
+    "name": "vit",
+    "bin": "./src/script"
+}

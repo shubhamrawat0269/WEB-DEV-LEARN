@@ -1,0 +1,40 @@
+----------------
+What NPX does ? -- 
+Solution -> NPX search for a file and tries to execute it.
+Note : --> Window has authroity to access and execute any files in his system unlike ubuntu.
+
+Note : NPX tries to run your file using cmd which cause an error . To changes the settings, you need to type command : 
+npm config get script-shell  --> null    |   npm config set script-shell <bash-path>
+
+Step 1 : A. NPX tries to look into the package.json file into current working directory
+         B. look for the name & then bin(binary) values & try to execute bin path file 
+         C. if file not found, then goes to Step 2.
+Step 2 : A. Look for node_modules/.bin directory & within it tries to find out that command file like , if you are typing npx vit, it looks 
+          for vit file under .bin directory and execute it.
+
+Step 3 : A. Look for this package inside location of global packages. 
+            In my case, it's C:\Users\Shubham Rawat\AppData\Roaming\npm\node_modules
+         B. And then tries to execute it
+
+Step 4 : A. Look for this package inside npm registry. 
+         B. If found, then ask user to install it on your setup. 
+         C. Installing will be the next step. 
+
+Step 5 : Before installing package using npx, when command npx vit runs : 
+         A. look for package into npx-cache . if found, runs directly.
+         B. if not, then ask to install for the very first time.
+Note : these packages goes into npx-cache directory. 
+
+
+Note : 1. npm root -g => is a path where global package install. 
+       2. Because path being setup under environment variables, we tend to access global packages. 
+
+Note : packages like express, axios, chalk are library packages not CLI or executable packages that's why 
+if we try to run npx axios , it'll not install it . 
+
+
+Note : npx create-vite & npm create vite does the same thing : 
+ask to install package in your system.
+Cache it in their own directory. When user type the command again, it doesn't ask for the permission.
+
+Note : Try to create alias for the common command you use in daily use.
