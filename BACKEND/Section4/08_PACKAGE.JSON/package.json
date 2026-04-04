@@ -1,0 +1,13 @@
+{
+  "scripts": {
+    "shubham": "whoami",
+    "start": "npm --version",
+    "restart": "node",
+    "stop": "git --version",
+    "test": "pwd",
+    "dev": "node app.js"
+  },
+  "dependencies": {
+    "chalk": "^2.2.2"
+  }
+}
