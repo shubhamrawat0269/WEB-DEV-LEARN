@@ -1,0 +1,38 @@
+#!/usr/bin/env node
+import fs from "fs/promises";
+
+/*
+   TODO : 
+   [Done] 1. Read the extra word from command line and extract count of words in an output. 
+   [Done] 2. Make the words in a file case sensitive and count the words in a file.
+   [] 3. Learn how to publish an cli package in npmjs.com 
+
+*/
+
+// console.log(process.argv);
+const content = await fs.readFile(`./${process.argv[2]}`, "utf-8");
+
+let map = {};
+const splitContent = content
+  .split(/[\W]/)
+  .map((word) => word.toLowerCase())
+  .filter((word) => {
+    if (word.length > 0 && process.argv[3])
+      return word === process.argv[3].toLowerCase();
+    else return word;
+  });
+
+for (const word of splitContent) {
+  if (map[word]) map[word] += 1;
+  else map[word] = 1;
+}
+
+if (Object.keys(map).length === 0) {
+  console.log(
+    `No word of '${process.argv[3].toLowerCase()}' is found in the file : ${process.argv[2]}`,
+  );
+} else {
+  console.log(
+    `The word '${process.argv[3].toLowerCase()}' is found ${map[process.argv[3].toLowerCase()]} times in the file : ${process.argv[2]}`,
+  );
+}
