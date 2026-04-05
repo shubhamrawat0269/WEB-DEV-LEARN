@@ -28,11 +28,23 @@ for (const word of splitContent) {
 }
 
 if (Object.keys(map).length === 0) {
+  if(process.argv[3]) {
   console.log(
     `No word of '${process.argv[3].toLowerCase()}' is found in the file : ${process.argv[2]}`,
   );
+  } else {
+    console.log(
+      `No word is found in the file : ${process.argv[2]}`,
+    );
+  }
 } else {
+  if(!process.argv[3]) {
+    console.log(
+      `Mention the word to be searched for in the file`,
+    );
+  }else {
   console.log(
     `The word '${process.argv[3].toLowerCase()}' is found ${map[process.argv[3].toLowerCase()]} times in the file : ${process.argv[2]}`,
   );
+}
 }

@@ -1,9 +1,11 @@
 {
   "name": "shubham-rawat-word-counter-cli",
   "type": "module",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "app.js",
-  "bin": "./app.js",
+  "bin": {
+    "wordcount": "./app.js"
+  },
   "author": "Shubham Rawat",
   "license": "ISC",
   "description": "My first and simple CLI tool to count words in a file"
