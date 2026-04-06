@@ -5,11 +5,9 @@ import fs from "fs/promises";
    TODO : 
    [Done] 1. Read the extra word from command line and extract count of words in an output. 
    [Done] 2. Make the words in a file case sensitive and count the words in a file.
-   [] 3. Learn how to publish an cli package in npmjs.com 
-
+   [Done] 3. Learn how to publish an cli package in npmjs.com 
 */
 
-// console.log(process.argv);
 const content = await fs.readFile(`./${process.argv[2]}`, "utf-8");
 
 let map = {};
