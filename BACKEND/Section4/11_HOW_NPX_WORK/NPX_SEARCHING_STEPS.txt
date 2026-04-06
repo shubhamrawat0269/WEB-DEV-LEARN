@@ -38,3 +38,5 @@ ask to install package in your system.
 Cache it in their own directory. When user type the command again, it doesn't ask for the permission.
 
 Note : Try to create alias for the common command you use in daily use.
+
+--------
