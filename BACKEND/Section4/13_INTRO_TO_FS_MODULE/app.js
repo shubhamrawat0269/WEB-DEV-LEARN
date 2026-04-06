@@ -16,27 +16,23 @@
 
 */
 
-import fs from 'node:fs';
-// import fs from "node:fs/promises";
+import fs from 'fs'
+// import fs from 'node:fs/promises'
 
-// const content = fs.readFileSync('index.html');
-// console.log(content);
-// console.log(content.toString());
+// console.log(fs)
+const content = fs.readFileSync('./my-intro.txt', 'utf-8')
+console.log(content);
 
-// const contentUTF8 = fs.readFileSync('index.html', 'utf-8');
-// console.log(contentUTF8);
-
-// fs.readFile('index.html', 'utf-8', (error, data) => {
-//     console.log(data);
+// fs.readFile('./my-intro.txt', 'utf-8', (error, data) => {
+// console.log(data);
 // });
+let index = 0;
 
-// let index = 1;
-// setInterval(() => {
-//   console.log(index++);
-// }, 5);
-
-
-// const contentFromPromises = fs.readFileSync("content.txt", "utf-8");
-// console.log("contentFromPromises");
+setInterval(() => {
+   console.log(index++);
+},50)
 
 
+// const content = await fs.readFile('./content.txt', 'utf-8')
+// console.log(content);
+console.log('END OF THE PROGRAM')
