@@ -12,4 +12,4 @@ import fs from 'node:fs/promises';
 
 // write file override the content of the file.
 // fs.writeFile('hello.txt', 'Hii I am shubham');
-fs.appendFile('hello.txt', 'I am a youtuber \n')
+// fs.appendFile('hello.txt', 'I am a youtuber \n');
