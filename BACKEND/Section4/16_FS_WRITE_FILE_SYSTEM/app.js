@@ -7,18 +7,13 @@
   
 */
 
-import fs from 'node:fs/promises';
+import {readFile, writeFile} from 'node:fs/promises'
 
-const content = await fs.readFile('hello.txt');
-// console.log(content);
-fs.writeFile("C:/Users/Shubham Rawat/OneDrive/Desktop/file-2.txt", content);
+const content = await readFile('./hello.txt')
+writeFile("C:\\Users\\Shubham Rawat\\OneDrive\\Desktop\\file-1.txt", content);
 
-const contentImage = await fs.readFile("output.png");
-fs.writeFile(
-  "C:/Users/Shubham Rawat/OneDrive/Desktop/output.png",
-  contentImage,
+const pngContent = await readFile('./output.png')
+writeFile(
+  "C:\\Users\\Shubham Rawat\\OneDrive\\Desktop\\file-2.png",
+  pngContent,
 );
-
-// write file override the content of the file.
-// fs.writeFile('hello.txt', 'Hii I am shubham');
-// fs.appendFile('hello.txt', 'I am a youtuber \n');
