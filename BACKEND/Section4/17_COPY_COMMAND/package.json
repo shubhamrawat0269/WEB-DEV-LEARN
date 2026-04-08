@@ -1,6 +1,7 @@
 {
+    "name": "shubham-copy-cli",
+    "version": "1.0.0",
     "type": "module",
-    "name": "copy",
     "bin": {
         "copy": "./copy.js"
     }
