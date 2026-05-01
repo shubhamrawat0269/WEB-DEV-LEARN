@@ -3,7 +3,7 @@
 1. Container of Bytes which assigned sequence wise. We get some space from RAM and max we can go is 2 GiB.
 2. Note : Use example.com 
 3. How can we create a ArrayBuffer in JS ? 
-4. We get the error below when try to create ArrayBuffer of 
+4. We get the error below when try to create ArrayBuffer of  
 
 ----------
 const b = new ArrayBuffer(2 * 1024 * 1024 * 1024)
