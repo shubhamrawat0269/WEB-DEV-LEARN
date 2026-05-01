@@ -1,3 +1,5 @@
+## In this lecture, we try to understand how we can represent negative value in binary numbers. 
+
 1. Computers represent numbers in binary. But binary alone doesn't indicate whether a number is positive or negative
 2. For that we have signed and unsigned values concept
 
