@@ -17,4 +17,4 @@ in memory inspector we get hex representation due to smaller in size
 7. We use two things -- **typedArray** and **Dataview** to make changes to arraybuffer.
 8. We can only allocate some space from RAM using ArrayBuffer constructor.
 
-9. We can see binary content of any file whether it's a simple plain text file or mp4 file.
+9. We can see binary content of any file in a hex format whether it's a simple plain text file or mp4 file.
