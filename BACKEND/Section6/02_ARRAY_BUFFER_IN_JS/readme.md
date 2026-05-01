@@ -1,4 +1,4 @@
-## Array Buffer Defination
+## In this lecture , we are going to learn about ArrayBuffer.
 
 1. Container of Bytes which assigned sequence wise. We get some space from RAM and max we can go is 2 GiB.
 2. Note : Use example.com 
