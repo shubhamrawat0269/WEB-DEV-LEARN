@@ -18,8 +18,6 @@ Syntax :
      view.setInt8(1, 0xFF);
      view.setInt8(2, 0o26);
 
-    Within JS, it's going to get convert in decimal format.
-
 5. Now, the question is can we store a signed value inside ArrayBuffer 
 Answer is yes, you can do it using same method <view.setInt8(0, -1)>
 
