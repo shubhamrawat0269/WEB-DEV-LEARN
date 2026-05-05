@@ -33,9 +33,41 @@ num11 = 'Shubham';  // can be reassign like var.
 
 */
 
-
 /*
   Day 2 of Learning JS 
+  Topic : Promises in JS
 
+  1. Promises is simple object which represent in three state : resolved, reject or pending(by default)
+  2. It contains of : prototype, promisestate, promiseResult when log p1 in this case.
+  3. Browser has this feature of Promises and it is respoinsible to track the state of promises. 
 
 */
+
+const resolveBtn = document.getElementById("resolve");
+const rejectBtn = document.getElementById("reject");
+const status = document.getElementById("status");
+
+// Promise create
+
+const p1 = new Promise((res, rej) => {
+  resolveBtn.addEventListener("click", function () {
+    let status = "resolve";
+    res({ message: "Promise Resolved", status });
+  });
+  rejectBtn.addEventListener("click", function () {
+    let status = "reject";
+    res({ message: "Promise Reject", status });
+  });
+});
+
+p1.then((res) => {
+  console.log(res.message);
+  status.innerHTML = res.status;
+})
+  .catch((error) => {
+    console.log(error.message);
+    status.innerHTML = error.status;
+  })
+  .finally(() => {
+    console.log("Loading Reset");
+  });
