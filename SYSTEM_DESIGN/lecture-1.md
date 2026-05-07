@@ -4,7 +4,7 @@
 2. User can only access to our server using IP . But ip is hard to remember because of combination of digits.
 3. That's why DNS Server come into play, it provide user a domain which is associated with the ip such that user 
 don't have to remember ip. User request DNS with Domain and DNS respond with the corresponding IP Address.
-4. This process is called to be DNS resolution.
+4. This process is called to be **DNS resolution**.
 5. DNS server is a global directory which works like a Telephone directory. 
 
 ----------------------
@@ -16,7 +16,7 @@ CPU's) can't handle it and become bottleneck to the user.
 if we are increasing resources, it could cost heavy even when they are not needed.
 9. Vertical Scaling has a limitation that it cause **downtime** because we can't increase the resources of machine on a running 
 server.
-10. That's where Horizontal Scaling come into play, which means creating a Raplica of your machine which can leads to running the 
+10. That's where **Horizontal Scaling** come into play, which means creating a Raplica of your machine which can leads to running the 
 machine 24/7 even when you need to update the resources.
 11. You add more servers to get rid from downtime. If one machine gets load, add another server which can eliminate downtime as 
 it must be 0. 
@@ -26,4 +26,9 @@ It has it's own IP address. The user when request , it routes to our load balanc
 
 -------------------------
 
-14. As we know we have different different kind of microservices like auth, api, orders, payments
+14. As we know we have different different kind of microservices like auth, api, orders, payments.
+15. We create differennt servers along with a loadbalancer for each service. 
+16. We should have a route routing server which is responsible to route for a particular route 
+for example /auth -> auth service ,  /orders -> order service which has their own servers plus loadbalancer.
+
+17. This is known to be **API gateway**. 
