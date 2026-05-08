@@ -35,6 +35,8 @@ BigUint64Array
 For example , Uint8Array[0] = 0xf3; => write data
 Uint8Array[0] => read data
 
+Explore uint16Array as well.
+
 5. By Default, TypedArray methods support **little Endian** means byte order reverse.
 6. TypedArray methods automatically create Arraybuffer if you pass a number to params.
 
@@ -48,3 +50,11 @@ const uInt8Array = new Uint8Array(4); => number as params.
 
 8. There's also one method i.e. fill() . Use it like below:
    const uInt8Array = new Uint8Array(4).fill(0xff);
+
+9. Understanding detached, resizable, maxByteLength property : 
+   A. How can we change the maxByteLength property.
+   B. new ArrayBuffer(4, {maxByteLength: 16})
+   C. a.resize(8)
+   D. We can detach any arrayBuffer using a.transfer() method.
+   
+10. Note : transfer method is new that's why it's not supportable to nodejs env.
