@@ -55,6 +55,3 @@ const uInt8Array = new Uint8Array(4); => number as params.
    A. How can we change the maxByteLength property.
    B. new ArrayBuffer(4, {maxByteLength: 16})
    C. a.resize(8)
-   D. We can detach any arrayBuffer using a.transfer() method.
-   
-10. Note : transfer method is new that's why it's not supportable to nodejs env.
