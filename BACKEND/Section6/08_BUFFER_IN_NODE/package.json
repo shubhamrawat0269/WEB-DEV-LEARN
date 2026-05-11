@@ -1,0 +1,13 @@
+{
+  "name": "08_buffer_in_node",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "1. Nodejs Buffer is a typedArray which is a based on Uint8Array with some extra properties.\r 2. We cannot access Nodejs Buffer in Browser cuz it's available in Nodejs only",
+  "main": "index.js",
+  "scripts": {
+    "debug": "node --inspect-brk index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
