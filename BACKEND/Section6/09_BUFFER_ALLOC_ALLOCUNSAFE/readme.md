@@ -30,5 +30,3 @@ console.timeEnd('Buffer.allocUnsafe');
   unlike alloc.
 
   2. Buffer Pool : It's an array of Bytes with size of 8GiB. It uses the same internal array buffer if assigned bytes is less than half the poolSize i.e 8 GiB.
-
-  3. 

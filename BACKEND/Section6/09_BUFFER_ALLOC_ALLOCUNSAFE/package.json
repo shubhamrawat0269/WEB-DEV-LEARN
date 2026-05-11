@@ -1,6 +1,7 @@
 {
   "name": "09_buffer_alloc_allocunsafe",
   "version": "1.0.0",
+  "type": "module",
   "description": "1. Both method is used to allocate some memory from RAM.\r 2. But diff. is alloc() allocate the space and fill 0 making it less faster than allocunsafe.\r 3. ALthough, allocunsafe pick random space from memory whether they had occupy with value or\r not.\r 4. Using allocunsafe is vulnerable to exposure of sensitive information which you are not \r willing to share. But they are fast as they do not perfrom fill operation.\r 5. After using allocunsafe, you need to fill some info which override sensitive info.",
   "main": "index.js",
   "scripts": {
