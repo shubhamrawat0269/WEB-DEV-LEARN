@@ -3,8 +3,5 @@
   "scripts": {
     "dev": "node --watch server.js",
     "start": "node server.js"
-  },
-  "dependencies": {
-    "@types/node": "^22.7.4"
   }
 }
