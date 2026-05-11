@@ -1,0 +1,13 @@
+{
+  "name": "10_buffer_pool",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "1. Buffer.poolSize in node sets the size of internal memory i.e. 8kiB.\r 2. It enhances performance by reducing the overhead of constant memory allocation for numerous small data chunks.",
+  "main": "index.js",
+  "scripts": {
+    "debug": "node --inspect-brk index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
