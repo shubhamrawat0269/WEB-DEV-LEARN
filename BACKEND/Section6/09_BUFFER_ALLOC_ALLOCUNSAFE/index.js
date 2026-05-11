@@ -1,9 +1,9 @@
 import { Buffer } from "node:buffer";
 
-// const b1 = new Buffer.alloc(400000);
-// const b2 = new Buffer.allocUnsafe(400000);
+const b2 = Buffer.allocUnsafe(8);
+const b3 = Buffer.allocUnsafe(8);
 
-// b2.fill(0);
+b2[0] = 97;
+b3[0] = 98;
 
-// // console.log(b1);
-// console.log(b2);
+console.log("END");

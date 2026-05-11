@@ -24,3 +24,11 @@ for(let i = 0;i < 100000; i++){
     Buffer.allocUnsafe(1024);
 }
 console.timeEnd('Buffer.allocUnsafe');
+
+7. Two Reasons why allocunsafe is fast then alloc is : 
+  1. allocunsafe allocate the raw data to assigned memory . Ther's no operation like fill 0
+  unlike alloc.
+
+  2. Buffer Pool : It's an array of Bytes with size of 8GiB. It uses the same internal array buffer if assigned bytes is less than half the poolSize i.e 8 GiB.
+
+  3. 
