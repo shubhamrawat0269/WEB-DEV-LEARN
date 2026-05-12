@@ -19,6 +19,8 @@ and binary data.
 
 Note : if zero's are coming from placeholders, it get replace with = in result.
 
+-------------------------------------------------------------------
+
 7. So far we learn about base64 rules and conversion, now it's time to learn base64 practical
 usecase
 8. Whenever we try to convert any filedata to base64 string and put it inside new file, size of new file increases by 8/6 times.
@@ -30,3 +32,9 @@ await fs.writeFile("favicon/icon.png", binaryContent, "base64");
 
 10. We must have already used base64 in our img src tag . You can try this as well and see
 the difference.
+11. There are some protocols like email , we transfer text based string even with json also 
+You have heard about JSON.stringify(). That's why we need base64 encoding system.
+
+12. Within base64url, = is not supported and it is removed. Also, + is replace by -
+/ is replaced by _. This is what changes are done by base64url . usecase is queryparams.
+
