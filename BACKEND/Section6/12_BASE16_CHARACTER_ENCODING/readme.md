@@ -18,3 +18,15 @@ and binary data.
   C. Data should be in the multiples of 3 bytes.
 
 Note : if zero's are coming from placeholders, it get replace with = in result.
+
+7. So far we learn about base64 rules and conversion, now it's time to learn base64 practical
+usecase
+8. Whenever we try to convert any filedata to base64 string and put it inside new file, size of new file increases by 8/6 times.
+9. We can convert an image file to text file using base64 encoding.
+------
+const binaryContent = await fs.readFile("favicon/favicon-16x16.png", "base64");
+await fs.writeFile("favicon/icon.png", binaryContent, "base64");
+------
+
+10. We must have already used base64 in our img src tag . You can try this as well and see
+the difference.
