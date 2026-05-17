@@ -1,9 +1,12 @@
 import fs from "fs";
 
 console.time();
-const readStream = fs.createReadStream("120Bahadur.mkv", {
-  highWaterMark: 1 * 1024 * 1024,
-});
+const readStream = fs.createReadStream(
+  "C:\\Users\\Shubham Rawat\\Dropbox\\PC\\Downloads\\amazing-spiderman.mp4",
+  {
+    highWaterMark: 1 * 1024 * 1024,
+  },
+);
 
 const writeStream = fs.createWriteStream("movie.mkv", {
   highWaterMark: 1 * 1024 * 1024,
