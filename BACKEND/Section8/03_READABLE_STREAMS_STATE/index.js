@@ -5,7 +5,7 @@ const readStream = fs.createReadStream("chars.txt", { highWaterMark: 4 });
 // console.log(readStream.readableFlowing);
 // console.log(readStream.readableEnded);
 // console.log(readStream.isPaused());
-let initialCount = 0;
+// let initialCount = 0;
 
 // readStream.on("data", (chunkBuffer) => {
 //   fs.writeFileSync("new-chars-chunk.txt", chunkBuffer);

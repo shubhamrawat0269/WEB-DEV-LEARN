@@ -2,7 +2,7 @@
 
 1. We can't create Duplex stream using **fs** module. 
 2. Duplex stream have mixture of both - readStream and writeStream.
-3. We can create a custom readableStream and writableStream usint stream native module.
+3. We can create a custom readableStream and writableStream using stream native module.
 => For example, import {Readable, Writable, Duplex } from 'stream'
 
 4. Passthrough Streams are whatever data is read , that data is sended as well. No modification.
