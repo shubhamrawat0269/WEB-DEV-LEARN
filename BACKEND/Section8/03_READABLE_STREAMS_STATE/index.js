@@ -2,27 +2,25 @@ import fs from "fs";
 
 const readStream = fs.createReadStream("chars.txt", { highWaterMark: 4 });
 
-// console.log(readStream.readableFlowing);
-// console.log(readStream.readableEnded);
-// console.log(readStream.isPaused());
-// let initialCount = 0;
+// console.log(readStream.readableFlowing, "isReadable");
+// console.log(readStream.readableEnded, "isReadableEnded");
+// console.log(readStream.isPaused(), "isReadablePaused");
 
-// readStream.on("data", (chunkBuffer) => {
-//   fs.writeFileSync("new-chars-chunk.txt", chunkBuffer);
-//   readStream.pause();
-// });
+readStream.on("data", (chunk) => {
+  console.log(readStream.bytesRead, "BYTE READ");
+  console.log(readStream.readableHighWaterMark, "HIGHWATERMARK");
 
-readStream.on("data", (chunkBuffer) => {
-  //   if (initialCount === 0) fs.writeFileSync("new-chars-chunk.txt", chunkBuffer);
-  //   else fs.appendFileSync("new-chars-chunk.txt", chunkBuffer);
-  if (readStream.bytesRead === readStream.readableHighWaterMark)
-    fs.writeFileSync("new-chars-chunk.txt", chunkBuffer);
-  else fs.appendFileSync("new-chars-chunk.txt", chunkBuffer);
+  if (readStream.bytesRead == readStream.readableHighWaterMark) {
+    fs.writeFileSync("chars-new.txt", chunk);
+  } else {
+    fs.appendFileSync("chars-new.txt", chunk);
+  }
+  // readStream.pause();
+  // console.log(readStream.isPaused(), "isReadablePaused");
+});
 
-  //   initialCount++;
-  readStream.pause();
-  setTimeout(() => {
-    readStream.resume();
-  }, 1000);
-  //   for (let i = 0; i < 1000000000; i++) {} // This is not the right way
+// console.log(readStream.readableFlowing, "isReadable");
+readStream.on("end", () => {
+  console.log("Action ended");
+  // console.log(readStream.readableEnded, "isReadableEnded");
 });
