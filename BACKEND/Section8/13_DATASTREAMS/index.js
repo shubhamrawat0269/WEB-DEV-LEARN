@@ -1,40 +1,36 @@
-// readable stream
-// console.log(process.stdin)
+import fs from "fs";
+import { spawn } from "child_process"; // spawn start a process
 
-// writable stream
-// console.log(process.stdout)
-// console.log(process.stderr)
+// console.log(process.stdin);
+// console.log(process.stdout);
+// console.log(process.stderr);
 
-// readable stream
 // console.log(process.stdin.fd);
-
-// writable stream
 // console.log(process.stdout.fd);
 // console.log(process.stderr.fd);
 
-// process.stdin.write("hi");
-// process.stdout.write("hi");
-// process.stderr.write("hi");
+// process.stdin.write("Hii");
+// process.stdout.write("Hii\n");
 
-import fs from "fs";
-import { spawn } from "child_process"; // spawn means start
-// const writeStream = fs.createWriteStream("new-file.txt");
+// const writeStream = fs.createWriteStream("output-file.txt");
 
 // process.stdin.on("data", (chunk) => {
 //   console.log(`Data Recieved : ${chunk.toString()}`);
 //   writeStream.write(chunk);
 // });
 
-// const childProcess = spawn("cat", ["new-file.txt"]);
-// const childProcess = spawn("ls");
-// const childProcess = spawn("pwd");
-// const childProcess = spawn("mkdir", ["chunks-data.txt"]);
-const childProcess = spawn("node", ["index1.js"]);
+// process.stdin.pipe(writeStream);
 
-// console.log(childProcess.stdout);
+// const pro = spawn("mkdir", ["disc"]);
+const parentProcess = spawn("node", ["server.js"]);
 
-childProcess.stdout.on("data", (chunk) => {
-  console.log(chunk);
-});
+const writeStream = fs.createWriteStream("movie.mp4");
+// here stdout works as a readable stream
+parentProcess.stdout.pipe(writeStream);
 
-childProcess.stdin.write("I am not a terrorist");
+// parentProcess.stdout.on("data", (data) => {
+//   console.log(data);
+// });
+
+// parentProcess.stdin.write("Hii Manish Who are you?");
+// pro.stdin.write("Hii Shubham"); // Not working
