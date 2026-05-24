@@ -6,7 +6,7 @@ const server = http.createServer(async (req, res) => {
   res.setHeader("Content-Type", "text/txt");
   // res.setHeader("Content-Disposition", "attachment; filename=streams.mp4");
 
-  const fileHandle = await fs.open("package.json");
+  const fileHandle = await fs.open("abc.txt");
   // const { size } = await fileHandle.stat();
   // res.setHeader("Content-Length", size);
   const readStream = fileHandle.createReadStream({
