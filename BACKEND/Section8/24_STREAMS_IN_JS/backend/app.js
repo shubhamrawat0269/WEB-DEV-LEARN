@@ -3,34 +3,30 @@ import fs from "fs/promises";
 
 const server = http.createServer(async (req, res) => {
   res.setHeader("access-control-allow-origin", "*");
-  res.setHeader("Content-Type", "image/webp");
+  res.setHeader("Content-Type", "text/txt");
+  // res.setHeader("Content-Disposition", "attachment; filename=streams.mp4");
 
-  // setInterval(() => {
-  //   res.write("Hii Shubham");
-  // }, 500);
-
-  const fileHandle = await fs.open("river.webp");
+  const fileHandle = await fs.open("package.json");
+  // const { size } = await fileHandle.stat();
+  // res.setHeader("Content-Length", size);
   const readStream = fileHandle.createReadStream({
-    highWaterMark: 1 * 1024,
-    encoding: "utf-8",
+    highWaterMark: 2,
   });
 
   readStream.on("data", (chunk) => {
-    // console.log(chunk);
     res.write(chunk);
     readStream.pause();
 
     setTimeout(() => {
       readStream.resume();
-    }, 400);
+    }, 100);
   });
 
   readStream.on("end", () => {
-    console.log("Successfully Rendered content");
     res.end();
   });
 });
 
 server.listen(4000, "localhost", () => {
-  console.log("Server Started on Port 4000");
+  console.log("Server Started");
 });
