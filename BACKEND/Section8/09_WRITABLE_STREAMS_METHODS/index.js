@@ -4,7 +4,7 @@ const writeStream = fs.createWriteStream("file.txt", {
   highWaterMark: 1 * 1024,
 });
 
-// console.log(writeStream.writable);
+// console.log(writ-eStream.writable);
 writeStream.write("a");
 writeStream.write("b");
 // console.log(writeStream.writable);
