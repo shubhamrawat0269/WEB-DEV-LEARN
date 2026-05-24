@@ -3,32 +3,29 @@ import fs from "fs/promises";
 
 const server = http.createServer(async (req, res) => {
   res.setHeader("access-control-allow-origin", "*");
-  res.setHeader("Content-Type", "image/webp");
+  res.setHeader("Content-Type", "video/mp4");
 
-  // setInterval(() => {
-  //   res.write("Hii Shubham");
-  // }, 500);
-
-  const fileHandle = await fs.open("river.webp");
+  // Note: I am not able to reneder a large file 
+  const fileHandle = await fs.open(
+    "C:\\Users\\Shubham Rawat\\Dropbox\\PC\\Downloads\\amazing-spiderman.mp4",
+  );
   const readStream = fileHandle.createReadStream({
-    highWaterMark: 1 * 1024,
-    encoding: "utf-8",
+    highWaterMark: 10 * 1024 * 1024,
   });
 
   readStream.on("data", (chunk) => {
-    // console.log(chunk);
     res.write(chunk);
-    readStream.pause();
 
+    readStream.pause();
     setTimeout(() => {
       readStream.resume();
-    }, 400);
+    }, 500);
   });
 
   readStream.on("end", () => {
-    console.log("Successfully Rendered content");
+    console.log("Data Rendered Copy successfully");
     res.end();
-  });
+  }); 
 });
 
 server.listen(4000, "localhost", () => {
