@@ -38,6 +38,39 @@
 
 =========================================================
 
-# in 5th lecture, i study about Story of WWW
+# in 5th lecture, i study about Story of Networking Devices 
+Networking devices are hardware components used in a computer network to connect computers, share data, and manage communication between devices.
 
-1. 
+1. Important networking devices are : 
+-----------
+   A. **Host** (laptop, PC, Mobile, Tab) . A Host is any device connected to a network that can send or receive data.
+
+   B. **Repeater**. A Repeater is a device that strengthens or regenerates weak network signals so they can travel longer distances.
+
+   C. **Hub** . A Hub is a simple networking device that connects multiple computers together in a LAN (Local Area Network).
+   When one computer sends data:
+   The hub sends the data to all connected devices
+   Every device receives it, even if it is not the target
+
+   D. **Switch** . A Switch is an advanced version of a hub. It connects devices in a LAN but sends data only to the correct destination device.
+
+   E. **Bridge** . A Bridge connects two network segments and filters traffic between them. It reduces unnecessary traffic by checking MAC addresses before forwarding data.
+
+   F. **Router**. A Router is a networking device that connects different networks together and sends data between them.
+
+   G. **Modem**. A Modem is a device that connects your home or office network to your Internet Service Provider (ISP).
+
+   H. **Access Point**. work to boost signals just like Repeaters.
+
+# in 6th lecture, i study about Types of Network
+
+1. LAN : Connects devices within a small area like a home, office, or school.
+2. WAN : Spans large geographic areas such as countries or continents.
+
+3. MAN : connects accross cities.
+
+Note : ---------------------
+
+Types of Networks by Connection Method
+1. Wired Network. Uses cables like Ethernet.
+2. Wireless Network. Uses radio waves (Wi-Fi, Bluetooth).
