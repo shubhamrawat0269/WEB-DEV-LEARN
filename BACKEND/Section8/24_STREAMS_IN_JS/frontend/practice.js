@@ -1,27 +1,32 @@
 const input = document.querySelector("input");
 
+const decoder = new TextDecoder();
+
 input.addEventListener("change", async () => {
   const file = input.files[0];
   // const fileContent = await file.text();
-  // console.log(fileContent);
   const readStream = file.stream();
 
   // const reader = readStream.getReader();
-  // const result1 = await reader.read();
-  // const result2 = await reader.read();
-  // const result3 = await reader.read();
-  // console.log(result1);
-  // console.log(result2);
-  // console.log(result3);
+  // const data = await reader.read();
+  // const data1 = await reader.read();
+  // console.log(data);
+  // console.log(data1);
+
+  let count = 0;
 
   // while (true) {
   //   const { done, value } = await reader.read();
 
   //   if (done) break;
-  //   console.log(value);
+  //   console.log(decoder.decode(value));
+  //   count++;
   // }
 
-  // for await (const chunk of readStream) {
-  //   console.log(chunk);
-  // }
+  for await (const chunk of readStream) {
+    count++;
+    console.log(chunk);
+  }
+
+  console.log(count);
 });

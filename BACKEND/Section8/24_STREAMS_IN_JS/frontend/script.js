@@ -1,8 +1,8 @@
-const response = await fetch(`http://localhost:4000/`);
-const data = await response.text();
-// console.log(data);
-// console.log(response.body)
+const res = await fetch("http://localhost:4000/");
+// const data = await res.text();
 
-for await (const chunk of response.body) {
-  console.log(chunk);
+const decoder = new TextDecoder();
+
+for await (const chunk of res.body) {
+  console.log(decoder.decode(chunk));
 }

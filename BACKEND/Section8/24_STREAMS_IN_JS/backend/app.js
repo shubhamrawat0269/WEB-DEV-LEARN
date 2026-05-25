@@ -10,9 +10,10 @@ const server = http.createServer(async (req, res) => {
   // const { size } = await fileHandle.stat();
   // res.setHeader("Content-Length", size);
   const readStream = fileHandle.createReadStream({
-    highWaterMark: 2,
+    highWaterMark: 1,
   });
 
+  // readStream.pipe(res);
   readStream.on("data", (chunk) => {
     res.write(chunk);
     readStream.pause();
