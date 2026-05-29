@@ -1,4 +1,4 @@
-# In this lecture, i study about how browser automatically uses streams when server sends an assets  like video streaming , file downloading , file uploading etc.
+# In this lecture, i study about how browser automatically uses streams when server sends an assets  like text and image.
 
 1. File can be in any format -- text, image, video file.
 2. When create a server we recieve two arguments --- i. req (reaable stream)  ii. res (writable stream).
