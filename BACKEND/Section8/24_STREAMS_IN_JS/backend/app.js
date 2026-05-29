@@ -24,6 +24,7 @@ const server = http.createServer(async (req, res) => {
   });
 
   readStream.on("end", () => {
+    fileHandle.close();
     res.end();
   });
 });
