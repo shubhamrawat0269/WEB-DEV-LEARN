@@ -3,7 +3,7 @@
 1. IP Address is a unique identifiers assigned to a system either by router or cell towers.
 2. IPv4 consist of 32 bits divided into 4 Groups containing 8 bits.
 3. For Example, 
-   192.168.0.1
+   192.168.1.15
    11000000.10101000.00000000.00000001
 4. Min : 0.0.0.0
    Max : 255.255.255.255
