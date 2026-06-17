@@ -17,5 +17,4 @@ This architecture is known to be **Network Address Translation** (NAT)
 7. After 2010, to get Router a public ip address, we need to purchase a public ip. Now, Router has private IP address which communicate with the service provider Router which has public ip which then, ultimately communicated to the public servers like google, youtube.
 This architecture is known to be **Carier Grade NAT** (CGNAT)
 
-
-
+8. Explain story of **Reserved Loopback Address** with an example of app running.
