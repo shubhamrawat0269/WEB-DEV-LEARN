@@ -18,3 +18,9 @@ This architecture is known to be **Network Address Translation** (NAT)
 This architecture is known to be **Carier Grade NAT** (CGNAT)
 
 8. Explain story of **Reserved Loopback Address** with an example of app running.
+
+9. How to Turn your own laptop to a public server?
+  A. First, we need a public static ip for our router.
+  B. After getting a public static ip setup, you can make use of public static ip to host a server on a particular port.
+  C. But, catch here is our router which has public ip doesn't know how to forward the incoming request (that may be coming from any network residing in the world) to the particular device in which our server is running. To solve this problem, we need to know about **port forwarding** .
+  D. Port Forwarding is responsible to forward the incoming request from a device which can be from different network to a particular device which is connected to it and respond to it perfectly.
